@@ -16,10 +16,35 @@ from datetime import datetime, timedelta, date
 from zoneinfo import ZoneInfo
 from typing import Optional
 import math
+import ssl
 import requests
+from requests.adapters import HTTPAdapter
 import pandas as pd
 
 from utils_columns import find_col_any, normalize_columns
+
+
+# ---------- HTTP session（修正 TPEX SSL 憑證問題）----------
+# TWSE/TPEX 部分憑證鏈缺少 Subject Key Identifier，OpenSSL 3.x 嚴格模式
+# (VERIFY_X509_STRICT) 會直接拒絕，導致 SSLCertVerificationError。
+# 這裡保留正常憑證驗證，只關閉過嚴的 STRICT 檢查，讓抓取在各環境都穩定。
+class _LenientTLSAdapter(HTTPAdapter):
+    def init_poolmanager(self, *args, **kwargs):
+        ctx = ssl.create_default_context()
+        ctx.verify_flags &= ~ssl.VERIFY_X509_STRICT
+        kwargs["ssl_context"] = ctx
+        return super().init_poolmanager(*args, **kwargs)
+
+
+def _make_session() -> requests.Session:
+    s = requests.Session()
+    adapter = _LenientTLSAdapter()
+    s.mount("https://", adapter)
+    s.mount("http://", adapter)
+    return s
+
+
+SESSION = _make_session()
 
 DATA_DIR = "data"
 DOCS_DIR = os.path.join("docs", "data")
@@ -50,9 +75,13 @@ def is_weekend(d: date) -> bool:
 
 
 def get_target_trade_date() -> date:
-    """用台北時間的「昨天」，週末往前推到最近一個平日。"""
-    today = get_taipei_today()
-    target = today - timedelta(days=1)
+    """用台北時間的「今天」，週末往前推到最近一個平日。
+
+    本流程在每個交易日 18:00（台北）執行，當日三大法人 / 外資資料約 16:30
+    收盤後即已公布，故直接抓「今天」。若當日資料尚未就緒，fetch 會回空，
+    calc_fetch_dates 會在下次執行時自動補抓（forward + 缺漏修復）。
+    """
+    target = get_taipei_today()
     while is_weekend(target):
         target -= timedelta(days=1)
     return target
@@ -268,7 +297,7 @@ def fetch_twse_t86(trade_date: date) -> pd.DataFrame:
         "date": datestr,
         "selectType": "ALLBUT0999",
     }
-    resp = requests.get(url, params=params, timeout=20)
+    resp = SESSION.get(url, params=params, timeout=20)
 
     csv_text = resp.content.decode("cp950", errors="ignore")
     df = pd.read_csv(StringIO(csv_text), header=1)
@@ -341,7 +370,7 @@ def fetch_twse_mi_qfiis(trade_date: date) -> pd.DataFrame:
         "date": datestr,
         "selectType": "ALLBUT0999",
     }
-    resp = requests.get(url, params=params, timeout=20)
+    resp = SESSION.get(url, params=params, timeout=20)
 
     # TWSE MI_QFIIS is Big5/CP950 encoded, not UTF-8
     csv_text = resp.content.decode("cp950", errors="ignore")
@@ -404,7 +433,7 @@ def fetch_tpex_flows(trade_date: date) -> pd.DataFrame:
         "se": "EW",
         "t": "D",
     }
-    resp = requests.get(url, params=params, timeout=20)
+    resp = SESSION.get(url, params=params, timeout=20)
     resp.encoding = "utf-8"
     try:
         df = read_first_html_table(resp.text)
@@ -422,38 +451,52 @@ def fetch_tpex_flows(trade_date: date) -> pd.DataFrame:
     code_col = find_col_any(df, ["代號"])
     name_col = find_col_any(df, ["名稱"])
 
-    col_foreign_ex_net = find_col_any(
-        df,
-        [
-            "外資及陸資(不含外資自營商)買賣超股數",
-            "外資及陸資買賣超股數(不含外資自營商)",
-            "外資及陸資買賣超股數",
-        ],
-    )
-    col_foreign_self_net = find_col_any(df, ["外資自營商買賣超股數"])
-    col_trust_net = find_col_any(df, ["投信買賣超股數"])
-    col_dealer_net = find_col_any(
-        df,
-        [
-            "自營商買賣超股數合計",
-            "自營商買賣超股數",
-        ],
-    )
-
     df["code"] = df[code_col].astype(str).str.strip().str.zfill(4)
     df["name"] = df[name_col].astype(str).str.strip()
 
-    foreign_ex = numeric_series(df[col_foreign_ex_net])
-    foreign_self = numeric_series(df[col_foreign_self_net])
-    trust_net = numeric_series(df[col_trust_net])
-    dealer_net = numeric_series(df[col_dealer_net])
+    colset = set(df.columns)
+    # 新版 TPEX 表頭（2026 起，欄名無「買賣超股數」後綴；用精確比對避免子字串誤判，
+    # 例如「外資自營商」是「外資及陸資(不含外資自營商)」的子字串）。
+    if "外資及陸資" in colset and "投信" in colset:
+        foreign_net = numeric_series(df["外資及陸資"])  # 已含外資自營商之外資合計
+        trust_net = numeric_series(df["投信"])
+        if "自營商" in colset:
+            dealer_net = numeric_series(df["自營商"])
+        elif "自營商(自行買賣)" in colset and "自營商(避險)" in colset:
+            dealer_net = (numeric_series(df["自營商(自行買賣)"])
+                          + numeric_series(df["自營商(避險)"]))
+        else:
+            dealer_net = numeric_series(df.get("自營商", pd.Series(0, index=df.index)))
+    else:
+        # 舊版表頭（含「買賣超股數」後綴）
+        col_foreign_ex_net = find_col_any(
+            df,
+            [
+                "外資及陸資(不含外資自營商)買賣超股數",
+                "外資及陸資買賣超股數(不含外資自營商)",
+                "外資及陸資買賣超股數",
+            ],
+        )
+        col_foreign_self_net = find_col_any(df, ["外資自營商買賣超股數"])
+        col_trust_net = find_col_any(df, ["投信買賣超股數"])
+        col_dealer_net = find_col_any(
+            df,
+            [
+                "自營商買賣超股數合計",
+                "自營商買賣超股數",
+            ],
+        )
+        foreign_net = (numeric_series(df[col_foreign_ex_net])
+                       + numeric_series(df[col_foreign_self_net]))
+        trust_net = numeric_series(df[col_trust_net])
+        dealer_net = numeric_series(df[col_dealer_net])
 
     out = pd.DataFrame(
         {
             "date": trade_date,
             "code": df["code"],
             "name": df["name"],
-            "foreign_net": (foreign_ex + foreign_self),
+            "foreign_net": foreign_net,
             "trust_net": trust_net,
             "dealer_net": dealer_net,
             "market": "TPEX",
@@ -475,7 +518,7 @@ def fetch_tpex_qfii(trade_date: date) -> pd.DataFrame:
         "l": "zh-tw",
         "o": "data",
     }
-    resp = requests.get(url, params=params, timeout=20)
+    resp = SESSION.get(url, params=params, timeout=20)
     resp.encoding = "utf-8"
     try:
         df = read_csv_table_with_header(resp.text)
