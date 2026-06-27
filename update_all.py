@@ -799,12 +799,27 @@ def export_change_rankings(
 
     import json
     os.makedirs(out_dir, exist_ok=True)
+    date_str = latest_date.isoformat()
 
     for w in windows:
         col = f"three_inst_ratio_change_{w}"
         if col not in latest.columns:
             continue
         tmp = latest[latest[col].notna()].copy()
+        if tmp.empty:
+            continue
+
+        # 過濾估計發散的冷門股：three_inst_ratio_est 對流動性低的小型股會
+        # 累積發散到數百 %（例：蜜望實 388%），其 N 日變化也跟著暴衝（+135pp），
+        # 被 sort desc 推上榜首、把真正的法人買賣超龍頭擠掉。故只保留持股比率
+        # 落在 [0,100]、且 N 日變化幅度 <= 40pp 的合理樣本後再排名。
+        tmp["three_inst_ratio_est"] = pd.to_numeric(
+            tmp["three_inst_ratio_est"], errors="coerce"
+        )
+        tmp = tmp[
+            tmp["three_inst_ratio_est"].between(0.0, 100.0)
+            & tmp[col].abs().le(40.0)
+        ]
         if tmp.empty:
             continue
 
@@ -822,6 +837,7 @@ def export_change_rankings(
                         "market": row["market"],
                         "three_inst_ratio": float(row["three_inst_ratio_est"]),
                         "change": float(row[col]),
+                        "date": date_str,
                     }
                 )
             return records
