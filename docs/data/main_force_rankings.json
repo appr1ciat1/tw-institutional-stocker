@@ -1,0 +1,656 @@
+{
+  "updated": "2026-07-03T12:13:53.475749",
+  "date": "2026-07-02",
+  "coverage": 20,
+  "note": "主力=每日前15大買超+前15大賣超分點合計(張)；僅涵蓋爬取清單(熱門股+法人榜活躍股)",
+  "windows": {
+    "3": [
+      {
+        "code": "2618",
+        "name": "長榮航",
+        "market": "TWSE",
+        "net_lots": 49422,
+        "n_brokers": 61,
+        "days": 3
+      },
+      {
+        "code": "3711",
+        "name": "日月光投控",
+        "market": "TWSE",
+        "net_lots": 10270,
+        "n_brokers": 52,
+        "days": 3
+      },
+      {
+        "code": "2615",
+        "name": "萬海",
+        "market": "TWSE",
+        "net_lots": 5071,
+        "n_brokers": 67,
+        "days": 3
+      },
+      {
+        "code": "2382",
+        "name": "廣達",
+        "market": "TWSE",
+        "net_lots": 2493,
+        "n_brokers": 62,
+        "days": 3
+      },
+      {
+        "code": "2609",
+        "name": "陽明",
+        "market": "TWSE",
+        "net_lots": 1317,
+        "n_brokers": 69,
+        "days": 3
+      },
+      {
+        "code": "2345",
+        "name": "智邦",
+        "market": "TWSE",
+        "net_lots": 592,
+        "n_brokers": 52,
+        "days": 3
+      },
+      {
+        "code": "3006",
+        "name": "晶豪科",
+        "market": "TWSE",
+        "net_lots": 535,
+        "n_brokers": 70,
+        "days": 3
+      },
+      {
+        "code": "3034",
+        "name": "聯詠",
+        "market": "TWSE",
+        "net_lots": -685,
+        "n_brokers": 59,
+        "days": 3
+      },
+      {
+        "code": "2891",
+        "name": "中信金",
+        "market": "TWSE",
+        "net_lots": -1521,
+        "n_brokers": 58,
+        "days": 3
+      },
+      {
+        "code": "2379",
+        "name": "瑞昱",
+        "market": "TWSE",
+        "net_lots": -2046,
+        "n_brokers": 55,
+        "days": 3
+      },
+      {
+        "code": "2603",
+        "name": "長榮",
+        "market": "TWSE",
+        "net_lots": -2495,
+        "n_brokers": 63,
+        "days": 3
+      },
+      {
+        "code": "2412",
+        "name": "中華電",
+        "market": "TWSE",
+        "net_lots": -2602,
+        "n_brokers": 59,
+        "days": 3
+      },
+      {
+        "code": "2882",
+        "name": "國泰金",
+        "market": "TWSE",
+        "net_lots": -7108,
+        "n_brokers": 61,
+        "days": 3
+      },
+      {
+        "code": "2454",
+        "name": "聯發科",
+        "market": "TWSE",
+        "net_lots": -7411,
+        "n_brokers": 61,
+        "days": 3
+      },
+      {
+        "code": "2308",
+        "name": "台達電",
+        "market": "TWSE",
+        "net_lots": -8111,
+        "n_brokers": 57,
+        "days": 3
+      },
+      {
+        "code": "2881",
+        "name": "富邦金",
+        "market": "TWSE",
+        "net_lots": -11231,
+        "n_brokers": 57,
+        "days": 3
+      },
+      {
+        "code": "3037",
+        "name": "欣興",
+        "market": "TWSE",
+        "net_lots": -15087,
+        "n_brokers": 55,
+        "days": 3
+      },
+      {
+        "code": "2330",
+        "name": "台積電",
+        "market": "TWSE",
+        "net_lots": -16055,
+        "n_brokers": 49,
+        "days": 3
+      },
+      {
+        "code": "2303",
+        "name": "聯電",
+        "market": "TWSE",
+        "net_lots": -27968,
+        "n_brokers": 53,
+        "days": 3
+      },
+      {
+        "code": "2317",
+        "name": "鴻海",
+        "market": "TWSE",
+        "net_lots": -68333,
+        "n_brokers": 54,
+        "days": 3
+      }
+    ],
+    "5": [
+      {
+        "code": "2618",
+        "name": "長榮航",
+        "market": "TWSE",
+        "net_lots": 58673,
+        "n_brokers": 83,
+        "days": 5
+      },
+      {
+        "code": "3711",
+        "name": "日月光投控",
+        "market": "TWSE",
+        "net_lots": 8748,
+        "n_brokers": 65,
+        "days": 5
+      },
+      {
+        "code": "2412",
+        "name": "中華電",
+        "market": "TWSE",
+        "net_lots": 7377,
+        "n_brokers": 76,
+        "days": 5
+      },
+      {
+        "code": "2615",
+        "name": "萬海",
+        "market": "TWSE",
+        "net_lots": 4153,
+        "n_brokers": 95,
+        "days": 5
+      },
+      {
+        "code": "2382",
+        "name": "廣達",
+        "market": "TWSE",
+        "net_lots": 3574,
+        "n_brokers": 77,
+        "days": 5
+      },
+      {
+        "code": "2603",
+        "name": "長榮",
+        "market": "TWSE",
+        "net_lots": 3226,
+        "n_brokers": 73,
+        "days": 5
+      },
+      {
+        "code": "2881",
+        "name": "富邦金",
+        "market": "TWSE",
+        "net_lots": 1396,
+        "n_brokers": 72,
+        "days": 5
+      },
+      {
+        "code": "3006",
+        "name": "晶豪科",
+        "market": "TWSE",
+        "net_lots": 809,
+        "n_brokers": 94,
+        "days": 5
+      },
+      {
+        "code": "3034",
+        "name": "聯詠",
+        "market": "TWSE",
+        "net_lots": 472,
+        "n_brokers": 73,
+        "days": 5
+      },
+      {
+        "code": "2345",
+        "name": "智邦",
+        "market": "TWSE",
+        "net_lots": 253,
+        "n_brokers": 66,
+        "days": 5
+      },
+      {
+        "code": "2379",
+        "name": "瑞昱",
+        "market": "TWSE",
+        "net_lots": -1379,
+        "n_brokers": 76,
+        "days": 5
+      },
+      {
+        "code": "2891",
+        "name": "中信金",
+        "market": "TWSE",
+        "net_lots": -3403,
+        "n_brokers": 71,
+        "days": 5
+      },
+      {
+        "code": "2882",
+        "name": "國泰金",
+        "market": "TWSE",
+        "net_lots": -5795,
+        "n_brokers": 77,
+        "days": 5
+      },
+      {
+        "code": "2454",
+        "name": "聯發科",
+        "market": "TWSE",
+        "net_lots": -11787,
+        "n_brokers": 67,
+        "days": 5
+      },
+      {
+        "code": "2308",
+        "name": "台達電",
+        "market": "TWSE",
+        "net_lots": -16373,
+        "n_brokers": 68,
+        "days": 5
+      },
+      {
+        "code": "2609",
+        "name": "陽明",
+        "market": "TWSE",
+        "net_lots": -18016,
+        "n_brokers": 94,
+        "days": 5
+      },
+      {
+        "code": "3037",
+        "name": "欣興",
+        "market": "TWSE",
+        "net_lots": -18435,
+        "n_brokers": 70,
+        "days": 5
+      },
+      {
+        "code": "2330",
+        "name": "台積電",
+        "market": "TWSE",
+        "net_lots": -35442,
+        "n_brokers": 58,
+        "days": 5
+      },
+      {
+        "code": "2303",
+        "name": "聯電",
+        "market": "TWSE",
+        "net_lots": -77667,
+        "n_brokers": 62,
+        "days": 5
+      },
+      {
+        "code": "2317",
+        "name": "鴻海",
+        "market": "TWSE",
+        "net_lots": -106256,
+        "n_brokers": 66,
+        "days": 5
+      }
+    ],
+    "10": [
+      {
+        "code": "2618",
+        "name": "長榮航",
+        "market": "TWSE",
+        "net_lots": 80533,
+        "n_brokers": 123,
+        "days": 10
+      },
+      {
+        "code": "2882",
+        "name": "國泰金",
+        "market": "TWSE",
+        "net_lots": 30997,
+        "n_brokers": 103,
+        "days": 10
+      },
+      {
+        "code": "2881",
+        "name": "富邦金",
+        "market": "TWSE",
+        "net_lots": 23733,
+        "n_brokers": 105,
+        "days": 10
+      },
+      {
+        "code": "2615",
+        "name": "萬海",
+        "market": "TWSE",
+        "net_lots": 15260,
+        "n_brokers": 139,
+        "days": 10
+      },
+      {
+        "code": "2603",
+        "name": "長榮",
+        "market": "TWSE",
+        "net_lots": 11801,
+        "n_brokers": 105,
+        "days": 10
+      },
+      {
+        "code": "2412",
+        "name": "中華電",
+        "market": "TWSE",
+        "net_lots": 9765,
+        "n_brokers": 114,
+        "days": 10
+      },
+      {
+        "code": "2891",
+        "name": "中信金",
+        "market": "TWSE",
+        "net_lots": 5945,
+        "n_brokers": 97,
+        "days": 10
+      },
+      {
+        "code": "2345",
+        "name": "智邦",
+        "market": "TWSE",
+        "net_lots": 994,
+        "n_brokers": 95,
+        "days": 10
+      },
+      {
+        "code": "3711",
+        "name": "日月光投控",
+        "market": "TWSE",
+        "net_lots": 847,
+        "n_brokers": 82,
+        "days": 10
+      },
+      {
+        "code": "3034",
+        "name": "聯詠",
+        "market": "TWSE",
+        "net_lots": 706,
+        "n_brokers": 115,
+        "days": 10
+      },
+      {
+        "code": "2379",
+        "name": "瑞昱",
+        "market": "TWSE",
+        "net_lots": -1334,
+        "n_brokers": 107,
+        "days": 10
+      },
+      {
+        "code": "2382",
+        "name": "廣達",
+        "market": "TWSE",
+        "net_lots": -2410,
+        "n_brokers": 100,
+        "days": 10
+      },
+      {
+        "code": "3006",
+        "name": "晶豪科",
+        "market": "TWSE",
+        "net_lots": -8391,
+        "n_brokers": 140,
+        "days": 10
+      },
+      {
+        "code": "2454",
+        "name": "聯發科",
+        "market": "TWSE",
+        "net_lots": -13442,
+        "n_brokers": 93,
+        "days": 10
+      },
+      {
+        "code": "2308",
+        "name": "台達電",
+        "market": "TWSE",
+        "net_lots": -17617,
+        "n_brokers": 83,
+        "days": 10
+      },
+      {
+        "code": "3037",
+        "name": "欣興",
+        "market": "TWSE",
+        "net_lots": -20887,
+        "n_brokers": 98,
+        "days": 10
+      },
+      {
+        "code": "2609",
+        "name": "陽明",
+        "market": "TWSE",
+        "net_lots": -45032,
+        "n_brokers": 143,
+        "days": 10
+      },
+      {
+        "code": "2330",
+        "name": "台積電",
+        "market": "TWSE",
+        "net_lots": -74518,
+        "n_brokers": 80,
+        "days": 10
+      },
+      {
+        "code": "2317",
+        "name": "鴻海",
+        "market": "TWSE",
+        "net_lots": -135736,
+        "n_brokers": 106,
+        "days": 10
+      },
+      {
+        "code": "2303",
+        "name": "聯電",
+        "market": "TWSE",
+        "net_lots": -194687,
+        "n_brokers": 89,
+        "days": 10
+      }
+    ],
+    "20": [
+      {
+        "code": "2618",
+        "name": "長榮航",
+        "market": "TWSE",
+        "net_lots": 134293,
+        "n_brokers": 186,
+        "days": 20
+      },
+      {
+        "code": "2891",
+        "name": "中信金",
+        "market": "TWSE",
+        "net_lots": 92368,
+        "n_brokers": 145,
+        "days": 20
+      },
+      {
+        "code": "2881",
+        "name": "富邦金",
+        "market": "TWSE",
+        "net_lots": 79247,
+        "n_brokers": 150,
+        "days": 20
+      },
+      {
+        "code": "2603",
+        "name": "長榮",
+        "market": "TWSE",
+        "net_lots": 74607,
+        "n_brokers": 163,
+        "days": 20
+      },
+      {
+        "code": "2317",
+        "name": "鴻海",
+        "market": "TWSE",
+        "net_lots": 63071,
+        "n_brokers": 155,
+        "days": 20
+      },
+      {
+        "code": "2882",
+        "name": "國泰金",
+        "market": "TWSE",
+        "net_lots": 61700,
+        "n_brokers": 143,
+        "days": 20
+      },
+      {
+        "code": "2615",
+        "name": "萬海",
+        "market": "TWSE",
+        "net_lots": 34232,
+        "n_brokers": 219,
+        "days": 20
+      },
+      {
+        "code": "2382",
+        "name": "廣達",
+        "market": "TWSE",
+        "net_lots": 18685,
+        "n_brokers": 140,
+        "days": 20
+      },
+      {
+        "code": "2412",
+        "name": "中華電",
+        "market": "TWSE",
+        "net_lots": 9090,
+        "n_brokers": 177,
+        "days": 20
+      },
+      {
+        "code": "3034",
+        "name": "聯詠",
+        "market": "TWSE",
+        "net_lots": 5161,
+        "n_brokers": 162,
+        "days": 20
+      },
+      {
+        "code": "2379",
+        "name": "瑞昱",
+        "market": "TWSE",
+        "net_lots": 947,
+        "n_brokers": 168,
+        "days": 20
+      },
+      {
+        "code": "2345",
+        "name": "智邦",
+        "market": "TWSE",
+        "net_lots": 581,
+        "n_brokers": 128,
+        "days": 20
+      },
+      {
+        "code": "2609",
+        "name": "陽明",
+        "market": "TWSE",
+        "net_lots": -73,
+        "n_brokers": 210,
+        "days": 20
+      },
+      {
+        "code": "3037",
+        "name": "欣興",
+        "market": "TWSE",
+        "net_lots": -6643,
+        "n_brokers": 132,
+        "days": 20
+      },
+      {
+        "code": "2308",
+        "name": "台達電",
+        "market": "TWSE",
+        "net_lots": -12454,
+        "n_brokers": 121,
+        "days": 20
+      },
+      {
+        "code": "3006",
+        "name": "晶豪科",
+        "market": "TWSE",
+        "net_lots": -14091,
+        "n_brokers": 200,
+        "days": 20
+      },
+      {
+        "code": "2454",
+        "name": "聯發科",
+        "market": "TWSE",
+        "net_lots": -16993,
+        "n_brokers": 119,
+        "days": 20
+      },
+      {
+        "code": "3711",
+        "name": "日月光投控",
+        "market": "TWSE",
+        "net_lots": -19209,
+        "n_brokers": 118,
+        "days": 20
+      },
+      {
+        "code": "2330",
+        "name": "台積電",
+        "market": "TWSE",
+        "net_lots": -70742,
+        "n_brokers": 110,
+        "days": 20
+      },
+      {
+        "code": "2303",
+        "name": "聯電",
+        "market": "TWSE",
+        "net_lots": -263538,
+        "n_brokers": 127,
+        "days": 20
+      }
+    ]
+  }
+}

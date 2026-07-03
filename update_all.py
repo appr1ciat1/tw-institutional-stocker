@@ -52,7 +52,12 @@ DOCS_DIR = os.path.join("docs", "data")
 TIMESERIES_DIR = os.path.join(DOCS_DIR, "timeseries")
 INST_BASELINE_PATH = os.path.join(DATA_DIR, "inst_baseline.csv")
 
-WINDOWS = [5, 20, 60, 120]
+# 變化指標計算窗（含 3/10 供券商慣例對帳，60/120 供長窗研究）
+WINDOWS = [3, 5, 10, 20, 60, 120]
+# 分類排名輸出窗——與台灣券商 App 慣例一致（3/5/10/20 日買賣超）
+CATEGORY_WINDOWS = [3, 5, 10, 20]
+# 舊版合成估計指標排名（向下相容既有消費端）
+LEGACY_WINDOWS = [5, 20, 60, 120]
 FLOW_COLUMNS = ["date", "code", "name", "foreign_net", "trust_net", "dealer_net", "market"]
 FOREIGN_COLUMNS = ["date", "code", "name", "market", "total_shares", "foreign_shares", "foreign_ratio"]
 # 首次抓取回溯天數 / 逐日抓取間隔秒數，可用環境變數覆寫（歷史重建時放大）
@@ -79,13 +84,18 @@ def is_weekend(d: date) -> bool:
 
 
 def get_target_trade_date() -> date:
-    """用台北時間的「今天」，週末往前推到最近一個平日。
+    """目標交易日：台北 16:35 前一律用「前一個平日」，之後才含當天。
 
-    本流程在每個交易日 18:00（台北）執行，當日三大法人 / 外資資料約 16:30
-    收盤後即已公布，故直接抓「今天」。若當日資料尚未就緒，fetch 會回空，
-    calc_fetch_dates 會在下次執行時自動補抓（forward + 缺漏修復）。
+    當日三大法人 / 外資資料約 16:30 收盤後公布。實測 TWSE 在盤中對
+    「今天」的 T86 查詢偶爾回傳**部分快照**（例：884/1288 列、內部自洽），
+    若照單全收會產生幽靈交易日污染排名。故 16:35 前不抓今天；
+    18:00 / 22:00 排程不受影響。
     """
-    target = get_taipei_today()
+    tz = ZoneInfo("Asia/Taipei")
+    now = datetime.now(tz)
+    target = now.date()
+    if (now.hour, now.minute) < (16, 35):
+        target -= timedelta(days=1)
     while is_weekend(target):
         target -= timedelta(days=1)
     return target
@@ -388,6 +398,14 @@ def _fetch_twse_t86_once(trade_date: date):
     mask = out["code"].str.match(r"^\d{4,5}[A-Z]*$")
     out = out[mask]
 
+    # 完整度下限：正常 T86 全市場 ~1,100-1,300 列。實測 TWSE 對「當日」的
+    # 盤中查詢偶爾回傳部分快照（例 884 列且內部自洽），照單全收會產生
+    # 幽靈交易日。低於門檻視為無效回應（整日丟棄，之後排程自動補抓）。
+    if len(out) < 1000:
+        print(f"[WARN] TWSE T86 {trade_date}: only {len(out)} rows (<1000), "
+              f"discarding partial snapshot")
+        return empty_flows_df(), 0
+
     # 逐列驗證：外資 + 投信 + 自營商 == 官方「三大法人買賣超股數」。
     # 雙重目的：(1) 防欄位飄移（2026-07 前 dealer 曾因子字串比對抓成
     # 「外資自營商買賣超股數」恆 0 整批寫錯）；(2) 偵測 TWSE 高壓下的損壞回應，
@@ -556,6 +574,13 @@ def fetch_tpex_flows(trade_date: date) -> pd.DataFrame:
     out = pd.DataFrame(records)
     mask = out["code"].str.match(r"^\d{4,5}[A-Z]*$")
     out = out[mask]
+
+    # 完整度下限：正常上櫃全市場 ~850-950 列，防部分快照（同 TWSE 幽靈日問題）
+    if len(out) < 600:
+        print(f"[WARN] TPEX flows {trade_date}: only {len(out)} rows (<600), "
+              f"discarding partial snapshot")
+        return empty_flows_df()
+
     return out[FLOW_COLUMNS]
 
 
@@ -831,7 +856,8 @@ def add_change_metrics(merged: pd.DataFrame, windows: list[int]) -> pd.DataFrame
             merged[f"three_inst_ratio_change_{w}"] = pd.NA
         return merged
 
-    for col in ("three_inst_ratio_est", "foreign_ratio", "trust_net", "dealer_net"):
+    for col in ("three_inst_ratio_est", "foreign_ratio",
+                "foreign_net", "trust_net", "dealer_net"):
         if col in merged.columns:
             merged[col] = pd.to_numeric(merged[col], errors="coerce").fillna(0.0)
         else:
@@ -843,17 +869,18 @@ def add_change_metrics(merged: pd.DataFrame, windows: list[int]) -> pd.DataFrame
     # 避免 diff 出現「-30pp 隔日 +30pp」的假尖峰。
     fr = merged["foreign_ratio"].mask(merged["foreign_ratio"] <= 0.0)
     merged["_foreign_ratio_ff"] = fr.groupby(merged["code"]).ffill()
+    # 三大法人單日合計買賣超（＝官方「三大法人買賣超股數」，抓取時已逐列驗證）
+    merged["_three_net"] = merged["foreign_net"] + merged["trust_net"] + merged["dealer_net"]
 
     grouped = merged.groupby("code")
     for w in windows:
         merged[f"three_inst_ratio_change_{w}"] = grouped["three_inst_ratio_est"].diff(periods=w)
         merged[f"foreign_ratio_change_{w}"] = grouped["_foreign_ratio_ff"].diff(periods=w)
-        merged[f"trust_net_sum_{w}"] = (
-            grouped["trust_net"].rolling(w, min_periods=w).sum().reset_index(level=0, drop=True)
-        )
-        merged[f"dealer_net_sum_{w}"] = (
-            grouped["dealer_net"].rolling(w, min_periods=w).sum().reset_index(level=0, drop=True)
-        )
+        for cat, src in (("foreign", "foreign_net"), ("trust", "trust_net"),
+                         ("dealer", "dealer_net"), ("three", "_three_net")):
+            merged[f"{cat}_net_sum_{w}"] = (
+                grouped[src].rolling(w, min_periods=w).sum().reset_index(level=0, drop=True)
+            )
     merged = merged.drop(columns=["_foreign_ratio_ff"])
     return merged
 
@@ -929,14 +956,18 @@ def export_change_rankings(
 def export_category_rankings(
     merged: pd.DataFrame, windows: list[int], out_dir: str = DOCS_DIR
 ):
-    """外資 / 投信 / 自營商 分開輸出排名（2026-07 起）。
+    """外資 / 投信 / 自營商 / 三大法人合計 分開輸出排名（2026-07 起）。
 
-    - top_foreign_change_{w}_{up,down}.json：依「官方外資持股比率」N 日變化(pp)排序，
-      record 帶 ratio（最新官方外資持股%）與 change(pp)。
-    - top_trust_change_{w}_{up,down}.json / top_dealer_change_{w}_{up,down}.json：
-      依 N 日累計買賣超（股）排序，record 帶 net_shares / net_lots(張) /
-      pct_cap（累計買賣超佔股本%）。這些是官方公布的真實買賣超加總，
-      可直接與券商軟體的「投信/自營商 N 日買賣超」對帳。
+    口徑與台灣券商 App 一致：一律依「N 日累計買賣超（股數）」排序——
+    這是官方每日公布數據的加總，可與券商軟體逐檔對帳。
+
+    - top_foreign_change_{w}_{up,down}.json：外資買賣超排名。
+      另帶 ratio（最新官方外資持股%）與 change（持股比率 N 日變化 pp，
+      供舊報表相容顯示）。
+    - top_trust_change_{w}_* / top_dealer_change_{w}_*：投信 / 自營商買賣超排名，
+      change=pct_cap（佔股本 pp，舊報表以 |change|≤40 防呆）。
+    - top_three_inst_net_{w}_*：三大法人「合計」買賣超排名（外資+投信+自營商，
+      等於官方「三大法人買賣超股數」欄），並帶三類各自的張數分解。
     """
     if merged.empty or "date" not in merged.columns:
         return
@@ -946,76 +977,97 @@ def export_category_rankings(
     latest = merged[merged["date"] == latest_date].copy()
     os.makedirs(out_dir, exist_ok=True)
     date_str = latest_date.isoformat()
+    denom_all = pd.to_numeric(latest.get("total_shares"), errors="coerce")
 
-    def dump(records, category, w, direction):
-        path = os.path.join(out_dir, f"top_{category}_change_{w}_{direction}.json")
-        with open(path, "w", encoding="utf-8") as f:
+    def dump(records, fname):
+        with open(os.path.join(out_dir, fname), "w", encoding="utf-8") as f:
             json.dump(records, f, ensure_ascii=False, indent=2)
 
+    def base_record(r, idx, net_col):
+        shares = clean_float(r[net_col])
+        ts = denom_all.get(idx)
+        pct = shares / ts * 100.0 if ts and ts > 0 else 0.0
+        return {
+            "code": r["code"],
+            "name": r["name"],
+            "market": r["market"],
+            "net_shares": int(shares),
+            "net_lots": int(round(shares / 1000.0)),
+            "pct_cap": round(clean_float(pct), 4),
+        }, pct
+
     for w in windows:
-        # ── 外資：官方持股比率變化 ──
-        col = f"foreign_ratio_change_{w}"
-        if col in latest.columns:
-            tmp = latest[latest[col].notna()].copy()
-            tmp["foreign_ratio"] = pd.to_numeric(tmp["foreign_ratio"], errors="coerce")
-            tmp = tmp[
-                tmp["foreign_ratio"].between(0.0, 100.0) & tmp[col].abs().le(40.0)
-            ]
+        # ── 外資：N 日累計買賣超（張）排序；附官方持股% 與其變化 ──
+        net_col = f"foreign_net_sum_{w}"
+        ratio_chg_col = f"foreign_ratio_change_{w}"
+        if net_col in latest.columns:
+            tmp = latest[latest[net_col].notna() & (latest[net_col] != 0)].copy()
             if not tmp.empty:
                 def foreign_records(df):
-                    return [
-                        {
-                            "code": r["code"],
-                            "name": r["name"],
-                            "market": r["market"],
-                            "ratio": clean_float(r["foreign_ratio"]),
-                            "change": clean_float(r[col]),
-                            "date": date_str,
-                        }
-                        for _, r in df.iterrows()
-                    ]
+                    recs = []
+                    for idx, r in df.iterrows():
+                        rec, _pct = base_record(r, idx, net_col)
+                        ratio = clean_float(r.get("foreign_ratio"))
+                        chg = clean_float(r.get(ratio_chg_col))
+                        rec["ratio"] = ratio if 0.0 <= ratio <= 100.0 else 0.0
+                        rec["change"] = chg if abs(chg) <= 40.0 else 0.0
+                        rec["date"] = date_str
+                        recs.append(rec)
+                    return recs
 
-                dump(foreign_records(tmp.sort_values(col, ascending=False).head(200)),
-                     "foreign", w, "up")
-                dump(foreign_records(tmp.sort_values(col, ascending=True).head(200)),
-                     "foreign", w, "down")
+                dump(foreign_records(tmp.sort_values(net_col, ascending=False).head(200)),
+                     f"top_foreign_change_{w}_up.json")
+                dump(foreign_records(tmp.sort_values(net_col, ascending=True).head(200)),
+                     f"top_foreign_change_{w}_down.json")
 
         # ── 投信 / 自營商：N 日累計買賣超 ──
-        for category, net_col in (("trust", f"trust_net_sum_{w}"),
-                                  ("dealer", f"dealer_net_sum_{w}")):
+        for category in ("trust", "dealer"):
+            net_col = f"{category}_net_sum_{w}"
             if net_col not in latest.columns:
                 continue
             tmp = latest[latest[net_col].notna() & (latest[net_col] != 0)].copy()
             if tmp.empty:
                 continue
-            denom = pd.to_numeric(tmp.get("total_shares"), errors="coerce")
 
-            def net_records(df):
+            def net_records(df, _net_col=net_col):
                 recs = []
                 for idx, r in df.iterrows():
-                    shares = clean_float(r[net_col])
-                    ts = denom.get(idx)
-                    pct = shares / ts * 100.0 if ts and ts > 0 else 0.0
-                    recs.append(
-                        {
-                            "code": r["code"],
-                            "name": r["name"],
-                            "market": r["market"],
-                            "net_shares": int(shares),
-                            "net_lots": int(round(shares / 1000.0)),
-                            "pct_cap": round(clean_float(pct), 4),
-                            # change 統一為 pp 尺度（=pct_cap），下游報表以
-                            # abs(change)>40 防呆、以 "±X.Xpp" 顯示，股數放這裡會整批被濾掉
-                            "change": round(clean_float(pct), 4),
-                            "date": date_str,
-                        }
-                    )
+                    rec, pct = base_record(r, idx, _net_col)
+                    # change 統一為 pp 尺度（=pct_cap），下游報表以
+                    # abs(change)>40 防呆、以 "±X.Xpp" 顯示，股數放這裡會整批被濾掉
+                    rec["change"] = round(clean_float(pct), 4)
+                    rec["date"] = date_str
+                    recs.append(rec)
                 return recs
 
             dump(net_records(tmp.sort_values(net_col, ascending=False).head(200)),
-                 category, w, "up")
+                 f"top_{category}_change_{w}_up.json")
             dump(net_records(tmp.sort_values(net_col, ascending=True).head(200)),
-                 category, w, "down")
+                 f"top_{category}_change_{w}_down.json")
+
+        # ── 三大法人合計：N 日累計買賣超（外資+投信+自營商）──
+        net_col = f"three_net_sum_{w}"
+        if net_col in latest.columns:
+            tmp = latest[latest[net_col].notna() & (latest[net_col] != 0)].copy()
+            if tmp.empty:
+                continue
+
+            def three_records(df, w=w):
+                recs = []
+                for idx, r in df.iterrows():
+                    rec, pct = base_record(r, idx, net_col)
+                    rec["foreign_lots"] = int(round(clean_float(r.get(f"foreign_net_sum_{w}")) / 1000.0))
+                    rec["trust_lots"] = int(round(clean_float(r.get(f"trust_net_sum_{w}")) / 1000.0))
+                    rec["dealer_lots"] = int(round(clean_float(r.get(f"dealer_net_sum_{w}")) / 1000.0))
+                    rec["change"] = round(clean_float(pct), 4)
+                    rec["date"] = date_str
+                    recs.append(rec)
+                return recs
+
+            dump(three_records(tmp.sort_values(net_col, ascending=False).head(200)),
+                 f"top_three_inst_net_{w}_up.json")
+            dump(three_records(tmp.sort_values(net_col, ascending=True).head(200)),
+                 f"top_three_inst_net_{w}_down.json")
 
 
 def clean_float(val, default: float = 0.0) -> float:
@@ -1260,8 +1312,8 @@ def main():
     merged = build_estimated_holdings(flows_all, foreign_master, baseline=baseline_df)
     merged = add_change_metrics(merged, windows=WINDOWS)
 
-    export_change_rankings(merged, windows=WINDOWS, out_dir=DOCS_DIR)
-    export_category_rankings(merged, windows=WINDOWS, out_dir=DOCS_DIR)
+    export_change_rankings(merged, windows=LEGACY_WINDOWS, out_dir=DOCS_DIR)
+    export_category_rankings(merged, windows=CATEGORY_WINDOWS, out_dir=DOCS_DIR)
     export_timeseries_by_code(merged, out_root=TIMESERIES_DIR, primary_window=20)
 
     print("[INFO] update_all.py completed successfully.")

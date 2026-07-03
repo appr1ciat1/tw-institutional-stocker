@@ -15,15 +15,16 @@
 
 ## 輸出檔案（docs/data/）
 
-各視窗 w ∈ {5, 20, 60, 120}，方向 ∈ {up, down}：
+排名榜視窗 w ∈ {3, 5, 10, 20}（與券商 App 慣例一致），方向 ∈ {up, down}。
+**排序口徑一律為「N 日累計買賣超股數」**——官方每日數據加總，可與券商軟體逐檔對帳：
 
-- `top_foreign_change_{w}_{up,down}.json` — 外資：官方持股比率 N 日變化(pp)排名。record: `{code, name, market, ratio, change, date}`
-- `top_trust_change_{w}_{up,down}.json` — 投信：N 日累計買賣超排名。record: `{code, name, market, net_shares, net_lots, pct_cap, change, date}`
-- `top_dealer_change_{w}_{up,down}.json` — 自營商：同上格式
-- `top_three_inst_change_{w}_{up,down}.json` — 三大法人合計（舊版相容，估計指標）
+- `top_foreign_change_{w}_{up,down}.json` — 外資買賣超排名。record: `{code, name, market, net_shares, net_lots, pct_cap, ratio(官方持股%), change(持股%N日Δpp), date}`
+- `top_trust_change_{w}_{up,down}.json` / `top_dealer_change_{w}_{up,down}.json` — 投信 / 自營商買賣超排名。record: `{code, name, market, net_shares, net_lots, pct_cap, change(=pct_cap), date}`
+- `top_three_inst_net_{w}_{up,down}.json` — **三大法人合計買賣超**（=官方「三大法人買賣超股數」欄之累計），record 另帶 `foreign_lots/trust_lots/dealer_lots` 三類分解
+- `top_three_inst_change_{w}_{up,down}.json`（w ∈ 5/20/60/120）— 舊版合成估計指標（向下相容，僅供參考）
 - `timeseries/{code}.json` — 個股時序，含官方 `foreign_ratio` 與每日 `foreign_net` / `trust_net` / `dealer_net`（股）
 - `stock_three_inst_latest.json` — 全市場最新快照
-- `broker_*.json` / `target_broker_trades.json` / `main_force_latest.json` — 券商分點主力（富邦 e-Broker，熱門股）
+- `broker_*.json` / `target_broker_trades.json` / `main_force_latest.json` / `main_force_rankings.json`（主力 3/5/10/20 日累計，成交日標記）— 券商分點主力（富邦 e-Broker，熱門股＋法人榜活躍股 ~150 檔）
 
 ## 結構概覽
 

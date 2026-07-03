@@ -2,38 +2,57 @@ let ratioChart = null;
 let netChart = null;
 let useLogScale = false;
 let marketFilter = "ALL";
-let currentWindow = 20;
+let currentWindow = 5;
 let currentCategory = "foreign";
 let currentDirection = "up";
+let sumWindow = 5;
+let sumDirection = "up";
+let excludeEtf = true; // 券商 App 排行慣例：只列 4 碼個股（ETF/ETN/特別股另計）
+const TOP_N = 30; // 各排行顯示前 30 名
 
-// 各法人類別的排名表設定：資料檔 schema 不同（外資=官方持股%變化，
-// 投信/自營商=官方買賣超累計，三大法人=舊版合成估計）
+function isEtfLike(code) {
+  const c = String(code || "");
+  return !(c.length === 4 && /^\d{4}$/.test(c));
+}
+
+function marketEtfFilter(row) {
+  if (marketFilter !== "ALL" && row.market !== marketFilter) return false;
+  if (excludeEtf && isEtfLike(row.code)) return false;
+  return true;
+}
+
+// 各類別排名表設定。口徑：一律為 N 日累計買賣超（張），與券商 App 相同、可直接對帳。
 const CATEGORY_META = {
   foreign: {
-    title: "📈 外資持股變化排名",
-    subtitle: "按選定視窗之官方外資持股比率變化 (pp) 排序，可與官方 / 券商軟體數據直接對帳",
-    colA: "外資持股%",
-    colB: "Δpp",
+    title: "📈 外資買賣超排行",
+    subtitle: "外資及陸資 N 日累計買賣超（張）— 官方每日數據加總，可與券商軟體對帳",
+    colA: "買賣超(張)",
+    colB: "持股%(官方)",
   },
   trust: {
-    title: "📈 投信買賣超排名",
-    subtitle: "按選定視窗之投信累計買賣超（張）排序 — 官方每日買賣超加總",
+    title: "📈 投信買賣超排行",
+    subtitle: "投信 N 日累計買賣超（張）— 官方每日數據加總，可與券商軟體對帳",
     colA: "買賣超(張)",
     colB: "佔股本%",
   },
   dealer: {
-    title: "📈 自營商買賣超排名",
-    subtitle: "按選定視窗之自營商累計買賣超（張）排序 — 官方每日買賣超加總",
+    title: "📈 自營商買賣超排行",
+    subtitle: "自營商(自行+避險) N 日累計買賣超（張）— 官方每日數據加總，可與券商軟體對帳",
     colA: "買賣超(張)",
     colB: "佔股本%",
   },
-  three_inst: {
-    title: "📈 三大法人合計變化排名",
-    subtitle: "合成估計指標（投信/自營商持股為推估），僅供參考",
-    colA: "持股%(估)",
-    colB: "Δpp",
+  main_force: {
+    title: "📈 主力買賣超排行（券商分點）",
+    subtitle: "每日前15大買超＋前15大賣超分點合計（張）之 N 日累計；涵蓋熱門股＋法人榜活躍股",
+    colA: "主力買賣超(張)",
+    colB: "分點數",
   },
 };
+
+function lotsCell(lots) {
+  const v = Number.isFinite(lots) ? lots : 0;
+  return `<span class="${v >= 0 ? 'net-positive' : 'net-negative'}">${v >= 0 ? '+' : ''}${formatNumber(v)}</span>`;
+}
 
 async function fetchJson(url) {
   const resp = await fetch(url);
@@ -240,22 +259,32 @@ function renderNetChart(data) {
 function rankCells(row) {
   // 依類別回傳 [colA, colB] 兩格的 HTML
   if (currentCategory === "foreign") {
-    return [
-      formatPct(row.ratio),
-      `<span class="${row.change >= 0 ? 'net-positive' : 'net-negative'}">${row.change >= 0 ? '+' : ''}${formatPct(row.change)}</span>`,
-    ];
+    return [lotsCell(row.net_lots), formatPct(row.ratio)];
   }
-  if (currentCategory === "trust" || currentCategory === "dealer") {
-    const lots = row.net_lots ?? Math.round((row.net_shares || 0) / 1000);
-    return [
-      `<span class="${lots >= 0 ? 'net-positive' : 'net-negative'}">${lots >= 0 ? '+' : ''}${formatNumber(lots)}</span>`,
-      `${formatPct(row.pct_cap)}%`,
-    ];
+  if (currentCategory === "main_force") {
+    return [lotsCell(row.net_lots), String(row.n_brokers || 0)];
   }
-  return [
-    formatPct(row.three_inst_ratio),
-    `<span class="${row.change >= 0 ? 'net-positive' : 'net-negative'}">${row.change >= 0 ? '+' : ''}${formatPct(row.change)}</span>`,
-  ];
+  return [lotsCell(row.net_lots), `${formatPct(row.pct_cap)}%`];
+}
+
+async function fetchRankingRows() {
+  if (currentCategory === "main_force") {
+    // 主力：單一檔案含 3/5/10/20 各窗排序好的清單（買超在前）
+    const data = await fetchJson("data/main_force_rankings.json");
+    let rows = (data.windows && data.windows[String(currentWindow)]) || [];
+    if (currentDirection === "down") {
+      rows = [...rows].reverse();
+    }
+    rows = rows.filter((r) =>
+      currentDirection === "up" ? r.net_lots > 0 : r.net_lots < 0
+    );
+    rows.date = data.date;
+    return { rows, date: data.date };
+  }
+  const rows = await fetchJson(
+    `data/top_${currentCategory}_change_${currentWindow}_${currentDirection}.json`
+  );
+  return { rows, date: rows.length ? rows[0].date : "" };
 }
 
 async function loadRanking() {
@@ -268,22 +297,22 @@ async function loadRanking() {
   tbody.innerHTML = "<tr><td colspan='5'>載入中...</td></tr>";
 
   try {
-    const rows = await fetchJson(
-      `data/top_${currentCategory}_change_${currentWindow}_${currentDirection}.json`
-    );
+    const { rows, date } = await fetchRankingRows();
     tbody.innerHTML = "";
 
-    const filtered = rows.filter((row) => {
-      if (marketFilter === "ALL") return true;
-      return row.market === marketFilter;
-    });
+    const filtered = rows.filter(marketEtfFilter);
 
-    const asof = filtered.length && filtered[0].date ? `（資料日 ${filtered[0].date}）` : "";
-    if (asof) {
-      document.getElementById("rankSubtitle").textContent = meta.subtitle + " " + asof;
+    if (date) {
+      document.getElementById("rankSubtitle").textContent =
+        `${meta.subtitle}（資料日 ${date}）`;
     }
 
-    filtered.slice(0, 50).forEach((row, idx) => {
+    if (!filtered.length) {
+      tbody.innerHTML = "<tr><td colspan='5'>此條件下無資料</td></tr>";
+      return;
+    }
+
+    filtered.slice(0, TOP_N).forEach((row, idx) => {
       const [cellA, cellB] = rankCells(row);
       const tr = document.createElement("tr");
       tr.innerHTML = `
@@ -302,6 +331,50 @@ async function loadRanking() {
   } catch (err) {
     console.error(err);
     tbody.innerHTML = `<tr><td colspan='5'>載入失敗：${err.message}</td></tr>`;
+  }
+}
+
+// ========== 三大法人合計買賣超 ==========
+
+async function loadSumRanking() {
+  const tbody = document.querySelector("#sumRankTable tbody");
+  if (!tbody) return;
+  tbody.innerHTML = "<tr><td colspan='8'>載入中...</td></tr>";
+
+  try {
+    const rows = await fetchJson(
+      `data/top_three_inst_net_${sumWindow}_${sumDirection}.json`
+    );
+    tbody.innerHTML = "";
+
+    const filtered = rows.filter(marketEtfFilter);
+
+    if (rows.length && rows[0].date) {
+      document.getElementById("sumRankSubtitle").textContent =
+        `合計＝官方「三大法人買賣超」欄之 ${sumWindow} 日累計（可與券商軟體直接對帳），前 ${TOP_N} 名（資料日 ${rows[0].date}）`;
+    }
+
+    filtered.slice(0, TOP_N).forEach((row, idx) => {
+      const tr = document.createElement("tr");
+      tr.innerHTML = `
+        <td>${idx + 1}</td>
+        <td><span class="badge">${row.code}</span>${row.name || ""}</td>
+        <td>${row.market || ""}</td>
+        <td>${lotsCell(row.net_lots)}</td>
+        <td>${lotsCell(row.foreign_lots)}</td>
+        <td>${lotsCell(row.trust_lots)}</td>
+        <td>${lotsCell(row.dealer_lots)}</td>
+        <td>${formatPct(row.pct_cap)}%</td>
+      `;
+      tr.addEventListener("click", () => {
+        document.getElementById("stockInput").value = row.code;
+        loadStock(row.code);
+      });
+      tbody.appendChild(tr);
+    });
+  } catch (err) {
+    console.error(err);
+    tbody.innerHTML = `<tr><td colspan='8'>載入失敗：${err.message}</td></tr>`;
   }
 }
 
@@ -623,12 +696,37 @@ document.addEventListener("DOMContentLoaded", () => {
   marketSel.addEventListener("change", () => {
     marketFilter = marketSel.value;
     loadRanking();
+    loadSumRanking();
   });
 
   windowSel.addEventListener("change", () => {
     currentWindow = parseInt(windowSel.value, 10);
     loadRanking();
   });
+
+  const etfCb = document.getElementById("excludeEtfCheckbox");
+  if (etfCb) {
+    etfCb.addEventListener("change", () => {
+      excludeEtf = etfCb.checked;
+      loadRanking();
+      loadSumRanking();
+    });
+  }
+
+  const sumWindowSel = document.getElementById("sumWindowFilter");
+  const sumDirectionSel = document.getElementById("sumDirectionFilter");
+  if (sumWindowSel) {
+    sumWindowSel.addEventListener("change", () => {
+      sumWindow = parseInt(sumWindowSel.value, 10);
+      loadSumRanking();
+    });
+  }
+  if (sumDirectionSel) {
+    sumDirectionSel.addEventListener("change", () => {
+      sumDirection = sumDirectionSel.value;
+      loadSumRanking();
+    });
+  }
 
   logCb.addEventListener("change", () => {
     useLogScale = logCb.checked;
@@ -646,4 +744,5 @@ document.addEventListener("DOMContentLoaded", () => {
   input.value = "2330";
   loadStock("2330");
   loadRanking();
+  loadSumRanking();
 });

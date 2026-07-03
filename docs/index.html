@@ -39,19 +39,19 @@
           <span id="statusText" class="subtitle"></span>
         </div>
         <div class="control-block">
-          <label for="categoryFilter">法人：</label>
+          <label for="categoryFilter">類別：</label>
           <select id="categoryFilter">
-            <option value="foreign" selected>外資（官方持股%變化）</option>
+            <option value="foreign" selected>外資（N 日買賣超）</option>
             <option value="trust">投信（N 日買賣超）</option>
             <option value="dealer">自營商（N 日買賣超）</option>
-            <option value="three_inst">三大法人合計（估）</option>
+            <option value="main_force">主力（券商分點合計）</option>
           </select>
         </div>
         <div class="control-block">
           <label for="directionFilter">方向：</label>
           <select id="directionFilter">
-            <option value="up" selected>買超 / 增加</option>
-            <option value="down">賣超 / 減少</option>
+            <option value="up" selected>買超</option>
+            <option value="down">賣超</option>
           </select>
         </div>
         <div class="control-block">
@@ -63,13 +63,16 @@
           </select>
         </div>
         <div class="control-block">
-          <label for="windowFilter">視窗：</label>
+          <label for="windowFilter">時間段：</label>
           <select id="windowFilter">
-            <option value="5">5 日</option>
-            <option value="20" selected>20 日</option>
-            <option value="60">60 日</option>
-            <option value="120">120 日</option>
+            <option value="3">3 日</option>
+            <option value="5" selected>5 日</option>
+            <option value="10">10 日</option>
+            <option value="20">20 日</option>
           </select>
+        </div>
+        <div class="control-block">
+          <label><input type="checkbox" id="excludeEtfCheckbox" checked> 排除 ETF</label>
         </div>
         <div class="control-block">
           <label><input type="checkbox" id="logScaleCheckbox"> Log scale</label>
@@ -97,9 +100,9 @@
       </div>
       <div class="col table-col">
         <div class="card">
-          <h3 id="rankTitle">📈 外資持股變化排名</h3>
+          <h3 id="rankTitle">📈 外資買賣超排行</h3>
           <p id="rankSubtitle" class="subtitle">
-            按選定視窗之官方外資持股比率變化排序
+            按選定時間段之累計買賣超（張）排序，前 30 名
           </p>
           <div class="table-container">
             <table id="rankTable">
@@ -108,8 +111,8 @@
                   <th>#</th>
                   <th>股票</th>
                   <th>市場</th>
-                  <th id="rankColA">持股%</th>
-                  <th id="rankColB">Δpp</th>
+                  <th id="rankColA">買賣超(張)</th>
+                  <th id="rankColB">持股%</th>
                 </tr>
               </thead>
               <tbody>
@@ -117,6 +120,48 @@
             </table>
           </div>
         </div>
+      </div>
+    </div>
+
+    <!-- 三大法人合計買賣超 -->
+    <div class="card">
+      <div class="card-header">
+        <h3>🏛️ 三大法人合計買賣超排行（外資＋投信＋自營商）</h3>
+        <div class="control-block">
+          <label for="sumWindowFilter">時間段：</label>
+          <select id="sumWindowFilter">
+            <option value="3">3 日</option>
+            <option value="5" selected>5 日</option>
+            <option value="10">10 日</option>
+            <option value="20">20 日</option>
+          </select>
+          <label for="sumDirectionFilter" style="margin-left:12px;">方向：</label>
+          <select id="sumDirectionFilter">
+            <option value="up" selected>買超</option>
+            <option value="down">賣超</option>
+          </select>
+        </div>
+      </div>
+      <p id="sumRankSubtitle" class="subtitle">
+        合計＝官方「三大法人買賣超」欄之 N 日累計（可與券商軟體直接對帳），前 30 名，附三類分解
+      </p>
+      <div class="table-container">
+        <table id="sumRankTable">
+          <thead>
+            <tr>
+              <th>#</th>
+              <th>股票</th>
+              <th>市場</th>
+              <th>合計(張)</th>
+              <th>外資(張)</th>
+              <th>投信(張)</th>
+              <th>自營商(張)</th>
+              <th>佔股本%</th>
+            </tr>
+          </thead>
+          <tbody>
+          </tbody>
+        </table>
       </div>
     </div>
   </section>

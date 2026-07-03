@@ -45,7 +45,7 @@ jobs:
 
       - name: Run update_broker.py
         run: |
-          python update_broker.py
+          python update_broker.py --active --delay 1.2
 
       - name: Rebuild broker stats
         run: |

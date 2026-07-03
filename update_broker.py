@@ -70,6 +70,55 @@ TARGET_BROKERS = [
 ]
 
 
+def get_latest_trade_date() -> str:
+    """最近一個「官方已公布資料」的交易日（來自 twse_flows.csv）。
+
+    分點資料的日期戳記必須用成交日而非爬取日——凌晨/早盤爬到的是前一交易日
+    的盤後資料，用 date.today() 會整批往後錯一天，與券商軟體對不上。
+    """
+    path = os.path.join(DATA_DIR, "twse_flows.csv")
+    try:
+        df = pd.read_csv(path, usecols=["date"])
+        return str(df["date"].max())
+    except Exception:  # noqa: BLE001 — 保底退回今天
+        return date.today().isoformat()
+
+
+def get_active_codes(cap: int = 150) -> list[str]:
+    """熱門股 + 近 20 日法人買賣超榜上的活躍股（各榜前 30），去重、上限 cap 檔。
+
+    讓「主力(分點)」的覆蓋範圍跟著法人動能走，而不是只有固定 20 檔。
+    """
+    codes = list(HOT_STOCKS)
+    ranking_files = (
+        "top_three_inst_net_20_up.json", "top_three_inst_net_20_down.json",
+        "top_foreign_change_20_up.json", "top_foreign_change_20_down.json",
+        "top_trust_change_20_up.json", "top_trust_change_20_down.json",
+        "top_dealer_change_20_up.json", "top_dealer_change_20_down.json",
+    )
+    for fname in ranking_files:
+        path = os.path.join(DOCS_DIR, fname)
+        try:
+            with open(path, encoding="utf-8") as f:
+                recs = json.load(f)[:30]
+        except Exception:  # noqa: BLE001 — 檔案缺漏就跳過
+            continue
+        for r in recs:
+            c = str(r.get("code", ""))
+            if c.isdigit() and len(c) == 4:  # 富邦 zco 頁面以 4 碼個股為主
+                codes.append(c)
+
+    seen: set[str] = set()
+    out = []
+    for c in codes:
+        if c not in seen:
+            seen.add(c)
+            out.append(c)
+        if len(out) >= cap:
+            break
+    return out
+
+
 def get_all_stock_codes(limit: Optional[int] = None) -> list[str]:
     """
     從現有的 flows CSV 中取得所有股票代碼
@@ -305,13 +354,77 @@ def export_main_force_latest(df: pd.DataFrame, output_path: str):
     rows.sort(key=lambda r: r["main_net_lots"], reverse=True)
     result = {
         "updated": datetime.now().isoformat(),
-        "date": date.today().isoformat(),
+        "date": get_latest_trade_date(),
         "data": rows,
     }
     with open(output_path, "w", encoding="utf-8") as f:
         json.dump(result, f, ensure_ascii=False, indent=2)
 
     print(f"Saved main force summary ({len(rows)} stocks) to {output_path}")
+
+
+def _load_stock_names() -> dict:
+    """code -> (name, market)，取自全市場快照（同 repo 內產出）。"""
+    path = os.path.join(DOCS_DIR, "stock_three_inst_latest.json")
+    try:
+        with open(path, encoding="utf-8") as f:
+            snap = json.load(f)
+        return {r["code"]: (r.get("name", ""), r.get("market", "")) for r in snap}
+    except Exception:  # noqa: BLE001
+        return {}
+
+
+def export_main_force_rankings(history_df: pd.DataFrame, output_path: str):
+    """主力(分點) N 日累計買賣超排名，N ∈ {3,5,10,20}。
+
+    主力 = 各股每日前 15 大買超 + 前 15 大賣超分點的買賣超合計（張）。
+    僅涵蓋爬取清單（熱門股 + 法人榜活躍股），非全市場——record 帶 coverage 說明。
+    """
+    if history_df.empty:
+        return
+    df = history_df.copy()
+    df["full_date"] = df["full_date"].astype(str)
+    dates = sorted(df["full_date"].unique(), reverse=True)
+    names = _load_stock_names()
+
+    windows_out = {}
+    for w in (3, 5, 10, 20):
+        recent = set(dates[:w])
+        sub = df[df["full_date"].isin(recent)]
+        if sub.empty:
+            continue
+        agg = sub.groupby("stock_code").agg(
+            net_lots=("net_vol", "sum"),
+            n_brokers=("broker_name", "nunique"),
+            days=("full_date", "nunique"),
+        ).reset_index()
+        recs = []
+        for _, r in agg.iterrows():
+            code = str(r["stock_code"])
+            name, market = names.get(code, ("", ""))
+            recs.append({
+                "code": code,
+                "name": name,
+                "market": market,
+                "net_lots": int(r["net_lots"]),
+                "n_brokers": int(r["n_brokers"]),
+                "days": int(r["days"]),
+            })
+        recs.sort(key=lambda x: x["net_lots"], reverse=True)
+        windows_out[str(w)] = recs
+
+    result = {
+        "updated": datetime.now().isoformat(),
+        "date": dates[0] if dates else "",
+        "coverage": int(df["stock_code"].nunique()),
+        "note": "主力=每日前15大買超+前15大賣超分點合計(張)；僅涵蓋爬取清單(熱門股+法人榜活躍股)",
+        "windows": windows_out,
+    }
+    with open(output_path, "w", encoding="utf-8") as f:
+        json.dump(result, f, ensure_ascii=False, indent=2)
+
+    print(f"Saved main force rankings ({df['stock_code'].nunique()} stocks, "
+          f"{len(dates)} days) to {output_path}")
 
 
 def build_broker_history(new_trades: pd.DataFrame, history_path: str) -> pd.DataFrame:
@@ -325,16 +438,16 @@ def build_broker_history(new_trades: pd.DataFrame, history_path: str) -> pd.Data
     Returns:
         合併後的歷史數據
     """
-    # 添加完整日期
-    today = date.today().isoformat()
+    # 以「成交日」標記（最近一個官方已公布交易日），非爬取日
+    trade_date = get_latest_trade_date()
     new_trades = new_trades.copy()
-    new_trades["full_date"] = today
-    
+    new_trades["full_date"] = trade_date
+
     # 載入歷史數據
     if os.path.exists(history_path):
         history = pd.read_csv(history_path)
-        # 移除今天的舊數據（如果有）
-        history = history[history["full_date"] != today]
+        # 移除同一成交日的舊數據（重跑覆蓋）
+        history = history[history["full_date"] != trade_date]
         # 合併
         combined = pd.concat([history, new_trades], ignore_index=True)
     else:
@@ -412,6 +525,8 @@ def main():
     """主程式"""
     parser = argparse.ArgumentParser(description="更新券商分點交易數據")
     parser.add_argument("--all", action="store_true", help="抓取所有上市櫃股票（約 1700+，需數小時）")
+    parser.add_argument("--active", action="store_true",
+                        help="抓取熱門股 + 法人榜活躍股（約 100~150 檔，每日更新建議模式）")
     parser.add_argument("--top50", action="store_true", help="抓取前 50 支熱門股")
     parser.add_argument("--top100", action="store_true", help="抓取前 100 支熱門股")
     parser.add_argument("--delay", type=float, default=1.5, help="每次請求間隔秒數（預設 1.5）")
@@ -428,6 +543,9 @@ def main():
     if args.all:
         stock_codes = get_all_stock_codes()
         print(f"\n[MODE] Full crawl: {len(stock_codes)} stocks")
+    elif args.active:
+        stock_codes = get_active_codes()
+        print(f"\n[MODE] Active stocks (hot + 法人榜): {len(stock_codes)} stocks")
     elif args.top100:
         stock_codes = get_all_stock_codes(limit=100)
         print(f"\n[MODE] Top 100 stocks")
@@ -483,6 +601,10 @@ def main():
     # 4.5 匯出券商趨勢數據
     trends_path = os.path.join(DOCS_DIR, "broker_trends.json")
     export_broker_trends(history_df, trends_path)
+
+    # 4.6 主力(分點) 3/5/10/20 日累計買賣超排名
+    mf_rank_path = os.path.join(DOCS_DIR, "main_force_rankings.json")
+    export_main_force_rankings(history_df, mf_rank_path)
 
     
     # 5. 輸出統計摘要
