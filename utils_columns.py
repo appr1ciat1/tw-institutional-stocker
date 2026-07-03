@@ -26,23 +26,32 @@ def normalize_columns(df: pd.DataFrame) -> pd.DataFrame:
 
 
 def find_col_any(df: pd.DataFrame, candidates: Iterable[str], required: bool = True) -> str:
-    """Return the first column whose name contains any candidate substring.
+    """Return the best-matching column for the candidate keywords.
+
+    比對分兩輪：先「完全相等」再「子字串包含」。
+    子字串優先會踩中 T86 的陷阱——「外資自營商買賣超股數」包含
+    「自營商買賣超股數」，且在表格中排序較前，導致自營商淨額抓成外資自營商
+    （幾乎恆為 0）。完全相等優先可避免此類前綴/包含歧義。
 
     Parameters
     ----------
     df : pd.DataFrame
         DataFrame whose columns will be searched.
     candidates : Iterable[str]
-        Keyword substrings; the first column whose name contains any of them
-        will be returned.
+        Keyword names; exact matches win, substring matches are the fallback.
     required : bool, default True
         If True, raise KeyError when no column is found. Otherwise return None.
     """
     cols = [str(c).strip() for c in df.columns]
+    candidates = list(candidates)
+    for kw in candidates:
+        for c in cols:
+            if kw == c:
+                return c
     for kw in candidates:
         for c in cols:
             if kw in c:
                 return c
     if required:
-        raise KeyError(f"找不到欄位，候選關鍵字={list(candidates)}, 實際欄位={cols}")
+        raise KeyError(f"找不到欄位，候選關鍵字={candidates}, 實際欄位={cols}")
     return None

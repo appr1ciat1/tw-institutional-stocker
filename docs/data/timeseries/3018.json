@@ -8,6 +8,9 @@
     "trust_ratio": 0.0,
     "dealer_ratio": 0.0,
     "three_inst_ratio": 0.0,
+    "foreign_net": 1000,
+    "trust_net": 0,
+    "dealer_net": 0,
     "three_inst_ratio_change_20": 0.0
   },
   {
@@ -19,6 +22,9 @@
     "trust_ratio": 0.0,
     "dealer_ratio": 0.0,
     "three_inst_ratio": 0.0,
+    "foreign_net": -1000,
+    "trust_net": 0,
+    "dealer_net": 0,
     "three_inst_ratio_change_20": 0.0
   },
   {
@@ -30,6 +36,9 @@
     "trust_ratio": 0.0,
     "dealer_ratio": 0.0,
     "three_inst_ratio": 0.0,
+    "foreign_net": -100,
+    "trust_net": 0,
+    "dealer_net": 0,
     "three_inst_ratio_change_20": 0.0
   },
   {
@@ -41,6 +50,9 @@
     "trust_ratio": 0.0,
     "dealer_ratio": 0.0,
     "three_inst_ratio": 0.0,
+    "foreign_net": -1000,
+    "trust_net": 0,
+    "dealer_net": 0,
     "three_inst_ratio_change_20": 0.0
   },
   {
@@ -52,6 +64,9 @@
     "trust_ratio": 0.0,
     "dealer_ratio": 0.0,
     "three_inst_ratio": 0.25,
+    "foreign_net": 1000,
+    "trust_net": 0,
+    "dealer_net": 0,
     "three_inst_ratio_change_20": 0.0
   },
   {
@@ -63,6 +78,9 @@
     "trust_ratio": 0.0,
     "dealer_ratio": 0.0,
     "three_inst_ratio": 0.25,
+    "foreign_net": 1000,
+    "trust_net": 0,
+    "dealer_net": 0,
     "three_inst_ratio_change_20": 0.0
   },
   {
@@ -74,6 +92,9 @@
     "trust_ratio": 0.0,
     "dealer_ratio": 0.0,
     "three_inst_ratio": 0.25,
+    "foreign_net": 71,
+    "trust_net": 0,
+    "dealer_net": 0,
     "three_inst_ratio_change_20": 0.0
   },
   {
@@ -85,6 +106,9 @@
     "trust_ratio": 0.0,
     "dealer_ratio": 0.0,
     "three_inst_ratio": 0.25,
+    "foreign_net": -1000,
+    "trust_net": 0,
+    "dealer_net": 0,
     "three_inst_ratio_change_20": 0.0
   },
   {
@@ -96,6 +120,9 @@
     "trust_ratio": 0.0,
     "dealer_ratio": 0.0,
     "three_inst_ratio": 0.25,
+    "foreign_net": -1000,
+    "trust_net": 0,
+    "dealer_net": 0,
     "three_inst_ratio_change_20": 0.0
   },
   {
@@ -107,17 +134,9 @@
     "trust_ratio": 0.0,
     "dealer_ratio": 0.0,
     "three_inst_ratio": 0.24,
-    "three_inst_ratio_change_20": 0.0
-  },
-  {
-    "date": "2025-12-26",
-    "code": "3018",
-    "name": "隆銘綠能",
-    "market": "TWSE",
-    "foreign_ratio": 0.24,
-    "trust_ratio": 0.0,
-    "dealer_ratio": 0.0,
-    "three_inst_ratio": 0.24,
+    "foreign_net": -8000,
+    "trust_net": 0,
+    "dealer_net": 0,
     "three_inst_ratio_change_20": 0.0
   },
   {
@@ -129,6 +148,9 @@
     "trust_ratio": 0.0,
     "dealer_ratio": 0.0,
     "three_inst_ratio": 0.23,
+    "foreign_net": -351,
+    "trust_net": 0,
+    "dealer_net": 0,
     "three_inst_ratio_change_20": 0.0
   },
   {
@@ -140,6 +162,9 @@
     "trust_ratio": 0.0,
     "dealer_ratio": 0.0,
     "three_inst_ratio": 0.23,
+    "foreign_net": -117,
+    "trust_net": 0,
+    "dealer_net": 0,
     "three_inst_ratio_change_20": 0.0
   },
   {
@@ -151,6 +176,9 @@
     "trust_ratio": 0.0,
     "dealer_ratio": 0.0,
     "three_inst_ratio": 0.23,
+    "foreign_net": -3000,
+    "trust_net": 0,
+    "dealer_net": 0,
     "three_inst_ratio_change_20": 0.0
   },
   {
@@ -162,6 +190,9 @@
     "trust_ratio": 0.0,
     "dealer_ratio": 0.0,
     "three_inst_ratio": 0.23,
+    "foreign_net": -5,
+    "trust_net": 0,
+    "dealer_net": 0,
     "three_inst_ratio_change_20": 0.0
   },
   {
@@ -173,6 +204,9 @@
     "trust_ratio": 0.0,
     "dealer_ratio": 0.0,
     "three_inst_ratio": 0.23,
+    "foreign_net": -2066,
+    "trust_net": 0,
+    "dealer_net": 0,
     "three_inst_ratio_change_20": 0.0
   },
   {
@@ -184,17 +218,23 @@
     "trust_ratio": 0.0,
     "dealer_ratio": 0.0,
     "three_inst_ratio": 0.22,
+    "foreign_net": -4660,
+    "trust_net": 0,
+    "dealer_net": 0,
     "three_inst_ratio_change_20": 0.0
   },
   {
-    "date": "2026-02-09",
+    "date": "2026-02-10",
     "code": "3018",
     "name": "隆銘綠能",
     "market": "TWSE",
     "foreign_ratio": 0.22,
     "trust_ratio": 0.0,
-    "dealer_ratio": 0.0,
-    "three_inst_ratio": 0.22,
+    "dealer_ratio": -0.017246476627740707,
+    "three_inst_ratio": 0.2027535233722593,
+    "foreign_net": 28999,
+    "trust_net": 0,
+    "dealer_net": -13000,
     "three_inst_ratio_change_20": 0.0
   },
   {
@@ -204,8 +244,11 @@
     "market": "TWSE",
     "foreign_ratio": 0.22,
     "trust_ratio": 0.0,
-    "dealer_ratio": 0.0,
-    "three_inst_ratio": 0.22,
+    "dealer_ratio": -0.017246476627740707,
+    "three_inst_ratio": 0.2027535233722593,
+    "foreign_net": -2000,
+    "trust_net": 0,
+    "dealer_net": 0,
     "three_inst_ratio_change_20": 0.0
   },
   {
@@ -215,52 +258,11 @@
     "market": "TWSE",
     "foreign_ratio": 0.22,
     "trust_ratio": 0.0,
-    "dealer_ratio": 0.0,
-    "three_inst_ratio": 0.22,
-    "three_inst_ratio_change_20": 0.0
-  },
-  {
-    "date": "2026-02-16",
-    "code": "3018",
-    "name": "隆銘綠能",
-    "market": "TWSE",
-    "foreign_ratio": 0.0,
-    "trust_ratio": 0.0,
-    "dealer_ratio": 0.0,
-    "three_inst_ratio": 0.0,
-    "three_inst_ratio_change_20": 0.0
-  },
-  {
-    "date": "2026-02-18",
-    "code": "3018",
-    "name": "隆銘綠能",
-    "market": "TWSE",
-    "foreign_ratio": 0.0,
-    "trust_ratio": 0.0,
-    "dealer_ratio": 0.0,
-    "three_inst_ratio": 0.0,
-    "three_inst_ratio_change_20": 0.0
-  },
-  {
-    "date": "2026-02-19",
-    "code": "3018",
-    "name": "隆銘綠能",
-    "market": "TWSE",
-    "foreign_ratio": 0.0,
-    "trust_ratio": 0.0,
-    "dealer_ratio": 0.0,
-    "three_inst_ratio": 0.0,
-    "three_inst_ratio_change_20": 0.0
-  },
-  {
-    "date": "2026-02-20",
-    "code": "3018",
-    "name": "隆銘綠能",
-    "market": "TWSE",
-    "foreign_ratio": 0.0,
-    "trust_ratio": 0.0,
-    "dealer_ratio": 0.0,
-    "three_inst_ratio": 0.0,
+    "dealer_ratio": -0.034492953255481414,
+    "three_inst_ratio": 0.1855070467445186,
+    "foreign_net": 28999,
+    "trust_net": 0,
+    "dealer_net": -13000,
     "three_inst_ratio_change_20": 0.0
   },
   {
@@ -270,9 +272,12 @@
     "market": "TWSE",
     "foreign_ratio": 0.22,
     "trust_ratio": 0.0,
-    "dealer_ratio": 0.0,
-    "three_inst_ratio": 0.22,
-    "three_inst_ratio_change_20": -0.03
+    "dealer_ratio": -0.034492953255481414,
+    "three_inst_ratio": 0.1855070467445186,
+    "foreign_net": 1,
+    "trust_net": 0,
+    "dealer_net": 0,
+    "three_inst_ratio_change_20": 0.0
   },
   {
     "date": "2026-03-16",
@@ -281,9 +286,26 @@
     "market": "TWSE",
     "foreign_ratio": 0.22,
     "trust_ratio": 0.0,
+    "dealer_ratio": -0.034492953255481414,
+    "three_inst_ratio": 0.1855070467445186,
+    "foreign_net": 1,
+    "trust_net": 0,
+    "dealer_net": 0,
+    "three_inst_ratio_change_20": 0.1855070467445186
+  },
+  {
+    "date": "2026-04-03",
+    "code": "3018",
+    "name": "隆銘綠能",
+    "market": "TWSE",
+    "foreign_ratio": 0.0,
+    "trust_ratio": 0.0,
     "dealer_ratio": 0.0,
-    "three_inst_ratio": 0.22,
-    "three_inst_ratio_change_20": -0.03
+    "three_inst_ratio": 0.0,
+    "foreign_net": 28999,
+    "trust_net": 0,
+    "dealer_net": -13000,
+    "three_inst_ratio_change_20": 0.0
   },
   {
     "date": "2026-04-10",
@@ -292,9 +314,12 @@
     "market": "TWSE",
     "foreign_ratio": 0.22,
     "trust_ratio": 0.0,
-    "dealer_ratio": 0.0,
-    "three_inst_ratio": 0.22,
-    "three_inst_ratio_change_20": -0.03
+    "dealer_ratio": -0.05173942988322211,
+    "three_inst_ratio": 0.1682605701167779,
+    "foreign_net": -225,
+    "trust_net": 0,
+    "dealer_net": 0,
+    "three_inst_ratio_change_20": 0.1682605701167779
   },
   {
     "date": "2026-04-17",
@@ -303,9 +328,12 @@
     "market": "TWSE",
     "foreign_ratio": 0.22,
     "trust_ratio": 0.0,
-    "dealer_ratio": 0.0,
-    "three_inst_ratio": 0.22,
-    "three_inst_ratio_change_20": -0.03
+    "dealer_ratio": -0.05173942988322211,
+    "three_inst_ratio": 0.1682605701167779,
+    "foreign_net": 1000,
+    "trust_net": 0,
+    "dealer_net": 0,
+    "three_inst_ratio_change_20": 0.1682605701167779
   },
   {
     "date": "2026-04-24",
@@ -314,9 +342,12 @@
     "market": "TWSE",
     "foreign_ratio": 0.22,
     "trust_ratio": 0.0,
-    "dealer_ratio": 0.0,
-    "three_inst_ratio": 0.22,
-    "three_inst_ratio_change_20": -0.03
+    "dealer_ratio": -0.05173942988322211,
+    "three_inst_ratio": 0.1682605701167779,
+    "foreign_net": 1000,
+    "trust_net": 0,
+    "dealer_net": 0,
+    "three_inst_ratio_change_20": -0.08173942988322211
   },
   {
     "date": "2026-05-04",
@@ -325,9 +356,12 @@
     "market": "TWSE",
     "foreign_ratio": 0.22,
     "trust_ratio": 0.0,
-    "dealer_ratio": 0.0,
-    "three_inst_ratio": 0.22,
-    "three_inst_ratio_change_20": -0.01999999999999999
+    "dealer_ratio": -0.05173942988322211,
+    "three_inst_ratio": 0.1682605701167779,
+    "foreign_net": 0,
+    "trust_net": 0,
+    "dealer_net": 0,
+    "three_inst_ratio_change_20": -0.08173942988322211
   },
   {
     "date": "2026-05-05",
@@ -336,9 +370,12 @@
     "market": "TWSE",
     "foreign_ratio": 0.22,
     "trust_ratio": 0.0,
-    "dealer_ratio": 0.0,
-    "three_inst_ratio": 0.22,
-    "three_inst_ratio_change_20": -0.01999999999999999
+    "dealer_ratio": -0.05173942988322211,
+    "three_inst_ratio": 0.1682605701167779,
+    "foreign_net": 1000,
+    "trust_net": 0,
+    "dealer_net": 0,
+    "three_inst_ratio_change_20": -0.08173942988322211
   },
   {
     "date": "2026-05-08",
@@ -347,9 +384,26 @@
     "market": "TWSE",
     "foreign_ratio": 0.22,
     "trust_ratio": 0.0,
-    "dealer_ratio": 0.0,
-    "three_inst_ratio": 0.22,
-    "three_inst_ratio_change_20": -0.010000000000000009
+    "dealer_ratio": -0.05173942988322211,
+    "three_inst_ratio": 0.1682605701167779,
+    "foreign_net": -1,
+    "trust_net": 0,
+    "dealer_net": 0,
+    "three_inst_ratio_change_20": -0.08173942988322211
+  },
+  {
+    "date": "2026-05-21",
+    "code": "3018",
+    "name": "隆銘綠能",
+    "market": "TWSE",
+    "foreign_ratio": 0.22,
+    "trust_ratio": 0.0,
+    "dealer_ratio": -0.06898590651096283,
+    "three_inst_ratio": 0.15101409348903716,
+    "foreign_net": 28999,
+    "trust_net": 0,
+    "dealer_net": -13000,
+    "three_inst_ratio_change_20": -0.09898590651096284
   },
   {
     "date": "2026-06-03",
@@ -358,9 +412,12 @@
     "market": "TWSE",
     "foreign_ratio": 0.22,
     "trust_ratio": 0.0,
-    "dealer_ratio": 0.0,
-    "three_inst_ratio": 0.22,
-    "three_inst_ratio_change_20": -0.010000000000000009
+    "dealer_ratio": -0.06898590651096283,
+    "three_inst_ratio": 0.15101409348903716,
+    "foreign_net": -41,
+    "trust_net": 0,
+    "dealer_net": 0,
+    "three_inst_ratio_change_20": -0.08898590651096283
   },
   {
     "date": "2026-06-08",
@@ -369,9 +426,12 @@
     "market": "TWSE",
     "foreign_ratio": 0.22,
     "trust_ratio": 0.0,
-    "dealer_ratio": 0.0,
-    "three_inst_ratio": 0.22,
-    "three_inst_ratio_change_20": -0.010000000000000009
+    "dealer_ratio": -0.06898590651096283,
+    "three_inst_ratio": 0.15101409348903716,
+    "foreign_net": -771,
+    "trust_net": 0,
+    "dealer_net": 0,
+    "three_inst_ratio_change_20": -0.07898590651096285
   },
   {
     "date": "2026-06-18",
@@ -380,9 +440,12 @@
     "market": "TWSE",
     "foreign_ratio": 0.22,
     "trust_ratio": 0.0,
-    "dealer_ratio": 0.0,
-    "three_inst_ratio": 0.22,
-    "three_inst_ratio_change_20": -0.010000000000000009
+    "dealer_ratio": -0.06898590651096283,
+    "three_inst_ratio": 0.15101409348903716,
+    "foreign_net": 1000,
+    "trust_net": 0,
+    "dealer_net": 0,
+    "three_inst_ratio_change_20": -0.07898590651096285
   },
   {
     "date": "2026-06-25",
@@ -391,8 +454,11 @@
     "market": "TWSE",
     "foreign_ratio": 0.22,
     "trust_ratio": 0.0,
-    "dealer_ratio": 0.0,
-    "three_inst_ratio": 0.22,
-    "three_inst_ratio_change_20": -0.010000000000000009
+    "dealer_ratio": -0.06898590651096283,
+    "three_inst_ratio": 0.15101409348903716,
+    "foreign_net": 1000,
+    "trust_net": 0,
+    "dealer_net": 0,
+    "three_inst_ratio_change_20": -0.07898590651096285
   }
 ]

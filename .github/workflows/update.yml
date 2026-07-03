@@ -5,6 +5,8 @@ on:
     # 每個交易日（週一～週五）台北時間 18:00 執行。
     # 台北 = UTC+8，故 18:00 Taipei = 10:00 UTC。收盤後法人/外資資料約 16:30 已公布。
     - cron: "0 10 * * 1-5"  # 10:00 UTC = 18:00 Taipei, Mon-Fri
+    # 22:00 Taipei 補跑：主跑失敗或資料晚公布時自動補抓（增量設計，重跑無害）。
+    - cron: "0 14 * * 1-5"  # 14:00 UTC = 22:00 Taipei, Mon-Fri
   workflow_dispatch: {}
 
 permissions:

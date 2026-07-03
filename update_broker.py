@@ -279,6 +279,41 @@ def export_target_broker_trades(df: pd.DataFrame, output_path: str):
     print(f"Saved target broker trades to {output_path}")
 
 
+def export_main_force_latest(df: pd.DataFrame, output_path: str):
+    """匯出個股「主力買賣超」彙總 JSON。
+
+    主力 = 該股當日前 15 大買超分點 + 前 15 大賣超分點的買賣超合計（張）。
+    正值表示主力群整體站買方。供前端與下游 fetch_main_force_latest() 使用。
+    """
+    if df.empty:
+        return
+
+    rows = []
+    for code, g in df.groupby("stock_code"):
+        buy_lots = int(g.loc[g["net_vol"] > 0, "net_vol"].sum())
+        sell_lots = int(g.loc[g["net_vol"] < 0, "net_vol"].sum())
+        rows.append(
+            {
+                "code": str(code),
+                "main_net_lots": buy_lots + sell_lots,
+                "buy_lots": buy_lots,
+                "sell_lots": sell_lots,
+                "n_brokers": int(g["broker_name"].nunique()),
+            }
+        )
+
+    rows.sort(key=lambda r: r["main_net_lots"], reverse=True)
+    result = {
+        "updated": datetime.now().isoformat(),
+        "date": date.today().isoformat(),
+        "data": rows,
+    }
+    with open(output_path, "w", encoding="utf-8") as f:
+        json.dump(result, f, ensure_ascii=False, indent=2)
+
+    print(f"Saved main force summary ({len(rows)} stocks) to {output_path}")
+
+
 def build_broker_history(new_trades: pd.DataFrame, history_path: str) -> pd.DataFrame:
     """
     累積券商歷史交易數據
@@ -435,6 +470,10 @@ def main():
     # 4.3 目標券商交易
     target_path = os.path.join(DOCS_DIR, "target_broker_trades.json")
     export_target_broker_trades(all_trades, target_path)
+
+    # 4.3b 個股主力買賣超彙總
+    main_force_path = os.path.join(DOCS_DIR, "main_force_latest.json")
+    export_main_force_latest(all_trades, main_force_path)
     
     # 4.4 累積歷史數據並生成趨勢圖數據
     history_path = os.path.join(BROKER_DATA_DIR, "broker_history.csv")

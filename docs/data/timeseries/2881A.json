@@ -8,6 +8,9 @@
     "trust_ratio": 0.0,
     "dealer_ratio": 0.0,
     "three_inst_ratio": 0.01,
+    "foreign_net": -1000,
+    "trust_net": 0,
+    "dealer_net": 0,
     "three_inst_ratio_change_20": 0.0
   },
   {
@@ -19,6 +22,9 @@
     "trust_ratio": 0.0,
     "dealer_ratio": 0.0,
     "three_inst_ratio": 0.01,
+    "foreign_net": -5000,
+    "trust_net": 0,
+    "dealer_net": 0,
     "three_inst_ratio_change_20": 0.0
   },
   {
@@ -30,6 +36,9 @@
     "trust_ratio": 0.0,
     "dealer_ratio": 0.0,
     "three_inst_ratio": 0.01,
+    "foreign_net": -1000,
+    "trust_net": 0,
+    "dealer_net": 0,
     "three_inst_ratio_change_20": 0.0
   },
   {
@@ -41,6 +50,9 @@
     "trust_ratio": 0.0,
     "dealer_ratio": 0.0,
     "three_inst_ratio": 0.01,
+    "foreign_net": 3000,
+    "trust_net": 0,
+    "dealer_net": 0,
     "three_inst_ratio_change_20": 0.0
   },
   {
@@ -52,6 +64,9 @@
     "trust_ratio": 0.0,
     "dealer_ratio": 0.0,
     "three_inst_ratio": 0.01,
+    "foreign_net": 3000,
+    "trust_net": 0,
+    "dealer_net": 0,
     "three_inst_ratio_change_20": 0.0
   },
   {
@@ -63,6 +78,9 @@
     "trust_ratio": 0.0,
     "dealer_ratio": 0.0,
     "three_inst_ratio": 0.01,
+    "foreign_net": 3000,
+    "trust_net": 0,
+    "dealer_net": 0,
     "three_inst_ratio_change_20": 0.0
   },
   {
@@ -74,6 +92,9 @@
     "trust_ratio": 0.0,
     "dealer_ratio": 0.0,
     "three_inst_ratio": 0.01,
+    "foreign_net": -2000,
+    "trust_net": 0,
+    "dealer_net": 0,
     "three_inst_ratio_change_20": 0.0
   },
   {
@@ -85,6 +106,9 @@
     "trust_ratio": 0.0,
     "dealer_ratio": 0.0,
     "three_inst_ratio": 0.01,
+    "foreign_net": -3000,
+    "trust_net": 0,
+    "dealer_net": 0,
     "three_inst_ratio_change_20": 0.0
   },
   {
@@ -96,6 +120,23 @@
     "trust_ratio": 0.0,
     "dealer_ratio": 0.0,
     "three_inst_ratio": 0.01,
+    "foreign_net": -6000,
+    "trust_net": 0,
+    "dealer_net": 0,
+    "three_inst_ratio_change_20": 0.0
+  },
+  {
+    "date": "2026-02-10",
+    "code": "2881A",
+    "name": "富邦特",
+    "market": "TWSE",
+    "foreign_ratio": 0.01,
+    "trust_ratio": 0.0,
+    "dealer_ratio": -0.015,
+    "three_inst_ratio": -0.004999999999999999,
+    "foreign_net": 0,
+    "trust_net": 0,
+    "dealer_net": -90000,
     "three_inst_ratio_change_20": 0.0
   },
   {
@@ -105,8 +146,11 @@
     "market": "TWSE",
     "foreign_ratio": 0.01,
     "trust_ratio": 0.0,
-    "dealer_ratio": 0.0,
-    "three_inst_ratio": 0.01,
+    "dealer_ratio": -0.015,
+    "three_inst_ratio": -0.004999999999999999,
+    "foreign_net": 1000,
+    "trust_net": 0,
+    "dealer_net": 0,
     "three_inst_ratio_change_20": 0.0
   },
   {
@@ -115,53 +159,12 @@
     "name": "富邦特",
     "market": "TWSE",
     "foreign_ratio": 0.01,
-    "trust_ratio": 0.016666666666666666,
-    "dealer_ratio": 0.0,
-    "three_inst_ratio": 0.026666666666666665,
-    "three_inst_ratio_change_20": 0.0
-  },
-  {
-    "date": "2026-02-16",
-    "code": "2881A",
-    "name": "富邦特",
-    "market": "TWSE",
-    "foreign_ratio": 0.0,
     "trust_ratio": 0.0,
-    "dealer_ratio": 0.0,
-    "three_inst_ratio": 0.0,
-    "three_inst_ratio_change_20": 0.0
-  },
-  {
-    "date": "2026-02-18",
-    "code": "2881A",
-    "name": "富邦特",
-    "market": "TWSE",
-    "foreign_ratio": 0.0,
-    "trust_ratio": 0.0,
-    "dealer_ratio": 0.0,
-    "three_inst_ratio": 0.0,
-    "three_inst_ratio_change_20": 0.0
-  },
-  {
-    "date": "2026-02-19",
-    "code": "2881A",
-    "name": "富邦特",
-    "market": "TWSE",
-    "foreign_ratio": 0.0,
-    "trust_ratio": 0.0,
-    "dealer_ratio": 0.0,
-    "three_inst_ratio": 0.0,
-    "three_inst_ratio_change_20": 0.0
-  },
-  {
-    "date": "2026-02-20",
-    "code": "2881A",
-    "name": "富邦特",
-    "market": "TWSE",
-    "foreign_ratio": 0.0,
-    "trust_ratio": 0.0,
-    "dealer_ratio": 0.0,
-    "three_inst_ratio": 0.0,
+    "dealer_ratio": -0.03,
+    "three_inst_ratio": -0.019999999999999997,
+    "foreign_net": 0,
+    "trust_net": 0,
+    "dealer_net": -90000,
     "three_inst_ratio_change_20": 0.0
   },
   {
@@ -170,9 +173,12 @@
     "name": "富邦特",
     "market": "TWSE",
     "foreign_ratio": 0.01,
-    "trust_ratio": 0.016666666666666666,
-    "dealer_ratio": 0.0,
-    "three_inst_ratio": 0.026666666666666665,
+    "trust_ratio": 0.0,
+    "dealer_ratio": -0.03,
+    "three_inst_ratio": -0.019999999999999997,
+    "foreign_net": 1000,
+    "trust_net": 0,
+    "dealer_net": 0,
     "three_inst_ratio_change_20": 0.0
   },
   {
@@ -181,9 +187,12 @@
     "name": "富邦特",
     "market": "TWSE",
     "foreign_ratio": 0.01,
-    "trust_ratio": 0.016666666666666666,
-    "dealer_ratio": 0.0,
-    "three_inst_ratio": 0.026666666666666665,
+    "trust_ratio": 0.0,
+    "dealer_ratio": -0.03,
+    "three_inst_ratio": -0.019999999999999997,
+    "foreign_net": -3957,
+    "trust_net": 0,
+    "dealer_net": 0,
     "three_inst_ratio_change_20": 0.0
   },
   {
@@ -192,9 +201,26 @@
     "name": "富邦特",
     "market": "TWSE",
     "foreign_ratio": 0.01,
-    "trust_ratio": 0.016666666666666666,
+    "trust_ratio": 0.0,
+    "dealer_ratio": -0.03,
+    "three_inst_ratio": -0.019999999999999997,
+    "foreign_net": -1000,
+    "trust_net": 0,
+    "dealer_net": 0,
+    "three_inst_ratio_change_20": 0.0
+  },
+  {
+    "date": "2026-04-03",
+    "code": "2881A",
+    "name": "富邦特",
+    "market": "TWSE",
+    "foreign_ratio": 0.0,
+    "trust_ratio": 0.0,
     "dealer_ratio": 0.0,
-    "three_inst_ratio": 0.026666666666666665,
+    "three_inst_ratio": 0.0,
+    "foreign_net": 0,
+    "trust_net": 0,
+    "dealer_net": -90000,
     "three_inst_ratio_change_20": 0.0
   },
   {
@@ -203,9 +229,12 @@
     "name": "富邦特",
     "market": "TWSE",
     "foreign_ratio": 0.01,
-    "trust_ratio": 0.016666666666666666,
-    "dealer_ratio": 0.0,
-    "three_inst_ratio": 0.026666666666666665,
+    "trust_ratio": 0.0,
+    "dealer_ratio": -0.08083333333333333,
+    "three_inst_ratio": -0.07083333333333333,
+    "foreign_net": 0,
+    "trust_net": 0,
+    "dealer_net": -215000,
     "three_inst_ratio_change_20": 0.0
   },
   {
@@ -214,9 +243,26 @@
     "name": "富邦特",
     "market": "TWSE",
     "foreign_ratio": 0.01,
-    "trust_ratio": 0.016666666666666666,
-    "dealer_ratio": 0.0,
-    "three_inst_ratio": 0.026666666666666665,
+    "trust_ratio": 0.0,
+    "dealer_ratio": -0.08083333333333333,
+    "three_inst_ratio": -0.07083333333333333,
+    "foreign_net": 4000,
+    "trust_net": 0,
+    "dealer_net": 0,
+    "three_inst_ratio_change_20": 0.0
+  },
+  {
+    "date": "2026-05-21",
+    "code": "2881A",
+    "name": "富邦特",
+    "market": "TWSE",
+    "foreign_ratio": 0.01,
+    "trust_ratio": 0.0,
+    "dealer_ratio": -0.09583333333333333,
+    "three_inst_ratio": -0.08583333333333333,
+    "foreign_net": 0,
+    "trust_net": 0,
+    "dealer_net": -90000,
     "three_inst_ratio_change_20": 0.0
   },
   {
@@ -225,10 +271,13 @@
     "name": "富邦特",
     "market": "TWSE",
     "foreign_ratio": 0.01,
-    "trust_ratio": 0.016666666666666666,
-    "dealer_ratio": 0.0,
-    "three_inst_ratio": 0.026666666666666665,
-    "three_inst_ratio_change_20": 0.016666666666666663
+    "trust_ratio": 0.0,
+    "dealer_ratio": -0.09583333333333333,
+    "three_inst_ratio": -0.08583333333333333,
+    "foreign_net": 1000,
+    "trust_net": 0,
+    "dealer_net": 0,
+    "three_inst_ratio_change_20": 0.0
   },
   {
     "date": "2026-06-12",
@@ -236,10 +285,13 @@
     "name": "富邦特",
     "market": "TWSE",
     "foreign_ratio": 0.01,
-    "trust_ratio": 0.016666666666666666,
-    "dealer_ratio": 0.0,
-    "three_inst_ratio": 0.026666666666666665,
-    "three_inst_ratio_change_20": 0.016666666666666663
+    "trust_ratio": 0.0,
+    "dealer_ratio": -0.09583333333333333,
+    "three_inst_ratio": -0.08583333333333333,
+    "foreign_net": 1000,
+    "trust_net": 0,
+    "dealer_net": 0,
+    "three_inst_ratio_change_20": -0.09583333333333333
   },
   {
     "date": "2026-06-15",
@@ -247,10 +299,13 @@
     "name": "富邦特",
     "market": "TWSE",
     "foreign_ratio": 0.01,
-    "trust_ratio": 0.016666666666666666,
-    "dealer_ratio": 0.0,
-    "three_inst_ratio": 0.026666666666666665,
-    "three_inst_ratio_change_20": 0.016666666666666663
+    "trust_ratio": 0.0,
+    "dealer_ratio": -0.09583333333333333,
+    "three_inst_ratio": -0.08583333333333333,
+    "foreign_net": -2000,
+    "trust_net": 0,
+    "dealer_net": 0,
+    "three_inst_ratio_change_20": -0.09583333333333333
   },
   {
     "date": "2026-06-25",
@@ -258,9 +313,26 @@
     "name": "富邦特",
     "market": "TWSE",
     "foreign_ratio": 0.01,
-    "trust_ratio": 0.016666666666666666,
-    "dealer_ratio": 0.0,
-    "three_inst_ratio": 0.026666666666666665,
-    "three_inst_ratio_change_20": 0.016666666666666663
+    "trust_ratio": 0.0,
+    "dealer_ratio": -0.09583333333333333,
+    "three_inst_ratio": -0.08583333333333333,
+    "foreign_net": 20000,
+    "trust_net": 0,
+    "dealer_net": 0,
+    "three_inst_ratio_change_20": -0.09583333333333333
+  },
+  {
+    "date": "2026-07-01",
+    "code": "2881A",
+    "name": "富邦特",
+    "market": "TWSE",
+    "foreign_ratio": 0.01,
+    "trust_ratio": 0.0,
+    "dealer_ratio": -0.09583333333333333,
+    "three_inst_ratio": -0.08583333333333333,
+    "foreign_net": 10000,
+    "trust_net": 0,
+    "dealer_net": 0,
+    "three_inst_ratio_change_20": -0.09583333333333333
   }
 ]

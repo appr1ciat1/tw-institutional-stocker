@@ -3,9 +3,9 @@
 
 <head>
   <meta charset="utf-8">
-  <title>台股三大法人持股追蹤（上市＋上櫃）</title>
+  <title>台股法人籌碼追蹤 — 外資/投信/自營商分開檢視（上市＋上櫃）</title>
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="description" content="追蹤三大法人（外資、投信、自營商）持股比例變化及券商分點主力進出">
+  <meta name="description" content="外資（官方持股比率）、投信、自營商買賣超分開追蹤，及券商分點主力進出">
   <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
   <link rel="stylesheet" href="style.css">
 </head>
@@ -15,7 +15,7 @@
   <header class="header">
     <div class="header-content">
       <h1>📊 台股法人籌碼追蹤</h1>
-      <p class="header-subtitle">整合三大法人持股 + 券商分點主力進出</p>
+      <p class="header-subtitle">外資 / 投信 / 自營商 分開檢視 + 券商分點主力進出</p>
     </div>
     <nav class="main-nav">
       <button class="nav-btn active" data-section="institutional">三大法人</button>
@@ -26,9 +26,10 @@
   <!-- 三大法人區塊 -->
   <section id="institutional" class="section active">
     <div class="card">
-      <h2>🏛️ 三大法人持股比例追蹤</h2>
+      <h2>🏛️ 法人籌碼追蹤（外資 / 投信 / 自營商 分開檢視）</h2>
       <p class="subtitle">
-        資料來源：TWSE / TPEX 官方盤後資料。投信與自營商持股為模型估計值，僅供研究使用。
+        資料來源：TWSE / TPEX 官方盤後資料。外資持股比率為官方數據；
+        投信 / 自營商顯示官方每日「買賣超」之累計（非官方持股，持股線僅為估計參考）。
       </p>
       <div class="controls">
         <div class="control-block">
@@ -36,6 +37,22 @@
           <input id="stockInput" type="text" placeholder="2330">
           <button id="loadBtn">載入</button>
           <span id="statusText" class="subtitle"></span>
+        </div>
+        <div class="control-block">
+          <label for="categoryFilter">法人：</label>
+          <select id="categoryFilter">
+            <option value="foreign" selected>外資（官方持股%變化）</option>
+            <option value="trust">投信（N 日買賣超）</option>
+            <option value="dealer">自營商（N 日買賣超）</option>
+            <option value="three_inst">三大法人合計（估）</option>
+          </select>
+        </div>
+        <div class="control-block">
+          <label for="directionFilter">方向：</label>
+          <select id="directionFilter">
+            <option value="up" selected>買超 / 增加</option>
+            <option value="down">賣超 / 減少</option>
+          </select>
         </div>
         <div class="control-block">
           <label for="marketFilter">市場：</label>
@@ -70,15 +87,19 @@
     <div class="row">
       <div class="col chart-col">
         <div class="card">
-          <h3 id="chartTitle">2330 三大法人持股比重</h3>
+          <h3 id="chartTitle">2330 法人持股比重</h3>
           <canvas id="ratioChart" height="280"></canvas>
+        </div>
+        <div class="card">
+          <h3 id="netChartTitle">近 60 日每日買賣超（張）</h3>
+          <canvas id="netChart" height="220"></canvas>
         </div>
       </div>
       <div class="col table-col">
         <div class="card">
-          <h3>📈 三大法人持股變化排名</h3>
-          <p class="subtitle">
-            按選定視窗之三大法人合計持股比重變化排序
+          <h3 id="rankTitle">📈 外資持股變化排名</h3>
+          <p id="rankSubtitle" class="subtitle">
+            按選定視窗之官方外資持股比率變化排序
           </p>
           <div class="table-container">
             <table id="rankTable">
@@ -87,8 +108,8 @@
                   <th>#</th>
                   <th>股票</th>
                   <th>市場</th>
-                  <th>持股%</th>
-                  <th>ΔChange</th>
+                  <th id="rankColA">持股%</th>
+                  <th id="rankColB">Δpp</th>
                 </tr>
               </thead>
               <tbody>
@@ -190,7 +211,7 @@
   </section>
 
   <footer class="footer">
-    <p>資料每日自動更新 | GitHub: <a href="https://github.com/voidful/tw-institutional-stocker"
+    <p>資料每日自動更新 | GitHub: <a href="https://github.com/appr1ciat1/tw-institutional-stocker"
         target="_blank">tw-institutional-stocker</a></p>
   </footer>
 

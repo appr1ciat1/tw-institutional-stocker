@@ -1,7 +1,39 @@
 let ratioChart = null;
+let netChart = null;
 let useLogScale = false;
 let marketFilter = "ALL";
 let currentWindow = 20;
+let currentCategory = "foreign";
+let currentDirection = "up";
+
+// 各法人類別的排名表設定：資料檔 schema 不同（外資=官方持股%變化，
+// 投信/自營商=官方買賣超累計，三大法人=舊版合成估計）
+const CATEGORY_META = {
+  foreign: {
+    title: "📈 外資持股變化排名",
+    subtitle: "按選定視窗之官方外資持股比率變化 (pp) 排序，可與官方 / 券商軟體數據直接對帳",
+    colA: "外資持股%",
+    colB: "Δpp",
+  },
+  trust: {
+    title: "📈 投信買賣超排名",
+    subtitle: "按選定視窗之投信累計買賣超（張）排序 — 官方每日買賣超加總",
+    colA: "買賣超(張)",
+    colB: "佔股本%",
+  },
+  dealer: {
+    title: "📈 自營商買賣超排名",
+    subtitle: "按選定視窗之自營商累計買賣超（張）排序 — 官方每日買賣超加總",
+    colA: "買賣超(張)",
+    colB: "佔股本%",
+  },
+  three_inst: {
+    title: "📈 三大法人合計變化排名",
+    subtitle: "合成估計指標（投信/自營商持股為推估），僅供參考",
+    colA: "持股%(估)",
+    colB: "Δpp",
+  },
+};
 
 async function fetchJson(url) {
   const resp = await fetch(url);
@@ -71,7 +103,7 @@ async function loadStock(code) {
     }
     if (showTrust) {
       datasets.push({
-        label: "投信%",
+        label: "投信%(估)",
         data: trustRatio,
         borderColor: "#4ecdc4",
         borderWidth: 2,
@@ -81,7 +113,7 @@ async function loadStock(code) {
     }
     if (showDealer) {
       datasets.push({
-        label: "自營商%",
+        label: "自營商%(估)",
         data: dealerRatio,
         borderColor: "#ffe66d",
         borderWidth: 2,
@@ -91,7 +123,7 @@ async function loadStock(code) {
     }
     if (showTotal) {
       datasets.push({
-        label: "三法人合計%",
+        label: "三法人合計%(估)",
         data: totalRatio,
         borderColor: "#a55eea",
         borderWidth: 3,
@@ -130,8 +162,10 @@ async function loadStock(code) {
       },
     });
 
+    renderNetChart(data);
+
     const last = data[data.length - 1];
-    status.textContent = `${last.date} | 三大法人 ${formatPct(last.three_inst_ratio)}%`;
+    status.textContent = `${last.date} | 外資 ${formatPct(last.foreign_ratio)}%（官方）`;
   } catch (err) {
     console.error(err);
     status.textContent = `載入失敗：${err.message}`;
@@ -140,29 +174,124 @@ async function loadStock(code) {
   }
 }
 
+// ========== Daily Net Buy/Sell Bar Chart ==========
+
+function renderNetChart(data) {
+  const ctx = document.getElementById("netChart");
+  if (!ctx) return;
+
+  // 只取最近 60 筆；舊資料檔可能沒有 *_net 欄位，全缺就跳過
+  const recent = data.slice(-60);
+  if (!recent.some((d) => d.foreign_net !== undefined)) return;
+
+  const labels = recent.map((d) => d.date);
+  const toLots = (v) => Math.round((v || 0) / 1000);
+
+  if (netChart) {
+    netChart.destroy();
+  }
+
+  netChart = new Chart(ctx.getContext("2d"), {
+    type: "bar",
+    data: {
+      labels,
+      datasets: [
+        {
+          label: "外資",
+          data: recent.map((d) => toLots(d.foreign_net)),
+          backgroundColor: "rgba(255, 107, 107, 0.7)",
+        },
+        {
+          label: "投信",
+          data: recent.map((d) => toLots(d.trust_net)),
+          backgroundColor: "rgba(78, 205, 196, 0.7)",
+        },
+        {
+          label: "自營商",
+          data: recent.map((d) => toLots(d.dealer_net)),
+          backgroundColor: "rgba(255, 230, 109, 0.7)",
+        },
+      ],
+    },
+    options: {
+      responsive: true,
+      interaction: { mode: "index", intersect: false },
+      scales: {
+        x: {
+          stacked: false,
+          ticks: { maxTicksLimit: 8, color: "#8b8b9e" },
+          grid: { color: "rgba(255,255,255,0.05)" },
+        },
+        y: {
+          title: { display: true, text: "買賣超 (張/日)", color: "#8b8b9e" },
+          ticks: { color: "#8b8b9e" },
+          grid: { color: "rgba(255,255,255,0.05)" },
+        },
+      },
+      plugins: {
+        legend: { position: "bottom", labels: { color: "#eaeaea", boxWidth: 12 } },
+      },
+    },
+  });
+}
+
 // ========== Institutional Ranking ==========
+
+function rankCells(row) {
+  // 依類別回傳 [colA, colB] 兩格的 HTML
+  if (currentCategory === "foreign") {
+    return [
+      formatPct(row.ratio),
+      `<span class="${row.change >= 0 ? 'net-positive' : 'net-negative'}">${row.change >= 0 ? '+' : ''}${formatPct(row.change)}</span>`,
+    ];
+  }
+  if (currentCategory === "trust" || currentCategory === "dealer") {
+    const lots = row.net_lots ?? Math.round((row.net_shares || 0) / 1000);
+    return [
+      `<span class="${lots >= 0 ? 'net-positive' : 'net-negative'}">${lots >= 0 ? '+' : ''}${formatNumber(lots)}</span>`,
+      `${formatPct(row.pct_cap)}%`,
+    ];
+  }
+  return [
+    formatPct(row.three_inst_ratio),
+    `<span class="${row.change >= 0 ? 'net-positive' : 'net-negative'}">${row.change >= 0 ? '+' : ''}${formatPct(row.change)}</span>`,
+  ];
+}
 
 async function loadRanking() {
   const tbody = document.querySelector("#rankTable tbody");
+  const meta = CATEGORY_META[currentCategory];
+  document.getElementById("rankTitle").textContent = meta.title;
+  document.getElementById("rankSubtitle").textContent = meta.subtitle;
+  document.getElementById("rankColA").textContent = meta.colA;
+  document.getElementById("rankColB").textContent = meta.colB;
   tbody.innerHTML = "<tr><td colspan='5'>載入中...</td></tr>";
 
   try {
-    const up = await fetchJson(`data/top_three_inst_change_${currentWindow}_up.json`);
+    const rows = await fetchJson(
+      `data/top_${currentCategory}_change_${currentWindow}_${currentDirection}.json`
+    );
     tbody.innerHTML = "";
 
-    const filtered = up.filter((row) => {
+    const filtered = rows.filter((row) => {
       if (marketFilter === "ALL") return true;
       return row.market === marketFilter;
     });
 
+    const asof = filtered.length && filtered[0].date ? `（資料日 ${filtered[0].date}）` : "";
+    if (asof) {
+      document.getElementById("rankSubtitle").textContent = meta.subtitle + " " + asof;
+    }
+
     filtered.slice(0, 50).forEach((row, idx) => {
+      const [cellA, cellB] = rankCells(row);
       const tr = document.createElement("tr");
       tr.innerHTML = `
         <td>${idx + 1}</td>
         <td><span class="badge">${row.code}</span>${row.name || ""}</td>
         <td>${row.market || ""}</td>
-        <td>${formatPct(row.three_inst_ratio)}</td>
-        <td class="${row.change >= 0 ? 'net-positive' : 'net-negative'}">${row.change >= 0 ? '+' : ''}${formatPct(row.change)}</td>
+        <td>${cellA}</td>
+        <td>${cellB}</td>
       `;
       tr.addEventListener("click", () => {
         document.getElementById("stockInput").value = row.code;
@@ -466,6 +595,8 @@ function initNavigation() {
 document.addEventListener("DOMContentLoaded", () => {
   const input = document.getElementById("stockInput");
   const btn = document.getElementById("loadBtn");
+  const categorySel = document.getElementById("categoryFilter");
+  const directionSel = document.getElementById("directionFilter");
   const marketSel = document.getElementById("marketFilter");
   const windowSel = document.getElementById("windowFilter");
   const logCb = document.getElementById("logScaleCheckbox");
@@ -477,6 +608,16 @@ document.addEventListener("DOMContentLoaded", () => {
   btn.addEventListener("click", () => loadStock(input.value));
   input.addEventListener("keyup", (e) => {
     if (e.key === "Enter") loadStock(input.value);
+  });
+
+  categorySel.addEventListener("change", () => {
+    currentCategory = categorySel.value;
+    loadRanking();
+  });
+
+  directionSel.addEventListener("change", () => {
+    currentDirection = directionSel.value;
+    loadRanking();
   });
 
   marketSel.addEventListener("change", () => {
