@@ -1,12 +1,12 @@
 {
-  "updated": "2026-07-29T12:10:00.783935",
+  "updated": "2026-07-29T16:06:51.848969",
   "analysis_days": 60,
   "date_range": {
     "start": "2026-06-01T00:00:00",
     "end": "2026-07-29T00:00:00"
   },
   "brokers_analyzed": 30,
-  "total_active_brokers": 338,
+  "total_active_brokers": 336,
   "results": [
     {
       "broker_id": "1470",
@@ -2096,11 +2096,11 @@
           "rank": 1,
           "stock_code": 2385.0,
           "stock_name": "",
-          "total_net_vol": 14336,
-          "total_buy_vol": 16000,
-          "total_sell_vol": 1664,
-          "trading_days": 19,
-          "avg_net_vol": 754.53
+          "total_net_vol": 14537,
+          "total_buy_vol": 15934,
+          "total_sell_vol": 1397,
+          "trading_days": 18,
+          "avg_net_vol": 807.61
         },
         {
           "rank": 2,
@@ -5168,16 +5168,6 @@
         },
         {
           "rank": 7,
-          "stock_code": 2385.0,
-          "stock_name": "",
-          "total_net_vol": -9914,
-          "total_buy_vol": 42,
-          "total_sell_vol": 9956,
-          "trading_days": 14,
-          "avg_net_vol": -708.14
-        },
-        {
-          "rank": 8,
           "stock_code": 6005.0,
           "stock_name": "",
           "total_net_vol": -9890,
@@ -5185,6 +5175,16 @@
           "total_sell_vol": 9940,
           "trading_days": 3,
           "avg_net_vol": -3296.67
+        },
+        {
+          "rank": 8,
+          "stock_code": 2385.0,
+          "stock_name": "",
+          "total_net_vol": -9747,
+          "total_buy_vol": 39,
+          "total_sell_vol": 9786,
+          "trading_days": 13,
+          "avg_net_vol": -749.77
         },
         {
           "rank": 9,
