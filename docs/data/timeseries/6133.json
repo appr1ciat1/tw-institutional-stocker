@@ -3028,13 +3028,27 @@
     "code": "6133",
     "name": "金橋",
     "market": "TWSE",
+    "foreign_ratio": 1.8,
+    "trust_ratio": 0.0,
+    "dealer_ratio": 0.0002435766404156002,
+    "three_inst_ratio": 1.8002435766404157,
+    "foreign_net": -277000,
+    "trust_net": 0,
+    "dealer_net": -10000,
+    "three_inst_ratio_change_20": -0.9008632014274378
+  },
+  {
+    "date": "2026-08-07",
+    "code": "6133",
+    "name": "金橋",
+    "market": "TWSE",
     "foreign_ratio": 0.0,
     "trust_ratio": 0.0,
     "dealer_ratio": 0.0,
     "three_inst_ratio": 0.0,
-    "foreign_net": -277000,
+    "foreign_net": -36000,
     "trust_net": 0,
-    "dealer_net": -10000,
-    "three_inst_ratio_change_20": -2.7011067780678535
+    "dealer_net": 0,
+    "three_inst_ratio_change_20": -2.6928160878251557
   }
 ]

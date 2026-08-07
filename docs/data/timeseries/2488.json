@@ -3084,13 +3084,27 @@
     "code": "2488",
     "name": "漢平",
     "market": "TWSE",
+    "foreign_ratio": 6.82,
+    "trust_ratio": 0.0,
+    "dealer_ratio": -0.07303926766580958,
+    "three_inst_ratio": 6.746960732334191,
+    "foreign_net": -35000,
+    "trust_net": 0,
+    "dealer_net": 8001,
+    "three_inst_ratio_change_20": 0.7350898943246262
+  },
+  {
+    "date": "2026-08-07",
+    "code": "2488",
+    "name": "漢平",
+    "market": "TWSE",
     "foreign_ratio": 0.0,
     "trust_ratio": 0.0,
     "dealer_ratio": 0.0,
     "three_inst_ratio": 0.0,
-    "foreign_net": -35000,
+    "foreign_net": 20000,
     "trust_net": 0,
-    "dealer_net": 8001,
-    "three_inst_ratio_change_20": -6.011870838009565
+    "dealer_net": 13000,
+    "three_inst_ratio_change_20": -5.620620829150126
   }
 ]

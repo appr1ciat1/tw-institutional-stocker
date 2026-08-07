@@ -3028,13 +3028,27 @@
     "code": "4569",
     "name": "六方科-KY",
     "market": "TWSE",
+    "foreign_ratio": 67.24,
+    "trust_ratio": 0.0,
+    "dealer_ratio": 0.01795098039215686,
+    "three_inst_ratio": 67.25795098039215,
+    "foreign_net": 3000,
+    "trust_net": 0,
+    "dealer_net": 0,
+    "three_inst_ratio_change_20": -0.0371111111111162
+  },
+  {
+    "date": "2026-08-07",
+    "code": "4569",
+    "name": "六方科-KY",
+    "market": "TWSE",
     "foreign_ratio": 0.0,
     "trust_ratio": 0.0,
     "dealer_ratio": 0.0,
     "three_inst_ratio": 0.0,
-    "foreign_net": 3000,
+    "foreign_net": -3000,
     "trust_net": 0,
-    "dealer_net": 0,
-    "three_inst_ratio_change_20": -67.29506209150327
+    "dealer_net": -143,
+    "three_inst_ratio_change_20": -67.18489869281045
   }
 ]

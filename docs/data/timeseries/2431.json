@@ -3084,13 +3084,27 @@
     "code": "2431",
     "name": "聯昌",
     "market": "TWSE",
+    "foreign_ratio": 1.11,
+    "trust_ratio": 0.0,
+    "dealer_ratio": -0.19195504532376576,
+    "three_inst_ratio": 0.9180449546762344,
+    "foreign_net": -9000,
+    "trust_net": 0,
+    "dealer_net": -2338,
+    "three_inst_ratio_change_20": -0.22828842665863158
+  },
+  {
+    "date": "2026-08-07",
+    "code": "2431",
+    "name": "聯昌",
+    "market": "TWSE",
     "foreign_ratio": 0.0,
     "trust_ratio": 0.0,
     "dealer_ratio": 0.0,
     "three_inst_ratio": 0.0,
-    "foreign_net": -9000,
+    "foreign_net": -6000,
     "trust_net": 0,
-    "dealer_net": -2338,
-    "three_inst_ratio_change_20": -1.146333381334866
+    "dealer_net": 982,
+    "three_inst_ratio_change_20": -1.0836289003506396
   }
 ]

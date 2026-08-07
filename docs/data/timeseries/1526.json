@@ -3084,13 +3084,27 @@
     "code": "1526",
     "name": "日馳",
     "market": "TWSE",
+    "foreign_ratio": 3.5,
+    "trust_ratio": 0.0,
+    "dealer_ratio": 0.01238,
+    "three_inst_ratio": 3.51238,
+    "foreign_net": 274035,
+    "trust_net": 0,
+    "dealer_net": 1583,
+    "three_inst_ratio_change_20": 1.0104199999999994
+  },
+  {
+    "date": "2026-08-07",
+    "code": "1526",
+    "name": "日馳",
+    "market": "TWSE",
     "foreign_ratio": 0.0,
     "trust_ratio": 0.0,
     "dealer_ratio": 0.0,
     "three_inst_ratio": 0.0,
-    "foreign_net": 274035,
+    "foreign_net": -166382,
     "trust_net": 0,
-    "dealer_net": 1583,
-    "three_inst_ratio_change_20": -2.5019600000000004
+    "dealer_net": -1583,
+    "three_inst_ratio_change_20": -2.4819600000000004
   }
 ]

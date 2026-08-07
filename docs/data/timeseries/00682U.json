@@ -2790,13 +2790,27 @@
     "code": "00682U",
     "name": "期元大美元指數",
     "market": "TWSE",
+    "foreign_ratio": 2.18,
+    "trust_ratio": 0.0,
+    "dealer_ratio": 5.151831501831502,
+    "three_inst_ratio": 7.331831501831502,
+    "foreign_net": 0,
+    "trust_net": 0,
+    "dealer_net": 1,
+    "three_inst_ratio_change_20": -0.06339612768184111
+  },
+  {
+    "date": "2026-08-07",
+    "code": "00682U",
+    "name": "期元大美元指數",
+    "market": "TWSE",
     "foreign_ratio": 0.0,
     "trust_ratio": 0.0,
     "dealer_ratio": 0.0,
     "three_inst_ratio": 0.0,
     "foreign_net": 0,
     "trust_net": 0,
-    "dealer_net": 1,
-    "three_inst_ratio_change_20": -7.395227629513343
+    "dealer_net": -20,
+    "three_inst_ratio_change_20": -7.382145473574045
   }
 ]

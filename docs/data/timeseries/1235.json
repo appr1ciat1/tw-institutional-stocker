@@ -3014,13 +3014,27 @@
     "code": "1235",
     "name": "興泰",
     "market": "TWSE",
+    "foreign_ratio": 0.35,
+    "trust_ratio": 0.0,
+    "dealer_ratio": 0.011637104585291774,
+    "three_inst_ratio": 0.36163710458529175,
+    "foreign_net": 1000,
+    "trust_net": 0,
+    "dealer_net": -1000,
+    "three_inst_ratio_change_20": 0.08575771990511116
+  },
+  {
+    "date": "2026-08-07",
+    "code": "1235",
+    "name": "興泰",
+    "market": "TWSE",
     "foreign_ratio": 0.0,
     "trust_ratio": 0.0,
     "dealer_ratio": 0.0,
     "three_inst_ratio": 0.0,
-    "foreign_net": 1000,
+    "foreign_net": -1000,
     "trust_net": 0,
-    "dealer_net": -1000,
-    "three_inst_ratio_change_20": -0.2758793846801806
+    "dealer_net": 0,
+    "three_inst_ratio_change_20": -0.27481881465645835
   }
 ]

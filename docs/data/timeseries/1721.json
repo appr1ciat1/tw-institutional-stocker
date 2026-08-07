@@ -3070,13 +3070,27 @@
     "code": "1721",
     "name": "三晃",
     "market": "TWSE",
+    "foreign_ratio": 1.45,
+    "trust_ratio": 0.0,
+    "dealer_ratio": 0.04064708823082518,
+    "three_inst_ratio": 1.4906470882308251,
+    "foreign_net": -58330,
+    "trust_net": 0,
+    "dealer_net": -1000,
+    "three_inst_ratio_change_20": -0.2517097198389573
+  },
+  {
+    "date": "2026-08-07",
+    "code": "1721",
+    "name": "三晃",
+    "market": "TWSE",
     "foreign_ratio": 0.0,
     "trust_ratio": 0.0,
     "dealer_ratio": 0.0,
     "three_inst_ratio": 0.0,
-    "foreign_net": -58330,
+    "foreign_net": -169913,
     "trust_net": 0,
-    "dealer_net": -1000,
-    "three_inst_ratio_change_20": -1.7423568080697824
+    "dealer_net": 1000,
+    "three_inst_ratio_change_20": -1.5322697264835528
   }
 ]

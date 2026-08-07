@@ -3028,13 +3028,27 @@
     "code": "1456",
     "name": "怡華",
     "market": "TWSE",
+    "foreign_ratio": 0.66,
+    "trust_ratio": 0.0,
+    "dealer_ratio": -0.010670081092616305,
+    "three_inst_ratio": 0.6493299189073837,
+    "foreign_net": -51000,
+    "trust_net": 0,
+    "dealer_net": -1000,
+    "three_inst_ratio_change_20": 0.017837174562526648
+  },
+  {
+    "date": "2026-08-07",
+    "code": "1456",
+    "name": "怡華",
+    "market": "TWSE",
     "foreign_ratio": 0.0,
     "trust_ratio": 0.0,
     "dealer_ratio": 0.0,
     "three_inst_ratio": 0.0,
-    "foreign_net": -51000,
+    "foreign_net": -8000,
     "trust_net": 0,
-    "dealer_net": -1000,
-    "three_inst_ratio_change_20": -0.631492744344857
+    "dealer_net": 0,
+    "three_inst_ratio_change_20": -0.6003969270166453
   }
 ]

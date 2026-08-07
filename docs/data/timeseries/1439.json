@@ -2958,13 +2958,27 @@
     "code": "1439",
     "name": "雋揚",
     "market": "TWSE",
+    "foreign_ratio": 1.42,
+    "trust_ratio": 0.0,
+    "dealer_ratio": -0.007889130434782609,
+    "three_inst_ratio": 1.4121108695652174,
+    "foreign_net": 13000,
+    "trust_net": 0,
+    "dealer_net": 0,
+    "three_inst_ratio_change_20": 0.1878260869565218
+  },
+  {
+    "date": "2026-08-07",
+    "code": "1439",
+    "name": "雋揚",
+    "market": "TWSE",
     "foreign_ratio": 0.0,
     "trust_ratio": 0.0,
     "dealer_ratio": 0.0,
     "three_inst_ratio": 0.0,
-    "foreign_net": 13000,
+    "foreign_net": 4000,
     "trust_net": 0,
-    "dealer_net": 0,
-    "three_inst_ratio_change_20": -1.2242847826086956
+    "dealer_net": -1000,
+    "three_inst_ratio_change_20": -1.226458695652174
   }
 ]

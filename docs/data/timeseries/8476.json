@@ -3028,13 +3028,27 @@
     "code": "8476",
     "name": "台境*",
     "market": "TWSE",
+    "foreign_ratio": 1.5,
+    "trust_ratio": 0.19551652572451836,
+    "dealer_ratio": -0.01915340044928374,
+    "three_inst_ratio": 1.6763631252752347,
+    "foreign_net": 73000,
+    "trust_net": -8000,
+    "dealer_net": -1000,
+    "three_inst_ratio_change_20": 0.5640053333779955
+  },
+  {
+    "date": "2026-08-07",
+    "code": "8476",
+    "name": "台境*",
+    "market": "TWSE",
     "foreign_ratio": 0.0,
     "trust_ratio": 0.0,
     "dealer_ratio": 0.0,
     "three_inst_ratio": 0.0,
-    "foreign_net": 73000,
-    "trust_net": -8000,
+    "foreign_net": -241000,
+    "trust_net": 0,
     "dealer_net": -1000,
-    "three_inst_ratio_change_20": -1.1123577918972392
+    "three_inst_ratio_change_20": -1.221154613277396
   }
 ]

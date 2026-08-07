@@ -2986,13 +2986,27 @@
     "code": "1414",
     "name": "東和",
     "market": "TWSE",
+    "foreign_ratio": 1.23,
+    "trust_ratio": 0.010151515151515153,
+    "dealer_ratio": 0.6522121212121211,
+    "three_inst_ratio": 1.8923636363636365,
+    "foreign_net": -109067,
+    "trust_net": 0,
+    "dealer_net": -2000,
+    "three_inst_ratio_change_20": -0.015555555555555545
+  },
+  {
+    "date": "2026-08-07",
+    "code": "1414",
+    "name": "東和",
+    "market": "TWSE",
     "foreign_ratio": 0.0,
     "trust_ratio": 0.0,
     "dealer_ratio": 0.0,
     "three_inst_ratio": 0.0,
-    "foreign_net": -109067,
+    "foreign_net": 80140,
     "trust_net": 0,
-    "dealer_net": -2000,
-    "three_inst_ratio_change_20": -1.907919191919192
+    "dealer_net": -20000,
+    "three_inst_ratio_change_20": -1.88589898989899
   }
 ]

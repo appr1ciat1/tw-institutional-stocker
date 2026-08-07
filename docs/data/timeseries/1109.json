@@ -3084,13 +3084,27 @@
     "code": "1109",
     "name": "信大",
     "market": "TWSE",
+    "foreign_ratio": 2.45,
+    "trust_ratio": 0.0,
+    "dealer_ratio": -0.010605616149482593,
+    "three_inst_ratio": 2.4393943838505177,
+    "foreign_net": -29000,
+    "trust_net": 0,
+    "dealer_net": -6000,
+    "three_inst_ratio_change_20": 0.05400484585967158
+  },
+  {
+    "date": "2026-08-07",
+    "code": "1109",
+    "name": "信大",
+    "market": "TWSE",
     "foreign_ratio": 0.0,
     "trust_ratio": 0.0,
     "dealer_ratio": 0.0,
     "three_inst_ratio": 0.0,
-    "foreign_net": -29000,
+    "foreign_net": 29000,
     "trust_net": 0,
-    "dealer_net": -6000,
-    "three_inst_ratio_change_20": -2.385389537990846
+    "dealer_net": 3000,
+    "three_inst_ratio_change_20": -2.3847182964623976
   }
 ]

@@ -2986,13 +2986,27 @@
     "code": "1730",
     "name": "花仙子",
     "market": "TWSE",
+    "foreign_ratio": 7.18,
+    "trust_ratio": 0.0,
+    "dealer_ratio": -0.1517209508558952,
+    "three_inst_ratio": 7.028279049144104,
+    "foreign_net": -6000,
+    "trust_net": 0,
+    "dealer_net": 0,
+    "three_inst_ratio_change_20": 0.3273485484855252
+  },
+  {
+    "date": "2026-08-07",
+    "code": "1730",
+    "name": "花仙子",
+    "market": "TWSE",
     "foreign_ratio": 0.0,
     "trust_ratio": 0.0,
     "dealer_ratio": 0.0,
     "three_inst_ratio": 0.0,
-    "foreign_net": -6000,
+    "foreign_net": -5000,
     "trust_net": 0,
-    "dealer_net": 0,
-    "three_inst_ratio_change_20": -6.700930500658579
+    "dealer_net": 5000,
+    "three_inst_ratio_change_20": -6.7261862063406515
   }
 ]

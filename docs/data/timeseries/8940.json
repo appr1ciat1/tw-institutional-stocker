@@ -2972,13 +2972,27 @@
     "code": "8940",
     "name": "新天地",
     "market": "TWSE",
+    "foreign_ratio": 8.58,
+    "trust_ratio": 0.0,
+    "dealer_ratio": 0.032473944093787156,
+    "three_inst_ratio": 8.612473944093788,
+    "foreign_net": 3000,
+    "trust_net": 0,
+    "dealer_net": -2000,
+    "three_inst_ratio_change_20": 0.15703664332766465
+  },
+  {
+    "date": "2026-08-07",
+    "code": "8940",
+    "name": "新天地",
+    "market": "TWSE",
     "foreign_ratio": 0.0,
     "trust_ratio": 0.0,
     "dealer_ratio": 0.0,
     "three_inst_ratio": 0.0,
-    "foreign_net": 3000,
+    "foreign_net": 1000,
     "trust_net": 0,
-    "dealer_net": -2000,
-    "three_inst_ratio_change_20": -8.455437300766123
+    "dealer_net": 2000,
+    "three_inst_ratio_change_20": -8.453955622429955
   }
 ]

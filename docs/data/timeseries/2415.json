@@ -3084,13 +3084,27 @@
     "code": "2415",
     "name": "錩新",
     "market": "TWSE",
+    "foreign_ratio": 21.21,
+    "trust_ratio": 0.26,
+    "dealer_ratio": -0.04681777777777778,
+    "three_inst_ratio": 21.423182222222223,
+    "foreign_net": -950,
+    "trust_net": -5000,
+    "dealer_net": 0,
+    "three_inst_ratio_change_20": 0.12079999999999913
+  },
+  {
+    "date": "2026-08-07",
+    "code": "2415",
+    "name": "錩新",
+    "market": "TWSE",
     "foreign_ratio": 0.0,
     "trust_ratio": 0.0,
     "dealer_ratio": 0.0,
     "three_inst_ratio": 0.0,
-    "foreign_net": -950,
-    "trust_net": -5000,
+    "foreign_net": -20000,
+    "trust_net": 0,
     "dealer_net": 0,
-    "three_inst_ratio_change_20": -21.302382222222224
+    "three_inst_ratio_change_20": -21.359425555555557
   }
 ]

@@ -3084,13 +3084,27 @@
     "code": "1218",
     "name": "泰山",
     "market": "TWSE",
+    "foreign_ratio": 3.07,
+    "trust_ratio": 0.0,
+    "dealer_ratio": -0.07941035278551876,
+    "three_inst_ratio": 2.990589647214481,
+    "foreign_net": -579000,
+    "trust_net": 0,
+    "dealer_net": -8000,
+    "three_inst_ratio_change_20": -0.5545836472989376
+  },
+  {
+    "date": "2026-08-07",
+    "code": "1218",
+    "name": "泰山",
+    "market": "TWSE",
     "foreign_ratio": 0.0,
     "trust_ratio": 0.0,
     "dealer_ratio": 0.0,
     "three_inst_ratio": 0.0,
-    "foreign_net": -579000,
+    "foreign_net": 400000,
     "trust_net": 0,
-    "dealer_net": -8000,
-    "three_inst_ratio_change_20": -3.5451732945134187
+    "dealer_net": 7000,
+    "three_inst_ratio_change_20": -3.4742436927248646
   }
 ]

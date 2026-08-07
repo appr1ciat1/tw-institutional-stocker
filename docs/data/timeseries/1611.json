@@ -3084,13 +3084,27 @@
     "code": "1611",
     "name": "中電",
     "market": "TWSE",
+    "foreign_ratio": 9.9,
+    "trust_ratio": 0.0,
+    "dealer_ratio": -0.023088549021012986,
+    "three_inst_ratio": 9.876911450978987,
+    "foreign_net": -88575,
+    "trust_net": 0,
+    "dealer_net": -5000,
+    "three_inst_ratio_change_20": -0.6869868307303868
+  },
+  {
+    "date": "2026-08-07",
+    "code": "1611",
+    "name": "中電",
+    "market": "TWSE",
     "foreign_ratio": 0.0,
     "trust_ratio": 0.0,
     "dealer_ratio": 0.0,
     "three_inst_ratio": 0.0,
-    "foreign_net": -88575,
+    "foreign_net": -69867,
     "trust_net": 0,
-    "dealer_net": -5000,
-    "three_inst_ratio_change_20": -10.563898281709374
+    "dealer_net": 5000,
+    "three_inst_ratio_change_20": -10.523499945227634
   }
 ]

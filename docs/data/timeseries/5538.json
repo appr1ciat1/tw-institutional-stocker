@@ -2818,13 +2818,27 @@
     "code": "5538",
     "name": "東明-KY",
     "market": "TWSE",
+    "foreign_ratio": 64.0,
+    "trust_ratio": 0.0,
+    "dealer_ratio": 0.003981047371615858,
+    "three_inst_ratio": 64.00398104737161,
+    "foreign_net": 10000,
+    "trust_net": 0,
+    "dealer_net": -2000,
+    "three_inst_ratio_change_20": 0.14403588408745804
+  },
+  {
+    "date": "2026-08-07",
+    "code": "5538",
+    "name": "東明-KY",
+    "market": "TWSE",
     "foreign_ratio": 0.0,
     "trust_ratio": 0.0,
     "dealer_ratio": 0.0,
     "three_inst_ratio": 0.0,
-    "foreign_net": 10000,
+    "foreign_net": 96000,
     "trust_net": 0,
-    "dealer_net": -2000,
-    "three_inst_ratio_change_20": -63.85994516328415
+    "dealer_net": 0,
+    "three_inst_ratio_change_20": -63.85895114396539
   }
 ]

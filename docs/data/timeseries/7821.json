@@ -1068,13 +1068,27 @@
     "code": "7821",
     "name": "神數",
     "market": "TWSE",
+    "foreign_ratio": 0.76,
+    "trust_ratio": 0.0,
+    "dealer_ratio": 0.019049603283645015,
+    "three_inst_ratio": 0.779049603283645,
+    "foreign_net": 39000,
+    "trust_net": 0,
+    "dealer_net": -7000,
+    "three_inst_ratio_change_20": 0.10851642929852612
+  },
+  {
+    "date": "2026-08-07",
+    "code": "7821",
+    "name": "神數",
+    "market": "TWSE",
     "foreign_ratio": 0.0,
     "trust_ratio": 0.0,
     "dealer_ratio": 0.0,
     "three_inst_ratio": 0.0,
-    "foreign_net": 39000,
+    "foreign_net": 72000,
     "trust_net": 0,
-    "dealer_net": -7000,
-    "three_inst_ratio_change_20": -0.6705331739851189
+    "dealer_net": 12000,
+    "three_inst_ratio_change_20": -0.6697129189350136
   }
 ]

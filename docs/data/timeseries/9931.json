@@ -2748,13 +2748,27 @@
     "code": "9931",
     "name": "欣高",
     "market": "TWSE",
+    "foreign_ratio": 0.88,
+    "trust_ratio": 0.0,
+    "dealer_ratio": 0.00833352005037364,
+    "three_inst_ratio": 0.8883335200503737,
+    "foreign_net": -8000,
+    "trust_net": 0,
+    "dealer_net": -1000,
+    "three_inst_ratio_change_20": 0.006280613172612637
+  },
+  {
+    "date": "2026-08-07",
+    "code": "9931",
+    "name": "欣高",
+    "market": "TWSE",
     "foreign_ratio": 0.0,
     "trust_ratio": 0.0,
     "dealer_ratio": 0.0,
     "three_inst_ratio": 0.0,
-    "foreign_net": -8000,
+    "foreign_net": -7000,
     "trust_net": 0,
-    "dealer_net": -1000,
-    "three_inst_ratio_change_20": -0.8820529068777611
+    "dealer_net": -177,
+    "three_inst_ratio_change_20": -0.8820155219308697
   }
 ]

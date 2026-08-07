@@ -2888,13 +2888,27 @@
     "code": "3321",
     "name": "同泰",
     "market": "TWSE",
+    "foreign_ratio": 2.28,
+    "trust_ratio": 0.0,
+    "dealer_ratio": -0.6651386957642047,
+    "three_inst_ratio": 1.614861304235795,
+    "foreign_net": -17000,
+    "trust_net": 0,
+    "dealer_net": 1320,
+    "three_inst_ratio_change_20": -0.0926532970586853
+  },
+  {
+    "date": "2026-08-07",
+    "code": "3321",
+    "name": "同泰",
+    "market": "TWSE",
     "foreign_ratio": 0.0,
     "trust_ratio": 0.0,
     "dealer_ratio": 0.0,
     "three_inst_ratio": 0.0,
-    "foreign_net": -17000,
+    "foreign_net": -128000,
     "trust_net": 0,
-    "dealer_net": 1320,
-    "three_inst_ratio_change_20": -1.7075146012944804
+    "dealer_net": -2320,
+    "three_inst_ratio_change_20": -1.7528173269248035
   }
 ]

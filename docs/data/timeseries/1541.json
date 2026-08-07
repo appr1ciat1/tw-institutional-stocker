@@ -2986,13 +2986,27 @@
     "code": "1541",
     "name": "錩泰",
     "market": "TWSE",
+    "foreign_ratio": 9.98,
+    "trust_ratio": 0.0,
+    "dealer_ratio": -0.007944162436548224,
+    "three_inst_ratio": 9.972055837563452,
+    "foreign_net": 0,
+    "trust_net": 0,
+    "dealer_net": -1000,
+    "three_inst_ratio_change_20": 0.12365482233502689
+  },
+  {
+    "date": "2026-08-07",
+    "code": "1541",
+    "name": "錩泰",
+    "market": "TWSE",
     "foreign_ratio": 0.0,
     "trust_ratio": 0.0,
     "dealer_ratio": 0.0,
     "three_inst_ratio": 0.0,
-    "foreign_net": 0,
+    "foreign_net": 1000,
     "trust_net": 0,
-    "dealer_net": -1000,
-    "three_inst_ratio_change_20": -9.848401015228426
+    "dealer_net": 0,
+    "three_inst_ratio_change_20": -9.849670050761421
   }
 ]

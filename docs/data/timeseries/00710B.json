@@ -3084,13 +3084,27 @@
     "code": "00710B",
     "name": "復華彭博非投等債",
     "market": "TWSE",
+    "foreign_ratio": 0.37,
+    "trust_ratio": 0.6085383462140617,
+    "dealer_ratio": 0.3835965722694608,
+    "three_inst_ratio": 1.3621349184835225,
+    "foreign_net": 60000,
+    "trust_net": 0,
+    "dealer_net": -121120,
+    "three_inst_ratio_change_20": 0.3796748192364504
+  },
+  {
+    "date": "2026-08-07",
+    "code": "00710B",
+    "name": "復華彭博非投等債",
+    "market": "TWSE",
     "foreign_ratio": 0.0,
     "trust_ratio": 0.0,
     "dealer_ratio": 0.0,
     "three_inst_ratio": 0.0,
-    "foreign_net": 60000,
+    "foreign_net": -9000,
     "trust_net": 0,
-    "dealer_net": -121120,
-    "three_inst_ratio_change_20": -0.9824600992470721
+    "dealer_net": 18053,
+    "three_inst_ratio_change_20": -1.0015676501015154
   }
 ]

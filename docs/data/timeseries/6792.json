@@ -2972,13 +2972,27 @@
     "code": "6792",
     "name": "詠業",
     "market": "TWSE",
+    "foreign_ratio": 2.0,
+    "trust_ratio": 0.0,
+    "dealer_ratio": -0.0841247552888675,
+    "three_inst_ratio": 1.9158752447111325,
+    "foreign_net": -14000,
+    "trust_net": 0,
+    "dealer_net": 0,
+    "three_inst_ratio_change_20": 0.07741940655233148
+  },
+  {
+    "date": "2026-08-07",
+    "code": "6792",
+    "name": "詠業",
+    "market": "TWSE",
     "foreign_ratio": 0.0,
     "trust_ratio": 0.0,
     "dealer_ratio": 0.0,
     "three_inst_ratio": 0.0,
-    "foreign_net": -14000,
+    "foreign_net": 13000,
     "trust_net": 0,
-    "dealer_net": 0,
-    "three_inst_ratio_change_20": -1.838455838158801
+    "dealer_net": -2000,
+    "three_inst_ratio_change_20": -1.8163670794924107
   }
 ]

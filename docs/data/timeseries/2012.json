@@ -3084,13 +3084,27 @@
     "code": "2012",
     "name": "春雨",
     "market": "TWSE",
+    "foreign_ratio": 1.47,
+    "trust_ratio": 0.0,
+    "dealer_ratio": -0.001792411836404692,
+    "three_inst_ratio": 1.4682075881635952,
+    "foreign_net": -31000,
+    "trust_net": 0,
+    "dealer_net": 0,
+    "three_inst_ratio_change_20": 0.06768336727200275
+  },
+  {
+    "date": "2026-08-07",
+    "code": "2012",
+    "name": "春雨",
+    "market": "TWSE",
     "foreign_ratio": 0.0,
     "trust_ratio": 0.0,
     "dealer_ratio": 0.0,
     "three_inst_ratio": 0.0,
-    "foreign_net": -31000,
+    "foreign_net": -4000,
     "trust_net": 0,
-    "dealer_net": 0,
-    "three_inst_ratio_change_20": -1.4005242208915925
+    "dealer_net": 3000,
+    "three_inst_ratio_change_20": -1.387214745565882
   }
 ]

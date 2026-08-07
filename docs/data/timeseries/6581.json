@@ -2902,13 +2902,27 @@
     "code": "6581",
     "name": "鋼聯",
     "market": "TWSE",
+    "foreign_ratio": 1.12,
+    "trust_ratio": 0.0,
+    "dealer_ratio": 0.013633395409169335,
+    "three_inst_ratio": 1.1336333954091695,
+    "foreign_net": -2000,
+    "trust_net": 0,
+    "dealer_net": 0,
+    "three_inst_ratio_change_20": 0.09711155353691048
+  },
+  {
+    "date": "2026-08-07",
+    "code": "6581",
+    "name": "鋼聯",
+    "market": "TWSE",
     "foreign_ratio": 0.0,
     "trust_ratio": 0.0,
     "dealer_ratio": 0.0,
     "three_inst_ratio": 0.0,
-    "foreign_net": -2000,
+    "foreign_net": 4000,
     "trust_net": 0,
-    "dealer_net": 0,
-    "three_inst_ratio_change_20": -1.036521841872259
+    "dealer_net": 1000,
+    "three_inst_ratio_change_20": -1.0456231341986157
   }
 ]

@@ -2874,13 +2874,27 @@
     "code": "00775B",
     "name": "台新投等債15+",
     "market": "TWSE",
+    "foreign_ratio": 0.19,
+    "trust_ratio": 0.0,
+    "dealer_ratio": 0.013127531236535976,
+    "three_inst_ratio": 0.20312753123653599,
+    "foreign_net": -4000,
+    "trust_net": 0,
+    "dealer_net": 1090,
+    "three_inst_ratio_change_20": -0.01009349418354158
+  },
+  {
+    "date": "2026-08-07",
+    "code": "00775B",
+    "name": "台新投等債15+",
+    "market": "TWSE",
     "foreign_ratio": 0.0,
     "trust_ratio": 0.0,
     "dealer_ratio": 0.0,
     "three_inst_ratio": 0.0,
-    "foreign_net": -4000,
+    "foreign_net": 0,
     "trust_net": 0,
-    "dealer_net": 1090,
+    "dealer_net": 32,
     "three_inst_ratio_change_20": -0.21322102542007756
   }
 ]

@@ -3084,13 +3084,27 @@
     "code": "6136",
     "name": "富爾特",
     "market": "TWSE",
+    "foreign_ratio": 3.85,
+    "trust_ratio": 0.0,
+    "dealer_ratio": -0.03020606179115204,
+    "three_inst_ratio": 3.819793938208848,
+    "foreign_net": -34000,
+    "trust_net": 0,
+    "dealer_net": -1000,
+    "three_inst_ratio_change_20": 1.0209583839248877
+  },
+  {
+    "date": "2026-08-07",
+    "code": "6136",
+    "name": "富爾特",
+    "market": "TWSE",
     "foreign_ratio": 0.0,
     "trust_ratio": 0.0,
     "dealer_ratio": 0.0,
     "three_inst_ratio": 0.0,
-    "foreign_net": -34000,
+    "foreign_net": -5000,
     "trust_net": 0,
-    "dealer_net": -1000,
-    "three_inst_ratio_change_20": -2.7988355542839605
+    "dealer_net": 2000,
+    "three_inst_ratio_change_20": -2.787970026280546
   }
 ]

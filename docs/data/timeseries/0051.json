@@ -3084,13 +3084,27 @@
     "code": "0051",
     "name": "元大中型100",
     "market": "TWSE",
+    "foreign_ratio": 0.54,
+    "trust_ratio": 0.0,
+    "dealer_ratio": -3.04365306122449,
+    "three_inst_ratio": -2.50365306122449,
+    "foreign_net": 1115,
+    "trust_net": 0,
+    "dealer_net": 28780,
+    "three_inst_ratio_change_20": -1.4855714285714288
+  },
+  {
+    "date": "2026-08-07",
+    "code": "0051",
+    "name": "元大中型100",
+    "market": "TWSE",
     "foreign_ratio": 0.0,
     "trust_ratio": 0.0,
     "dealer_ratio": 0.0,
     "three_inst_ratio": 0.0,
-    "foreign_net": 1115,
+    "foreign_net": 50,
     "trust_net": 0,
-    "dealer_net": 28780,
-    "three_inst_ratio_change_20": 1.018081632653061
+    "dealer_net": -26552,
+    "three_inst_ratio_change_20": 0.9466530612244898
   }
 ]

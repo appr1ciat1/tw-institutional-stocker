@@ -3084,13 +3084,27 @@
     "code": "2611",
     "name": "志信",
     "market": "TWSE",
+    "foreign_ratio": 1.94,
+    "trust_ratio": 0.0,
+    "dealer_ratio": -0.03198268431397481,
+    "three_inst_ratio": 1.9080173156860252,
+    "foreign_net": -45000,
+    "trust_net": 0,
+    "dealer_net": 4000,
+    "three_inst_ratio_change_20": 0.10052909416877265
+  },
+  {
+    "date": "2026-08-07",
+    "code": "2611",
+    "name": "志信",
+    "market": "TWSE",
     "foreign_ratio": 0.0,
     "trust_ratio": 0.0,
     "dealer_ratio": 0.0,
     "three_inst_ratio": 0.0,
-    "foreign_net": -45000,
+    "foreign_net": 175000,
     "trust_net": 0,
-    "dealer_net": 4000,
-    "three_inst_ratio_change_20": -1.8074882215172525
+    "dealer_net": -2000,
+    "three_inst_ratio_change_20": -1.8869591273484796
   }
 ]

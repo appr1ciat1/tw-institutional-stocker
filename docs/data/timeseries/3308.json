@@ -3070,13 +3070,27 @@
     "code": "3308",
     "name": "聯德",
     "market": "TWSE",
+    "foreign_ratio": 0.84,
+    "trust_ratio": 0.0,
+    "dealer_ratio": 0.011818333333333333,
+    "three_inst_ratio": 0.8518183333333333,
+    "foreign_net": -10000,
+    "trust_net": 0,
+    "dealer_net": 137,
+    "three_inst_ratio_change_20": -0.13576
+  },
+  {
+    "date": "2026-08-07",
+    "code": "3308",
+    "name": "聯德",
+    "market": "TWSE",
     "foreign_ratio": 0.0,
     "trust_ratio": 0.0,
     "dealer_ratio": 0.0,
     "three_inst_ratio": 0.0,
-    "foreign_net": -10000,
+    "foreign_net": 0,
     "trust_net": 0,
-    "dealer_net": 137,
-    "three_inst_ratio_change_20": -0.9875783333333333
+    "dealer_net": -1107,
+    "three_inst_ratio_change_20": -0.9859116666666666
   }
 ]

@@ -3084,13 +3084,27 @@
     "code": "1539",
     "name": "巨庭",
     "market": "TWSE",
+    "foreign_ratio": 1.2,
+    "trust_ratio": 0.0,
+    "dealer_ratio": 0.010983631635306716,
+    "three_inst_ratio": 1.2109836316353066,
+    "foreign_net": 1000,
+    "trust_net": 0,
+    "dealer_net": -1000,
+    "three_inst_ratio_change_20": 0.18929172403243077
+  },
+  {
+    "date": "2026-08-07",
+    "code": "1539",
+    "name": "巨庭",
+    "market": "TWSE",
     "foreign_ratio": 0.0,
     "trust_ratio": 0.0,
     "dealer_ratio": 0.0,
     "three_inst_ratio": 0.0,
-    "foreign_net": 1000,
+    "foreign_net": 5000,
     "trust_net": 0,
-    "dealer_net": -1000,
-    "three_inst_ratio_change_20": -1.0216919076028759
+    "dealer_net": 18000,
+    "three_inst_ratio_change_20": -1.0447514150221815
   }
 ]

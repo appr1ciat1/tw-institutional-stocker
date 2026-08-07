@@ -2986,13 +2986,27 @@
     "code": "1324",
     "name": "地球",
     "market": "TWSE",
+    "foreign_ratio": 0.96,
+    "trust_ratio": 0.0,
+    "dealer_ratio": 0.00931819040422869,
+    "three_inst_ratio": 0.9693181904042286,
+    "foreign_net": -10000,
+    "trust_net": 0,
+    "dealer_net": 0,
+    "three_inst_ratio_change_20": 0.03866882994225296
+  },
+  {
+    "date": "2026-08-07",
+    "code": "1324",
+    "name": "地球",
+    "market": "TWSE",
     "foreign_ratio": 0.0,
     "trust_ratio": 0.0,
     "dealer_ratio": 0.0,
     "three_inst_ratio": 0.0,
-    "foreign_net": -10000,
+    "foreign_net": -3000,
     "trust_net": 0,
     "dealer_net": 0,
-    "three_inst_ratio_change_20": -0.9306493604619757
+    "three_inst_ratio_change_20": -0.9066558502887349
   }
 ]

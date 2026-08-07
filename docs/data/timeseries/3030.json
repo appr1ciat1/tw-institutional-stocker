@@ -3084,13 +3084,27 @@
     "code": "3030",
     "name": "德律",
     "market": "TWSE",
+    "foreign_ratio": 10.58,
+    "trust_ratio": -5.0767611000101605,
+    "dealer_ratio": -0.012132963050767095,
+    "three_inst_ratio": 5.491105936939072,
+    "foreign_net": 49222,
+    "trust_net": 0,
+    "dealer_net": -25127,
+    "three_inst_ratio_change_20": -0.1357495681918257
+  },
+  {
+    "date": "2026-08-07",
+    "code": "3030",
+    "name": "德律",
+    "market": "TWSE",
     "foreign_ratio": 0.0,
     "trust_ratio": 0.0,
     "dealer_ratio": 0.0,
     "three_inst_ratio": 0.0,
-    "foreign_net": 49222,
+    "foreign_net": -243900,
     "trust_net": 0,
-    "dealer_net": -25127,
-    "three_inst_ratio_change_20": -5.626855505130898
+    "dealer_net": -9474,
+    "three_inst_ratio_change_20": -5.397750702746639
   }
 ]

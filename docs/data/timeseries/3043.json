@@ -3028,13 +3028,27 @@
     "code": "3043",
     "name": "科風",
     "market": "TWSE",
+    "foreign_ratio": 1.74,
+    "trust_ratio": 0.0,
+    "dealer_ratio": 0.033531205675833266,
+    "three_inst_ratio": 1.7735312056758332,
+    "foreign_net": -5000,
+    "trust_net": 0,
+    "dealer_net": 0,
+    "three_inst_ratio_change_20": 0.5706319584179183
+  },
+  {
+    "date": "2026-08-07",
+    "code": "3043",
+    "name": "科風",
+    "market": "TWSE",
     "foreign_ratio": 0.0,
     "trust_ratio": 0.0,
     "dealer_ratio": 0.0,
     "three_inst_ratio": 0.0,
-    "foreign_net": -5000,
+    "foreign_net": 2000,
     "trust_net": 0,
-    "dealer_net": 0,
-    "three_inst_ratio_change_20": -1.202899247257915
+    "dealer_net": 1000,
+    "three_inst_ratio_change_20": -1.0952021306439814
   }
 ]

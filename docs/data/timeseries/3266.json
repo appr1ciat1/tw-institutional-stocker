@@ -3028,13 +3028,27 @@
     "code": "3266",
     "name": "昇陽",
     "market": "TWSE",
+    "foreign_ratio": 8.4,
+    "trust_ratio": 0.0,
+    "dealer_ratio": 0.013963384041832942,
+    "three_inst_ratio": 8.413963384041834,
+    "foreign_net": -10000,
+    "trust_net": 0,
+    "dealer_net": 5000,
+    "three_inst_ratio_change_20": 0.08886436630650785
+  },
+  {
+    "date": "2026-08-07",
+    "code": "3266",
+    "name": "昇陽",
+    "market": "TWSE",
     "foreign_ratio": 0.0,
     "trust_ratio": 0.0,
     "dealer_ratio": 0.0,
     "three_inst_ratio": 0.0,
-    "foreign_net": -10000,
+    "foreign_net": 6000,
     "trust_net": 0,
-    "dealer_net": 5000,
-    "three_inst_ratio_change_20": -8.325099017735326
+    "dealer_net": 1000,
+    "three_inst_ratio_change_20": -8.324531342807312
   }
 ]

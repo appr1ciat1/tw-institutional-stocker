@@ -2902,13 +2902,27 @@
     "code": "6201",
     "name": "亞弘電",
     "market": "TWSE",
+    "foreign_ratio": 1.24,
+    "trust_ratio": 0.0,
+    "dealer_ratio": -0.004883408071748879,
+    "three_inst_ratio": 1.2351165919282512,
+    "foreign_net": -3000,
+    "trust_net": 0,
+    "dealer_net": 2000,
+    "three_inst_ratio_change_20": 0.0988789237668164
+  },
+  {
+    "date": "2026-08-07",
+    "code": "6201",
+    "name": "亞弘電",
+    "market": "TWSE",
     "foreign_ratio": 0.0,
     "trust_ratio": 0.0,
     "dealer_ratio": 0.0,
     "three_inst_ratio": 0.0,
-    "foreign_net": -3000,
+    "foreign_net": -10000,
     "trust_net": 0,
-    "dealer_net": 2000,
-    "three_inst_ratio_change_20": -1.1362376681614348
+    "dealer_net": 6000,
+    "three_inst_ratio_change_20": -1.1562376681614348
   }
 ]

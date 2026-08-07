@@ -3028,13 +3028,27 @@
     "code": "1445",
     "name": "大宇",
     "market": "TWSE",
+    "foreign_ratio": 3.23,
+    "trust_ratio": 0.0,
+    "dealer_ratio": 0.02567691003769197,
+    "three_inst_ratio": 3.255676910037692,
+    "foreign_net": -48000,
+    "trust_net": 0,
+    "dealer_net": 0,
+    "three_inst_ratio_change_20": 0.17770407051613768
+  },
+  {
+    "date": "2026-08-07",
+    "code": "1445",
+    "name": "大宇",
+    "market": "TWSE",
     "foreign_ratio": 0.0,
     "trust_ratio": 0.0,
     "dealer_ratio": 0.0,
     "three_inst_ratio": 0.0,
-    "foreign_net": -48000,
+    "foreign_net": 6000,
     "trust_net": 0,
-    "dealer_net": 0,
-    "three_inst_ratio_change_20": -3.0779728395215544
+    "dealer_net": -6000,
+    "three_inst_ratio_change_20": -3.076442219865646
   }
 ]

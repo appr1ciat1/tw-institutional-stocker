@@ -872,13 +872,27 @@
     "code": "4195",
     "name": "基米-創",
     "market": "TWSE",
+    "foreign_ratio": 1.03,
+    "trust_ratio": 0.0,
+    "dealer_ratio": -0.9800993016792476,
+    "three_inst_ratio": 0.04990069832075239,
+    "foreign_net": 28000,
+    "trust_net": 0,
+    "dealer_net": 2000,
+    "three_inst_ratio_change_20": 0.07515510320198893
+  },
+  {
+    "date": "2026-08-07",
+    "code": "4195",
+    "name": "基米-創",
+    "market": "TWSE",
     "foreign_ratio": 0.0,
     "trust_ratio": 0.0,
     "dealer_ratio": 0.0,
     "three_inst_ratio": 0.0,
-    "foreign_net": 28000,
+    "foreign_net": -33000,
     "trust_net": 0,
-    "dealer_net": 2000,
-    "three_inst_ratio_change_20": 0.025254404881236536
+    "dealer_net": 5000,
+    "three_inst_ratio_change_20": 0.09648811837721571
   }
 ]

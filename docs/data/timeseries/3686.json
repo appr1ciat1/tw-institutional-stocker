@@ -3084,13 +3084,27 @@
     "code": "3686",
     "name": "達能",
     "market": "TWSE",
+    "foreign_ratio": 1.73,
+    "trust_ratio": 0.0,
+    "dealer_ratio": -0.01187134582889329,
+    "three_inst_ratio": 1.7181286541711067,
+    "foreign_net": -115000,
+    "trust_net": 0,
+    "dealer_net": 0,
+    "three_inst_ratio_change_20": -0.4513072729687142
+  },
+  {
+    "date": "2026-08-07",
+    "code": "3686",
+    "name": "達能",
+    "market": "TWSE",
     "foreign_ratio": 0.0,
     "trust_ratio": 0.0,
     "dealer_ratio": 0.0,
     "three_inst_ratio": 0.0,
-    "foreign_net": -115000,
+    "foreign_net": 7000,
     "trust_net": 0,
-    "dealer_net": 0,
-    "three_inst_ratio_change_20": -2.169435927139821
+    "dealer_net": -1000,
+    "three_inst_ratio_change_20": -2.1568213812023926
   }
 ]

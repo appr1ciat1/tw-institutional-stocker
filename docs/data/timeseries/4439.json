@@ -2944,13 +2944,27 @@
     "code": "4439",
     "name": "冠星-KY",
     "market": "TWSE",
+    "foreign_ratio": 61.45,
+    "trust_ratio": 0.0,
+    "dealer_ratio": -0.02711206260611599,
+    "three_inst_ratio": 61.42288793739389,
+    "foreign_net": -2000,
+    "trust_net": 0,
+    "dealer_net": 0,
+    "three_inst_ratio_change_20": 0.07163317156268789
+  },
+  {
+    "date": "2026-08-07",
+    "code": "4439",
+    "name": "冠星-KY",
+    "market": "TWSE",
     "foreign_ratio": 0.0,
     "trust_ratio": 0.0,
     "dealer_ratio": 0.0,
     "three_inst_ratio": 0.0,
-    "foreign_net": -2000,
+    "foreign_net": 0,
     "trust_net": 0,
-    "dealer_net": 0,
-    "three_inst_ratio_change_20": -61.3512547658312
+    "dealer_net": 2000,
+    "three_inst_ratio_change_20": -61.36338589176213
   }
 ]

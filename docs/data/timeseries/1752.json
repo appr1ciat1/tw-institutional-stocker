@@ -3028,13 +3028,27 @@
     "code": "1752",
     "name": "南光",
     "market": "TWSE",
+    "foreign_ratio": 1.45,
+    "trust_ratio": 0.0,
+    "dealer_ratio": 0.0002495334318950781,
+    "three_inst_ratio": 1.450249533431895,
+    "foreign_net": 2000,
+    "trust_net": 0,
+    "dealer_net": 0,
+    "three_inst_ratio_change_20": 0.04108809171803296
+  },
+  {
+    "date": "2026-08-07",
+    "code": "1752",
+    "name": "南光",
+    "market": "TWSE",
     "foreign_ratio": 0.0,
     "trust_ratio": 0.0,
     "dealer_ratio": 0.0,
     "three_inst_ratio": 0.0,
-    "foreign_net": 2000,
+    "foreign_net": 20000,
     "trust_net": 0,
-    "dealer_net": 0,
-    "three_inst_ratio_change_20": -1.409161441713862
+    "dealer_net": 7000,
+    "three_inst_ratio_change_20": -1.3801516537451919
   }
 ]

@@ -3028,13 +3028,27 @@
     "code": "3447",
     "name": "展達",
     "market": "TWSE",
+    "foreign_ratio": 1.65,
+    "trust_ratio": 0.0,
+    "dealer_ratio": 0.01983237511284828,
+    "three_inst_ratio": 1.669832375112848,
+    "foreign_net": -3000,
+    "trust_net": 0,
+    "dealer_net": 1000,
+    "three_inst_ratio_change_20": 1.0987088297452572
+  },
+  {
+    "date": "2026-08-07",
+    "code": "3447",
+    "name": "展達",
+    "market": "TWSE",
     "foreign_ratio": 0.0,
     "trust_ratio": 0.0,
     "dealer_ratio": 0.0,
     "three_inst_ratio": 0.0,
-    "foreign_net": -3000,
+    "foreign_net": -42000,
     "trust_net": 0,
-    "dealer_net": 1000,
-    "three_inst_ratio_change_20": -0.571123545367591
+    "dealer_net": -1000,
+    "three_inst_ratio_change_20": -0.5498323751128483
   }
 ]

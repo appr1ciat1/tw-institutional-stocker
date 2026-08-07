@@ -3084,13 +3084,27 @@
     "code": "2820",
     "name": "華票",
     "market": "TWSE",
+    "foreign_ratio": 9.89,
+    "trust_ratio": -0.006552689581223565,
+    "dealer_ratio": 0.018424599392386967,
+    "three_inst_ratio": 9.901871909811165,
+    "foreign_net": -169000,
+    "trust_net": 0,
+    "dealer_net": 24000,
+    "three_inst_ratio_change_20": -0.2549454190742839
+  },
+  {
+    "date": "2026-08-07",
+    "code": "2820",
+    "name": "華票",
+    "market": "TWSE",
     "foreign_ratio": 0.0,
     "trust_ratio": 0.0,
     "dealer_ratio": 0.0,
     "three_inst_ratio": 0.0,
-    "foreign_net": -169000,
+    "foreign_net": 203000,
     "trust_net": 0,
-    "dealer_net": 24000,
-    "three_inst_ratio_change_20": -10.156817328885449
+    "dealer_net": 178000,
+    "three_inst_ratio_change_20": -10.106519479359028
   }
 ]

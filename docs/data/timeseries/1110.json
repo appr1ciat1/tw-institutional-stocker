@@ -3084,13 +3084,27 @@
     "code": "1110",
     "name": "東泥",
     "market": "TWSE",
+    "foreign_ratio": 6.03,
+    "trust_ratio": 0.0,
+    "dealer_ratio": 0.012889142879987981,
+    "three_inst_ratio": 6.0428891428799885,
+    "foreign_net": -160000,
+    "trust_net": 0,
+    "dealer_net": -6000,
+    "three_inst_ratio_change_20": 0.13702797616906182
+  },
+  {
+    "date": "2026-08-07",
+    "code": "1110",
+    "name": "東泥",
+    "market": "TWSE",
     "foreign_ratio": 0.0,
     "trust_ratio": 0.0,
     "dealer_ratio": 0.0,
     "three_inst_ratio": 0.0,
-    "foreign_net": -160000,
+    "foreign_net": 65000,
     "trust_net": 0,
-    "dealer_net": -6000,
-    "three_inst_ratio_change_20": -5.905861166710927
+    "dealer_net": 3000,
+    "three_inst_ratio_change_20": -5.89621081657339
   }
 ]

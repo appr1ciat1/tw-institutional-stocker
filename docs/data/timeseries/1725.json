@@ -3070,13 +3070,27 @@
     "code": "1725",
     "name": "元禎",
     "market": "TWSE",
+    "foreign_ratio": 0.43,
+    "trust_ratio": 0.0,
+    "dealer_ratio": 0.024315022465657452,
+    "three_inst_ratio": 0.45431502246565747,
+    "foreign_net": 2000,
+    "trust_net": 0,
+    "dealer_net": -3000,
+    "three_inst_ratio_change_20": 0.012107462059969043
+  },
+  {
+    "date": "2026-08-07",
+    "code": "1725",
+    "name": "元禎",
+    "market": "TWSE",
     "foreign_ratio": 0.0,
     "trust_ratio": 0.0,
     "dealer_ratio": 0.0,
     "three_inst_ratio": 0.0,
-    "foreign_net": 2000,
+    "foreign_net": -1000,
     "trust_net": 0,
-    "dealer_net": -3000,
-    "three_inst_ratio_change_20": -0.4422075604056884
+    "dealer_net": 0,
+    "three_inst_ratio_change_20": -0.40220756040568845
   }
 ]

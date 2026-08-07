@@ -3028,13 +3028,27 @@
     "code": "6838",
     "name": "台新藥",
     "market": "TWSE",
+    "foreign_ratio": 1.58,
+    "trust_ratio": 0.0,
+    "dealer_ratio": 0.011150697688589858,
+    "three_inst_ratio": 1.5911506976885899,
+    "foreign_net": -62000,
+    "trust_net": 0,
+    "dealer_net": 1000,
+    "three_inst_ratio_change_20": 0.08132470421010862
+  },
+  {
+    "date": "2026-08-07",
+    "code": "6838",
+    "name": "台新藥",
+    "market": "TWSE",
     "foreign_ratio": 0.0,
     "trust_ratio": 0.0,
     "dealer_ratio": 0.0,
     "three_inst_ratio": 0.0,
-    "foreign_net": -62000,
+    "foreign_net": 1000,
     "trust_net": 0,
-    "dealer_net": 1000,
-    "three_inst_ratio_change_20": -1.5098259934784812
+    "dealer_net": 0,
+    "three_inst_ratio_change_20": -1.4998259934784812
   }
 ]

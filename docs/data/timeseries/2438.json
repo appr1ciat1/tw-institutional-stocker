@@ -3000,13 +3000,27 @@
     "code": "2438",
     "name": "翔耀",
     "market": "TWSE",
+    "foreign_ratio": 1.0,
+    "trust_ratio": 0.0,
+    "dealer_ratio": 0.004213741119347462,
+    "three_inst_ratio": 1.0042137411193475,
+    "foreign_net": 0,
+    "trust_net": 0,
+    "dealer_net": 1000,
+    "three_inst_ratio_change_20": 0.11297709813442092
+  },
+  {
+    "date": "2026-08-07",
+    "code": "2438",
+    "name": "翔耀",
+    "market": "TWSE",
     "foreign_ratio": 0.0,
     "trust_ratio": 0.0,
     "dealer_ratio": 0.0,
     "three_inst_ratio": 0.0,
-    "foreign_net": 0,
+    "foreign_net": -11000,
     "trust_net": 0,
-    "dealer_net": 1000,
-    "three_inst_ratio_change_20": -0.8912366429849266
+    "dealer_net": -1000,
+    "three_inst_ratio_change_20": -0.7998320626118107
   }
 ]
