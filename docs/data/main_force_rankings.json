@@ -1,7 +1,7 @@
 {
-  "updated": "2026-08-10T11:08:53.853122",
+  "updated": "2026-08-10T15:14:37.958874",
   "date": "2026-08-10",
-  "coverage": 210,
+  "coverage": 212,
   "note": "主力=每日前15大買超+前15大賣超分點合計(張)；僅涵蓋爬取清單(熱門股+法人榜活躍股)",
   "windows": {
     "3": [
@@ -66,6 +66,14 @@
         "name": "聯電",
         "market": "TWSE",
         "net_lots": 26949,
+        "n_brokers": 30,
+        "days": 1
+      },
+      {
+        "code": "0050",
+        "name": "元大台灣50",
+        "market": "TWSE",
+        "net_lots": 25620,
         "n_brokers": 30,
         "days": 1
       },
@@ -568,6 +576,14 @@
       {
         "code": "1216",
         "name": "統一",
+        "market": "TWSE",
+        "net_lots": 100,
+        "n_brokers": 30,
+        "days": 1
+      },
+      {
+        "code": "1802",
+        "name": "台玻",
         "market": "TWSE",
         "net_lots": 100,
         "n_brokers": 30,
@@ -1456,6 +1472,14 @@
         "days": 2
       },
       {
+        "code": "0050",
+        "name": "元大台灣50",
+        "market": "TWSE",
+        "net_lots": 25620,
+        "n_brokers": 30,
+        "days": 1
+      },
+      {
         "code": "2610",
         "name": "華航",
         "market": "TWSE",
@@ -2034,6 +2058,14 @@
       {
         "code": "1216",
         "name": "統一",
+        "market": "TWSE",
+        "net_lots": 100,
+        "n_brokers": 30,
+        "days": 1
+      },
+      {
+        "code": "1802",
+        "name": "台玻",
         "market": "TWSE",
         "net_lots": 100,
         "n_brokers": 30,
@@ -2906,6 +2938,14 @@
         "days": 1
       },
       {
+        "code": "0050",
+        "name": "元大台灣50",
+        "market": "TWSE",
+        "net_lots": 25620,
+        "n_brokers": 30,
+        "days": 1
+      },
+      {
         "code": "2324",
         "name": "仁寶",
         "market": "TWSE",
@@ -3460,6 +3500,14 @@
       {
         "code": "1216",
         "name": "統一",
+        "market": "TWSE",
+        "net_lots": 100,
+        "n_brokers": 30,
+        "days": 1
+      },
+      {
+        "code": "1802",
+        "name": "台玻",
         "market": "TWSE",
         "net_lots": 100,
         "n_brokers": 30,
@@ -4508,6 +4556,14 @@
         "days": 1
       },
       {
+        "code": "0050",
+        "name": "元大台灣50",
+        "market": "TWSE",
+        "net_lots": 25620,
+        "n_brokers": 30,
+        "days": 1
+      },
+      {
         "code": "6505",
         "name": "台塑化",
         "market": "TWSE",
@@ -5086,6 +5142,14 @@
       {
         "code": "1216",
         "name": "統一",
+        "market": "TWSE",
+        "net_lots": 100,
+        "n_brokers": 30,
+        "days": 1
+      },
+      {
+        "code": "1802",
+        "name": "台玻",
         "market": "TWSE",
         "net_lots": 100,
         "n_brokers": 30,
