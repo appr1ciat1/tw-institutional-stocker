@@ -1,5 +1,5 @@
 {
-  "updated": "2026-08-12T11:04:24.909465",
+  "updated": "2026-08-12T15:17:35.872129",
   "analysis_days": 60,
   "date_range": {
     "start": "2026-06-26T00:00:00",
@@ -176,16 +176,6 @@
         },
         {
           "rank": 7,
-          "stock_code": 2344.0,
-          "stock_name": "",
-          "total_net_vol": -40741,
-          "total_buy_vol": 175758,
-          "total_sell_vol": 216499,
-          "trading_days": 28,
-          "avg_net_vol": -1455.04
-        },
-        {
-          "rank": 8,
           "stock_code": 2834.0,
           "stock_name": "",
           "total_net_vol": -34829,
@@ -195,7 +185,7 @@
           "avg_net_vol": -2048.76
         },
         {
-          "rank": 9,
+          "rank": 8,
           "stock_code": 1802.0,
           "stock_name": "",
           "total_net_vol": -34398,
@@ -205,7 +195,7 @@
           "avg_net_vol": -2023.41
         },
         {
-          "rank": 10,
+          "rank": 9,
           "stock_code": 2801.0,
           "stock_name": "",
           "total_net_vol": -32576,
@@ -213,6 +203,16 @@
           "total_sell_vol": 82274,
           "trading_days": 29,
           "avg_net_vol": -1123.31
+        },
+        {
+          "rank": 10,
+          "stock_code": 2886.0,
+          "stock_name": "",
+          "total_net_vol": -32569,
+          "total_buy_vol": 52594,
+          "total_sell_vol": 85163,
+          "trading_days": 28,
+          "avg_net_vol": -1163.18
         }
       ]
     },
@@ -802,11 +802,11 @@
           "rank": 7,
           "stock_code": 2344.0,
           "stock_name": "",
-          "total_net_vol": -24825,
-          "total_buy_vol": 108129,
-          "total_sell_vol": 132954,
-          "trading_days": 26,
-          "avg_net_vol": -954.81
+          "total_net_vol": -24244,
+          "total_buy_vol": 105091,
+          "total_sell_vol": 129335,
+          "trading_days": 25,
+          "avg_net_vol": -969.76
         },
         {
           "rank": 8,
@@ -958,16 +958,6 @@
         },
         {
           "rank": 2,
-          "stock_code": 2344.0,
-          "stock_name": "",
-          "total_net_vol": -29701,
-          "total_buy_vol": 138281,
-          "total_sell_vol": 167982,
-          "trading_days": 26,
-          "avg_net_vol": -1142.35
-        },
-        {
-          "rank": 3,
           "stock_code": 6770.0,
           "stock_name": "",
           "total_net_vol": -28928,
@@ -977,7 +967,7 @@
           "avg_net_vol": -1071.41
         },
         {
-          "rank": 4,
+          "rank": 3,
           "stock_code": 1301.0,
           "stock_name": "",
           "total_net_vol": -28595,
@@ -987,7 +977,7 @@
           "avg_net_vol": -2042.5
         },
         {
-          "rank": 5,
+          "rank": 4,
           "stock_code": 1303.0,
           "stock_name": "",
           "total_net_vol": -24875,
@@ -995,6 +985,16 @@
           "total_sell_vol": 104926,
           "trading_days": 27,
           "avg_net_vol": -921.3
+        },
+        {
+          "rank": 5,
+          "stock_code": 2344.0,
+          "stock_name": "",
+          "total_net_vol": -23716,
+          "total_buy_vol": 131409,
+          "total_sell_vol": 155125,
+          "trading_days": 25,
+          "avg_net_vol": -948.64
         },
         {
           "rank": 6,
@@ -1262,6 +1262,16 @@
       "top_buy_stocks": [
         {
           "rank": 1,
+          "stock_code": 2344.0,
+          "stock_name": "",
+          "total_net_vol": 42263,
+          "total_buy_vol": 104709,
+          "total_sell_vol": 62446,
+          "trading_days": 27,
+          "avg_net_vol": 1565.3
+        },
+        {
+          "rank": 2,
           "stock_code": 2884.0,
           "stock_name": "",
           "total_net_vol": 40973,
@@ -1269,16 +1279,6 @@
           "total_sell_vol": 32177,
           "trading_days": 28,
           "avg_net_vol": 1463.32
-        },
-        {
-          "rank": 2,
-          "stock_code": 2344.0,
-          "stock_name": "",
-          "total_net_vol": 37948,
-          "total_buy_vol": 106477,
-          "total_sell_vol": 68529,
-          "trading_days": 28,
-          "avg_net_vol": 1355.29
         },
         {
           "rank": 3,
@@ -2342,16 +2342,6 @@
         },
         {
           "rank": 5,
-          "stock_code": 2344.0,
-          "stock_name": "",
-          "total_net_vol": 6226,
-          "total_buy_vol": 102405,
-          "total_sell_vol": 96179,
-          "trading_days": 25,
-          "avg_net_vol": 249.04
-        },
-        {
-          "rank": 6,
           "stock_code": 2337.0,
           "stock_name": "",
           "total_net_vol": 4727,
@@ -2359,6 +2349,16 @@
           "total_sell_vol": 52710,
           "trading_days": 25,
           "avg_net_vol": 189.08
+        },
+        {
+          "rank": 6,
+          "stock_code": 2344.0,
+          "stock_name": "",
+          "total_net_vol": 4604,
+          "total_buy_vol": 93972,
+          "total_sell_vol": 89368,
+          "trading_days": 24,
+          "avg_net_vol": 191.83
         },
         {
           "rank": 7,
@@ -2682,16 +2682,6 @@
         },
         {
           "rank": 8,
-          "stock_code": 2344.0,
-          "stock_name": "",
-          "total_net_vol": -18631,
-          "total_buy_vol": 11222,
-          "total_sell_vol": 29853,
-          "trading_days": 16,
-          "avg_net_vol": -1164.44
-        },
-        {
-          "rank": 9,
           "stock_code": 1402.0,
           "stock_name": "",
           "total_net_vol": -17987,
@@ -2699,6 +2689,16 @@
           "total_sell_vol": 20728,
           "trading_days": 14,
           "avg_net_vol": -1284.79
+        },
+        {
+          "rank": 9,
+          "stock_code": 2344.0,
+          "stock_name": "",
+          "total_net_vol": -17524,
+          "total_buy_vol": 11158,
+          "total_sell_vol": 28682,
+          "trading_days": 15,
+          "avg_net_vol": -1168.27
         },
         {
           "rank": 10,
@@ -2850,16 +2850,6 @@
         },
         {
           "rank": 4,
-          "stock_code": 2344.0,
-          "stock_name": "",
-          "total_net_vol": -19887,
-          "total_buy_vol": 27503,
-          "total_sell_vol": 47390,
-          "trading_days": 21,
-          "avg_net_vol": -947.0
-        },
-        {
-          "rank": 5,
           "stock_code": 2891.0,
           "stock_name": "",
           "total_net_vol": -19066,
@@ -2867,6 +2857,16 @@
           "total_sell_vol": 27192,
           "trading_days": 16,
           "avg_net_vol": -1191.62
+        },
+        {
+          "rank": 5,
+          "stock_code": 2344.0,
+          "stock_name": "",
+          "total_net_vol": -15828,
+          "total_buy_vol": 26659,
+          "total_sell_vol": 42487,
+          "trading_days": 20,
+          "avg_net_vol": -791.4
         },
         {
           "rank": 6,
@@ -3050,11 +3050,11 @@
           "rank": 3,
           "stock_code": 2344.0,
           "stock_name": "",
-          "total_net_vol": -17533,
-          "total_buy_vol": 5996,
-          "total_sell_vol": 23529,
-          "trading_days": 15,
-          "avg_net_vol": -1168.87
+          "total_net_vol": -16924,
+          "total_buy_vol": 5969,
+          "total_sell_vol": 22893,
+          "trading_days": 14,
+          "avg_net_vol": -1208.86
         },
         {
           "rank": 4,
@@ -3316,16 +3316,6 @@
         },
         {
           "rank": 9,
-          "stock_code": 2344.0,
-          "stock_name": "",
-          "total_net_vol": -8817,
-          "total_buy_vol": 10047,
-          "total_sell_vol": 18864,
-          "trading_days": 14,
-          "avg_net_vol": -629.79
-        },
-        {
-          "rank": 10,
           "stock_code": 2890.0,
           "stock_name": "",
           "total_net_vol": -8613,
@@ -3333,6 +3323,16 @@
           "total_sell_vol": 12999,
           "trading_days": 14,
           "avg_net_vol": -615.21
+        },
+        {
+          "rank": 10,
+          "stock_code": 2353.0,
+          "stock_name": "",
+          "total_net_vol": -7997,
+          "total_buy_vol": 7449,
+          "total_sell_vol": 15446,
+          "trading_days": 12,
+          "avg_net_vol": -666.42
         }
       ]
     },
@@ -3734,11 +3734,11 @@
           "rank": 9,
           "stock_code": 2344.0,
           "stock_name": "",
-          "total_net_vol": -7566,
-          "total_buy_vol": 9143,
-          "total_sell_vol": 16709,
-          "trading_days": 11,
-          "avg_net_vol": -687.82
+          "total_net_vol": -8018,
+          "total_buy_vol": 7697,
+          "total_sell_vol": 15715,
+          "trading_days": 10,
+          "avg_net_vol": -801.8
         },
         {
           "rank": 10,
@@ -5432,16 +5432,6 @@
         },
         {
           "rank": 2,
-          "stock_code": 2344.0,
-          "stock_name": "",
-          "total_net_vol": 5536,
-          "total_buy_vol": 17644,
-          "total_sell_vol": 12108,
-          "trading_days": 10,
-          "avg_net_vol": 553.6
-        },
-        {
-          "rank": 3,
           "stock_code": 2880.0,
           "stock_name": "",
           "total_net_vol": 4776,
@@ -5451,7 +5441,7 @@
           "avg_net_vol": 1592.0
         },
         {
-          "rank": 4,
+          "rank": 3,
           "stock_code": 2891.0,
           "stock_name": "",
           "total_net_vol": 3622,
@@ -5461,7 +5451,7 @@
           "avg_net_vol": 329.27
         },
         {
-          "rank": 5,
+          "rank": 4,
           "stock_code": 2884.0,
           "stock_name": "",
           "total_net_vol": 3466,
@@ -5471,7 +5461,7 @@
           "avg_net_vol": 182.42
         },
         {
-          "rank": 6,
+          "rank": 5,
           "stock_code": 1303.0,
           "stock_name": "",
           "total_net_vol": 2757,
@@ -5481,7 +5471,7 @@
           "avg_net_vol": 459.5
         },
         {
-          "rank": 7,
+          "rank": 6,
           "stock_code": 2886.0,
           "stock_name": "",
           "total_net_vol": 2350,
@@ -5491,7 +5481,7 @@
           "avg_net_vol": 470.0
         },
         {
-          "rank": 8,
+          "rank": 7,
           "stock_code": 2812.0,
           "stock_name": "",
           "total_net_vol": 2139,
@@ -5501,7 +5491,7 @@
           "avg_net_vol": 534.75
         },
         {
-          "rank": 9,
+          "rank": 8,
           "stock_code": 52.0,
           "stock_name": "",
           "total_net_vol": 1745,
@@ -5511,7 +5501,7 @@
           "avg_net_vol": 145.42
         },
         {
-          "rank": 10,
+          "rank": 9,
           "stock_code": 2542.0,
           "stock_name": "",
           "total_net_vol": 1730,
@@ -5519,6 +5509,16 @@
           "total_sell_vol": 20,
           "trading_days": 7,
           "avg_net_vol": 247.14
+        },
+        {
+          "rank": 10,
+          "stock_code": 1102.0,
+          "stock_name": "",
+          "total_net_vol": 1517,
+          "total_buy_vol": 2822,
+          "total_sell_vol": 1305,
+          "trading_days": 8,
+          "avg_net_vol": 189.62
         }
       ],
       "top_sell_stocks": [
@@ -5868,16 +5868,6 @@
         },
         {
           "rank": 4,
-          "stock_code": 2344.0,
-          "stock_name": "",
-          "total_net_vol": 2254,
-          "total_buy_vol": 16503,
-          "total_sell_vol": 14249,
-          "trading_days": 8,
-          "avg_net_vol": 281.75
-        },
-        {
-          "rank": 5,
           "stock_code": 1314.0,
           "stock_name": "",
           "total_net_vol": 2179,
@@ -5887,7 +5877,7 @@
           "avg_net_vol": 272.38
         },
         {
-          "rank": 6,
+          "rank": 5,
           "stock_code": 2303.0,
           "stock_name": "",
           "total_net_vol": 1756,
@@ -5895,6 +5885,16 @@
           "total_sell_vol": 4910,
           "trading_days": 6,
           "avg_net_vol": 292.67
+        },
+        {
+          "rank": 6,
+          "stock_code": 2344.0,
+          "stock_name": "",
+          "total_net_vol": 1574,
+          "total_buy_vol": 15452,
+          "total_sell_vol": 13878,
+          "trading_days": 7,
+          "avg_net_vol": 224.86
         },
         {
           "rank": 7,
