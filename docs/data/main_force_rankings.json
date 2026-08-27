@@ -1,7 +1,7 @@
 {
-  "updated": "2026-08-27T20:12:54.400393",
+  "updated": "2026-08-27T23:50:56.701606",
   "date": "2026-08-27",
-  "coverage": 295,
+  "coverage": 296,
   "note": "主力=每日前15大買超+前15大賣超分點合計(張)；僅涵蓋爬取清單(熱門股+法人榜活躍股)",
   "windows": {
     "3": [
@@ -810,6 +810,14 @@
         "name": "華南金",
         "market": "TWSE",
         "net_lots": -140,
+        "n_brokers": 30,
+        "days": 1
+      },
+      {
+        "code": "1785",
+        "name": "光洋科",
+        "market": "TPEX",
+        "net_lots": -160,
         "n_brokers": 30,
         "days": 1
       },
@@ -2276,6 +2284,14 @@
         "name": "華南金",
         "market": "TWSE",
         "net_lots": -140,
+        "n_brokers": 30,
+        "days": 1
+      },
+      {
+        "code": "1785",
+        "name": "光洋科",
+        "market": "TPEX",
+        "net_lots": -160,
         "n_brokers": 30,
         "days": 1
       },
@@ -4014,6 +4030,14 @@
         "name": "臺慶科",
         "market": "TPEX",
         "net_lots": -148,
+        "n_brokers": 30,
+        "days": 1
+      },
+      {
+        "code": "1785",
+        "name": "光洋科",
+        "market": "TPEX",
+        "net_lots": -160,
         "n_brokers": 30,
         "days": 1
       },
@@ -6128,6 +6152,14 @@
         "name": "臺慶科",
         "market": "TPEX",
         "net_lots": -148,
+        "n_brokers": 30,
+        "days": 1
+      },
+      {
+        "code": "1785",
+        "name": "光洋科",
+        "market": "TPEX",
+        "net_lots": -160,
         "n_brokers": 30,
         "days": 1
       },
