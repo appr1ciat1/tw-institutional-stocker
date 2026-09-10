@@ -1,7 +1,7 @@
 {
-  "updated": "2026-09-10T14:06:41.460323",
+  "updated": "2026-09-10T17:46:26.567633",
   "date": "2026-09-10",
-  "coverage": 302,
+  "coverage": 303,
   "note": "主力=每日前15大買超+前15大賣超分點合計(張)；僅涵蓋爬取清單(熱門股+法人榜活躍股)",
   "windows": {
     "3": [
@@ -1378,6 +1378,14 @@
         "name": "興富發",
         "market": "TWSE",
         "net_lots": -6013,
+        "n_brokers": 30,
+        "days": 1
+      },
+      {
+        "code": "2344",
+        "name": "華邦電",
+        "market": "TWSE",
+        "net_lots": -6052,
         "n_brokers": 30,
         "days": 1
       },
@@ -2992,6 +3000,14 @@
         "days": 1
       },
       {
+        "code": "2344",
+        "name": "華邦電",
+        "market": "TWSE",
+        "net_lots": -6052,
+        "n_brokers": 30,
+        "days": 1
+      },
+      {
         "code": "2324",
         "name": "仁寶",
         "market": "TWSE",
@@ -4534,6 +4550,14 @@
         "name": "興富發",
         "market": "TWSE",
         "net_lots": -6013,
+        "n_brokers": 30,
+        "days": 1
+      },
+      {
+        "code": "2344",
+        "name": "華邦電",
+        "market": "TWSE",
+        "net_lots": -6052,
         "n_brokers": 30,
         "days": 1
       },
@@ -6688,6 +6712,14 @@
         "name": "興富發",
         "market": "TWSE",
         "net_lots": -6013,
+        "n_brokers": 30,
+        "days": 1
+      },
+      {
+        "code": "2344",
+        "name": "華邦電",
+        "market": "TWSE",
+        "net_lots": -6052,
         "n_brokers": 30,
         "days": 1
       },
