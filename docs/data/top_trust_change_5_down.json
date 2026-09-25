@@ -650,16 +650,6 @@
     "date": "2026-09-24"
   },
   {
-    "code": "3227",
-    "name": "原相",
-    "market": "TPEX",
-    "net_shares": -274000,
-    "net_lots": -274,
-    "pct_cap": -0.1804,
-    "change": -0.1804,
-    "date": "2026-09-24"
-  },
-  {
     "code": "6182",
     "name": "合晶",
     "market": "TPEX",
@@ -667,6 +657,16 @@
     "net_lots": -274,
     "pct_cap": -0.0462,
     "change": -0.0462,
+    "date": "2026-09-24"
+  },
+  {
+    "code": "3227",
+    "name": "原相",
+    "market": "TPEX",
+    "net_shares": -274000,
+    "net_lots": -274,
+    "pct_cap": -0.1804,
+    "change": -0.1804,
     "date": "2026-09-24"
   },
   {
@@ -1170,16 +1170,6 @@
     "date": "2026-09-24"
   },
   {
-    "code": "3265",
-    "name": "台星科",
-    "market": "TPEX",
-    "net_shares": -24000,
-    "net_lots": -24,
-    "pct_cap": -0.0176,
-    "change": -0.0176,
-    "date": "2026-09-24"
-  },
-  {
     "code": "6548",
     "name": "長科*",
     "market": "TPEX",
@@ -1187,6 +1177,16 @@
     "net_lots": -24,
     "pct_cap": -0.0025,
     "change": -0.0025,
+    "date": "2026-09-24"
+  },
+  {
+    "code": "3265",
+    "name": "台星科",
+    "market": "TPEX",
+    "net_shares": -24000,
+    "net_lots": -24,
+    "pct_cap": -0.0176,
+    "change": -0.0176,
     "date": "2026-09-24"
   },
   {
@@ -1600,26 +1600,6 @@
     "date": "2026-09-24"
   },
   {
-    "code": "2467",
-    "name": "志聖",
-    "market": "TWSE",
-    "net_shares": -1000,
-    "net_lots": -1,
-    "pct_cap": -0.0006,
-    "change": -0.0006,
-    "date": "2026-09-24"
-  },
-  {
-    "code": "8131",
-    "name": "福懋科",
-    "market": "TWSE",
-    "net_shares": -1000,
-    "net_lots": -1,
-    "pct_cap": -0.0002,
-    "change": -0.0002,
-    "date": "2026-09-24"
-  },
-  {
     "code": "8114",
     "name": "振樺電",
     "market": "TWSE",
@@ -1630,13 +1610,23 @@
     "date": "2026-09-24"
   },
   {
-    "code": "3010",
-    "name": "華立",
+    "code": "2467",
+    "name": "志聖",
     "market": "TWSE",
     "net_shares": -1000,
     "net_lots": -1,
-    "pct_cap": -0.0004,
-    "change": -0.0004,
+    "pct_cap": -0.0006,
+    "change": -0.0006,
+    "date": "2026-09-24"
+  },
+  {
+    "code": "2645",
+    "name": "長榮航太",
+    "market": "TWSE",
+    "net_shares": -1000,
+    "net_lots": -1,
+    "pct_cap": -0.0003,
+    "change": -0.0003,
     "date": "2026-09-24"
   },
   {
@@ -1650,13 +1640,23 @@
     "date": "2026-09-24"
   },
   {
-    "code": "2645",
-    "name": "長榮航太",
+    "code": "8131",
+    "name": "福懋科",
     "market": "TWSE",
     "net_shares": -1000,
     "net_lots": -1,
-    "pct_cap": -0.0003,
-    "change": -0.0003,
+    "pct_cap": -0.0002,
+    "change": -0.0002,
+    "date": "2026-09-24"
+  },
+  {
+    "code": "3010",
+    "name": "華立",
+    "market": "TWSE",
+    "net_shares": -1000,
+    "net_lots": -1,
+    "pct_cap": -0.0004,
+    "change": -0.0004,
     "date": "2026-09-24"
   },
   {
@@ -1690,8 +1690,8 @@
     "date": "2026-09-24"
   },
   {
-    "code": "3135",
-    "name": "凌航",
+    "code": "6449",
+    "name": "鈺邦",
     "market": "TWSE",
     "net_shares": 7,
     "net_lots": 0,
@@ -1700,8 +1700,8 @@
     "date": "2026-09-24"
   },
   {
-    "code": "6449",
-    "name": "鈺邦",
+    "code": "3135",
+    "name": "凌航",
     "market": "TWSE",
     "net_shares": 7,
     "net_lots": 0,
@@ -1730,8 +1730,8 @@
     "date": "2026-09-24"
   },
   {
-    "code": "4977",
-    "name": "眾達-KY",
+    "code": "6937",
+    "name": "天虹",
     "market": "TWSE",
     "net_shares": 15,
     "net_lots": 0,
@@ -1740,8 +1740,8 @@
     "date": "2026-09-24"
   },
   {
-    "code": "6937",
-    "name": "天虹",
+    "code": "4977",
+    "name": "眾達-KY",
     "market": "TWSE",
     "net_shares": 15,
     "net_lots": 0,
@@ -1870,13 +1870,13 @@
     "date": "2026-09-24"
   },
   {
-    "code": "2597",
-    "name": "潤弘",
+    "code": "9933",
+    "name": "中鼎",
     "market": "TWSE",
     "net_shares": 2000,
     "net_lots": 2,
-    "pct_cap": 0.0006,
-    "change": 0.0006,
+    "pct_cap": 0.0002,
+    "change": 0.0002,
     "date": "2026-09-24"
   },
   {
@@ -1890,16 +1890,6 @@
     "date": "2026-09-24"
   },
   {
-    "code": "9933",
-    "name": "中鼎",
-    "market": "TWSE",
-    "net_shares": 2000,
-    "net_lots": 2,
-    "pct_cap": 0.0002,
-    "change": 0.0002,
-    "date": "2026-09-24"
-  },
-  {
     "code": "1773",
     "name": "勝一",
     "market": "TWSE",
@@ -1910,16 +1900,6 @@
     "date": "2026-09-24"
   },
   {
-    "code": "6664",
-    "name": "群翊",
-    "market": "TPEX",
-    "net_shares": 2000,
-    "net_lots": 2,
-    "pct_cap": 0.0033,
-    "change": 0.0033,
-    "date": "2026-09-24"
-  },
-  {
     "code": "3714",
     "name": "富采",
     "market": "TWSE",
@@ -1927,6 +1907,26 @@
     "net_lots": 2,
     "pct_cap": 0.0003,
     "change": 0.0003,
+    "date": "2026-09-24"
+  },
+  {
+    "code": "2597",
+    "name": "潤弘",
+    "market": "TWSE",
+    "net_shares": 2000,
+    "net_lots": 2,
+    "pct_cap": 0.0006,
+    "change": 0.0006,
+    "date": "2026-09-24"
+  },
+  {
+    "code": "6664",
+    "name": "群翊",
+    "market": "TPEX",
+    "net_shares": 2000,
+    "net_lots": 2,
+    "pct_cap": 0.0033,
+    "change": 0.0033,
     "date": "2026-09-24"
   },
   {
@@ -1970,16 +1970,6 @@
     "date": "2026-09-24"
   },
   {
-    "code": "1785",
-    "name": "光洋科",
-    "market": "TPEX",
-    "net_shares": 3000,
-    "net_lots": 3,
-    "pct_cap": 0.0005,
-    "change": 0.0005,
-    "date": "2026-09-24"
-  },
-  {
     "code": "6919",
     "name": "康霈*",
     "market": "TWSE",
@@ -1990,8 +1980,18 @@
     "date": "2026-09-24"
   },
   {
-    "code": "1434",
-    "name": "福懋",
+    "code": "1785",
+    "name": "光洋科",
+    "market": "TPEX",
+    "net_shares": 3000,
+    "net_lots": 3,
+    "pct_cap": 0.0005,
+    "change": 0.0005,
+    "date": "2026-09-24"
+  },
+  {
+    "code": "1409",
+    "name": "新纖",
     "market": "TWSE",
     "net_shares": 4000,
     "net_lots": 4,
