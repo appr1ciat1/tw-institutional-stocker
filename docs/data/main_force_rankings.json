@@ -1,7 +1,7 @@
 {
-  "updated": "2026-10-05T19:08:24.215282",
+  "updated": "2026-10-05T21:37:10.941858",
   "date": "2026-10-05",
-  "coverage": 289,
+  "coverage": 291,
   "note": "主力=每日前15大買超+前15大賣超分點合計(張)；僅涵蓋爬取清單(熱門股+法人榜活躍股)",
   "windows": {
     "3": [
@@ -310,14 +310,6 @@
         "days": 1
       },
       {
-        "code": "3711",
-        "name": "日月光投控",
-        "market": "TWSE",
-        "net_lots": 2464,
-        "n_brokers": 30,
-        "days": 1
-      },
-      {
         "code": "2883",
         "name": "凱基金",
         "market": "TWSE",
@@ -506,6 +498,14 @@
         "name": "台塑",
         "market": "TWSE",
         "net_lots": 433,
+        "n_brokers": 30,
+        "days": 1
+      },
+      {
+        "code": "5876",
+        "name": "上海商銀",
+        "market": "TWSE",
+        "net_lots": 300,
         "n_brokers": 30,
         "days": 1
       },
@@ -1094,6 +1094,14 @@
         "days": 1
       },
       {
+        "code": "2801",
+        "name": "彰銀",
+        "market": "TWSE",
+        "net_lots": -4180,
+        "n_brokers": 30,
+        "days": 1
+      },
+      {
         "code": "2812",
         "name": "台中銀",
         "market": "TWSE",
@@ -1266,6 +1274,14 @@
         "name": "臺企銀",
         "market": "TWSE",
         "net_lots": -10492,
+        "n_brokers": 30,
+        "days": 1
+      },
+      {
+        "code": "2812",
+        "name": "台中銀",
+        "market": "TWSE",
+        "net_lots": -12890,
         "n_brokers": 30,
         "days": 1
       },
@@ -1752,14 +1768,6 @@
         "days": 4
       },
       {
-        "code": "3711",
-        "name": "日月光投控",
-        "market": "TWSE",
-        "net_lots": 2464,
-        "n_brokers": 30,
-        "days": 1
-      },
-      {
         "code": "2883",
         "name": "凱基金",
         "market": "TWSE",
@@ -1942,6 +1950,14 @@
         "net_lots": 357,
         "n_brokers": 72,
         "days": 4
+      },
+      {
+        "code": "5876",
+        "name": "上海商銀",
+        "market": "TWSE",
+        "net_lots": 300,
+        "n_brokers": 30,
+        "days": 1
       },
       {
         "code": "2603",
@@ -2520,6 +2536,14 @@
         "days": 4
       },
       {
+        "code": "2801",
+        "name": "彰銀",
+        "market": "TWSE",
+        "net_lots": -4180,
+        "n_brokers": 30,
+        "days": 1
+      },
+      {
         "code": "8112",
         "name": "至上",
         "market": "TWSE",
@@ -2718,6 +2742,14 @@
         "net_lots": -12832,
         "n_brokers": 81,
         "days": 4
+      },
+      {
+        "code": "2812",
+        "name": "台中銀",
+        "market": "TWSE",
+        "net_lots": -12890,
+        "n_brokers": 30,
+        "days": 1
       },
       {
         "code": "2845",
@@ -3242,14 +3274,6 @@
         "days": 4
       },
       {
-        "code": "3711",
-        "name": "日月光投控",
-        "market": "TWSE",
-        "net_lots": 2464,
-        "n_brokers": 30,
-        "days": 1
-      },
-      {
         "code": "5876",
         "name": "上海商銀",
         "market": "TWSE",
@@ -3406,6 +3430,14 @@
         "name": "台塑",
         "market": "TWSE",
         "net_lots": 433,
+        "n_brokers": 30,
+        "days": 1
+      },
+      {
+        "code": "5876",
+        "name": "上海商銀",
+        "market": "TWSE",
+        "net_lots": 300,
         "n_brokers": 30,
         "days": 1
       },
@@ -3970,6 +4002,14 @@
         "days": 8
       },
       {
+        "code": "2801",
+        "name": "彰銀",
+        "market": "TWSE",
+        "net_lots": -4180,
+        "n_brokers": 30,
+        "days": 1
+      },
+      {
         "code": "2345",
         "name": "智邦",
         "market": "TWSE",
@@ -4192,6 +4232,14 @@
         "net_lots": -11407,
         "n_brokers": 101,
         "days": 9
+      },
+      {
+        "code": "2812",
+        "name": "台中銀",
+        "market": "TWSE",
+        "net_lots": -12890,
+        "n_brokers": 30,
+        "days": 1
       },
       {
         "code": "3481",
@@ -4892,14 +4940,6 @@
         "days": 1
       },
       {
-        "code": "3711",
-        "name": "日月光投控",
-        "market": "TWSE",
-        "net_lots": 2464,
-        "n_brokers": 30,
-        "days": 1
-      },
-      {
         "code": "2883",
         "name": "凱基金",
         "market": "TWSE",
@@ -5128,6 +5168,14 @@
         "name": "金居",
         "market": "TPEX",
         "net_lots": 403,
+        "n_brokers": 30,
+        "days": 1
+      },
+      {
+        "code": "5876",
+        "name": "上海商銀",
+        "market": "TWSE",
+        "net_lots": 300,
         "n_brokers": 30,
         "days": 1
       },
@@ -5684,6 +5732,14 @@
         "days": 18
       },
       {
+        "code": "2801",
+        "name": "彰銀",
+        "market": "TWSE",
+        "net_lots": -4180,
+        "n_brokers": 30,
+        "days": 1
+      },
+      {
         "code": "3374",
         "name": "精材",
         "market": "TPEX",
@@ -5970,6 +6026,14 @@
         "net_lots": -12671,
         "n_brokers": 198,
         "days": 18
+      },
+      {
+        "code": "2812",
+        "name": "台中銀",
+        "market": "TWSE",
+        "net_lots": -12890,
+        "n_brokers": 30,
+        "days": 1
       },
       {
         "code": "5351",
