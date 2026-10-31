@@ -460,7 +460,8 @@ def export_main_force_rankings(history_df: pd.DataFrame, output_path: str):
           f"{len(dates)} days) to {output_path}")
 
 
-def build_broker_history(new_trades: pd.DataFrame, history_path: str) -> pd.DataFrame:
+def build_broker_history(new_trades: pd.DataFrame, history_path: str,
+                         trade_date: Optional[str] = None) -> pd.DataFrame:
     """
     累積券商歷史交易數據
     
@@ -472,7 +473,7 @@ def build_broker_history(new_trades: pd.DataFrame, history_path: str) -> pd.Data
         合併後的歷史數據
     """
     # 以「成交日」標記（最近一個官方已公布交易日），非爬取日
-    trade_date = get_latest_trade_date()
+    trade_date = trade_date or get_latest_trade_date()
     new_trades = new_trades.copy()
     new_trades["full_date"] = trade_date
 
@@ -554,6 +555,75 @@ def export_broker_trends(history_df: pd.DataFrame, output_path: str):
 
 
 
+def find_missing_broker_dates(history_dates: list[str], official: list[str],
+                              max_days: int, not_before: str = "") -> list[str]:
+    """分點歷史範圍內、官方有交易但分點缺資料的日子（舊到新，最多取最新 max_days 天）。
+
+    not_before：保留期限（build_broker_history 只留 60 天），更早的補了也會被立刻刪掉。
+    """
+    have = set(str(d) for d in history_dates)
+    if not have:
+        return []
+    lo, hi = max(min(have), not_before), max(have)
+    missing = sorted((d for d in official if lo <= d < hi and d not in have), reverse=True)
+    return sorted(missing[:max_days])
+
+
+def backfill_missing_days(history_path: str, stock_codes: list[str], delay: float,
+                          max_days: int, ref_stocks: int, min_coverage: float = 0.8,
+                          max_consecutive_empty: int = 20) -> list[str]:
+    """回補分點歷史的斷層（例如 workflow 被停用的日子）。回傳成功補上的日期。
+
+    分點來源可用「自設區間」查指定成交日，頁面日期對不上就視為無資料。
+    當天抓到的股票數未達今日的 min_coverage，整天不寫入，下次執行再補，
+    避免寫進殘缺的一天後被當成「已有資料」而永遠不再重抓。
+    """
+    from fetch_broker_data import fetch_broker_trading, close_browser
+
+    if max_days <= 0 or not os.path.exists(history_path):
+        return []
+    hist_dates = pd.read_csv(history_path, usecols=["full_date"])["full_date"].astype(str).unique()
+    keep_from = (datetime.now() - timedelta(days=59)).strftime("%Y-%m-%d")
+    todo = find_missing_broker_dates(list(hist_dates), _official_trade_dates(), max_days,
+                                     not_before=keep_from)
+    if not todo:
+        print("[BACKFILL] 分點歷史沒有斷層")
+        return []
+    print(f"[BACKFILL] 分點歷史缺 {len(todo)} 天：{', '.join(todo)}")
+
+    need = max(1, int(ref_stocks * min_coverage))
+    done = []
+    try:
+        for d in todo:
+            frames, empty_run = [], 0
+            for i, code in enumerate(stock_codes, 1):
+                try:
+                    df = fetch_broker_trading(code, on_date=d)
+                except Exception as e:  # noqa: BLE001
+                    print(f"  [{d}] {code} error: {e}")
+                    df = pd.DataFrame()
+                if df.empty:
+                    empty_run += 1
+                    if empty_run >= max_consecutive_empty:
+                        print(f"  [{d}] 連續 {empty_run} 檔無資料，停止這一天")
+                        break
+                else:
+                    empty_run = 0
+                    frames.append(df)
+                if i < len(stock_codes):
+                    time.sleep(delay)
+            got = sum(f["stock_code"].nunique() for f in frames)
+            if got < need:
+                print(f"  [{d}] 只抓到 {got} 檔（需要 ≥ {need}），不寫入，下次再補")
+                continue
+            build_broker_history(pd.concat(frames, ignore_index=True), history_path, trade_date=d)
+            done.append(d)
+            print(f"  [{d}] 補上 {got} 檔")
+    finally:
+        close_browser()
+    return done
+
+
 def main():
     """主程式"""
     parser = argparse.ArgumentParser(description="更新券商分點交易數據")
@@ -563,6 +633,8 @@ def main():
     parser.add_argument("--top50", action="store_true", help="抓取前 50 支熱門股")
     parser.add_argument("--top100", action="store_true", help="抓取前 100 支熱門股")
     parser.add_argument("--delay", type=float, default=1.5, help="每次請求間隔秒數（預設 1.5）")
+    parser.add_argument("--backfill-days", type=int, default=12,
+                        help="自動回補分點歷史斷層的最多天數（0 = 不回補）")
     args = parser.parse_args()
     
     print("=" * 60)
@@ -629,6 +701,13 @@ def main():
     # 4.4 累積歷史數據並生成趨勢圖數據
     history_path = os.path.join(BROKER_DATA_DIR, "broker_history.csv")
     history_df = build_broker_history(all_trades, history_path)
+
+    # 4.4b 回補斷層（例如 2026-10-15~10-30 workflow 被 GitHub 停用）
+    filled = backfill_missing_days(history_path, stock_codes, delay=args.delay,
+                                   max_days=args.backfill_days,
+                                   ref_stocks=int(all_trades["stock_code"].nunique()))
+    if filled:
+        history_df = pd.read_csv(history_path)
     print(f"Broker history: {len(history_df)} records from {history_df['full_date'].nunique()} days")
     
     # 4.5 匯出券商趨勢數據

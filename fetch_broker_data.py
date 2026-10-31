@@ -28,6 +28,17 @@ except ImportError:
 BASE_URL = "https://fubon-ebrokerdj.fbs.com.tw"
 BROKER_TRADING_URL = BASE_URL + "/z/zc/zco/zco_{code}.djhtm"
 BROKER_HISTORY_URL = BASE_URL + "/z/zc/zco/zco0/zco0.djhtm?a={code}&b={broker_id}"
+# 指定單一成交日（頁面上的「自設區間」）。起訖同一天 = 該日的分點進出。
+BROKER_TRADING_ON_DATE_URL = BASE_URL + "/z/zc/zco/zco.djhtm?a={code}&e={d}&f={d}"
+
+
+def _page_shows_date(html: str, on_date: str) -> bool:
+    """頁面「最後更新日」必須等於查詢日（YYYY/MM/DD）。
+
+    休市日或查無資料時，網站回傳空表，且最後更新日顯示今天（如 "10/31"，無年份）。
+    這時必須當作無資料，不可把空表或別天的資料標成查詢日。
+    """
+    return ("最後更新日：" + on_date.replace("-", "/")) in html
 
 # Browser singleton
 _browser: Optional["Browser"] = None
@@ -88,13 +99,15 @@ def _parse_percent(text: str) -> float:
         return 0.0
 
 
-def fetch_broker_trading(stock_code: str, target_date: Optional[str] = None) -> pd.DataFrame:
+def fetch_broker_trading(stock_code: str, target_date: Optional[str] = None,
+                         on_date: Optional[str] = None) -> pd.DataFrame:
     """
     Fetch broker branch trading data for a specific stock.
     
     Args:
         stock_code: Stock code (e.g., "2330" for TSMC)
         target_date: Target date in "MM/DD" format (e.g., "12/12"), None for latest
+        on_date: 指定成交日 "YYYY-MM-DD"（回補用）。頁面日期對不上時回傳空 DataFrame。
     
     Returns:
         DataFrame with columns:
@@ -116,11 +129,17 @@ def fetch_broker_trading(stock_code: str, target_date: Optional[str] = None) -> 
     page = browser.new_page()
     
     try:
-        url = BROKER_TRADING_URL.format(code=stock_code)
+        if on_date:
+            url = BROKER_TRADING_ON_DATE_URL.format(code=stock_code, d=on_date)
+        else:
+            url = BROKER_TRADING_URL.format(code=stock_code)
         page.goto(url, wait_until="networkidle", timeout=30000)
         
         # Wait for table to load
         page.wait_for_selector("table.t01", timeout=10000)
+
+        if on_date and not _page_shows_date(page.content(), on_date):
+            return pd.DataFrame()
         
         # If target_date specified, try to select it
         if target_date:
@@ -150,7 +169,9 @@ def fetch_broker_trading(stock_code: str, target_date: Optional[str] = None) -> 
         # Get the displayed date from page header
         # Look for pattern like "12/12" in the page content
         date_text = ""
-        for row in rows[:5]:
+        if on_date:
+            date_text = on_date[5:7] + "/" + on_date[8:10]  # 與既有歷史同格式，如 "10/20"
+        for row in ([] if on_date else rows[:5]):
             row_text = row.inner_text()
             match = re.search(r"(\d{1,2}/\d{1,2})", row_text)
             if match:
