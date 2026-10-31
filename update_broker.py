@@ -374,6 +374,29 @@ def _load_stock_names() -> dict:
         return {}
 
 
+def _official_trade_dates() -> list[str]:
+    """官方已公布資料的交易日（twse_flows.csv），新到舊。讀不到回傳空 list。"""
+    path = os.path.join(DATA_DIR, "twse_flows.csv")
+    try:
+        d = pd.read_csv(path, usecols=["date"])["date"].astype(str)
+        return sorted(d.unique(), reverse=True)
+    except Exception:  # noqa: BLE001
+        return []
+
+
+def _window_dates(broker_dates: list[str], official: list[str], w: int) -> list[str]:
+    """最新分點資料日往回 w 個官方交易日（新到舊）。
+
+    官方日曆讀不到、或最新分點日不在官方日曆內時，退回舊行為（分點歷史的最近 w 個日期）。
+    """
+    if not broker_dates:
+        return []
+    anchor = broker_dates[0]
+    if anchor not in official:
+        return list(broker_dates[:w])
+    return [d for d in official if d <= anchor][:w]
+
+
 def export_main_force_rankings(history_df: pd.DataFrame, output_path: str):
     """主力(分點) N 日累計買賣超排名，N ∈ {3,5,10,20}。
 
@@ -386,10 +409,19 @@ def export_main_force_rankings(history_df: pd.DataFrame, output_path: str):
     df["full_date"] = df["full_date"].astype(str)
     dates = sorted(df["full_date"].unique(), reverse=True)
     names = _load_stock_names()
+    official = _official_trade_dates()
 
     windows_out = {}
+    window_meta = {}
     for w in (3, 5, 10, 20):
-        recent = set(dates[:w])
+        # 視窗 = 最新分點資料日往回 w 個「官方交易日」（twse_flows.csv）。
+        # 不可用 dates[:w]：分點歷史若有斷層（例如 2026-10-15~10-30 workflow 被停用），
+        # dates[:w] 會把斷層前的舊日子拼進來，3 日榜實際橫跨兩週卻仍標「3 日」。
+        # 分點資料是每日快照、事後無法回補，所以缺的日子只能如實標出。
+        window = _window_dates(dates, official, w)
+        recent = set(window)
+        missing = sorted(set(window) - set(dates))
+        window_meta[str(w)] = {"dates": sorted(window), "missing": missing}
         sub = df[df["full_date"].isin(recent)]
         if sub.empty:
             continue
@@ -419,6 +451,7 @@ def export_main_force_rankings(history_df: pd.DataFrame, output_path: str):
         "coverage": int(df["stock_code"].nunique()),
         "note": "主力=每日前15大買超+前15大賣超分點合計(張)；僅涵蓋爬取清單(熱門股+法人榜活躍股)",
         "windows": windows_out,
+        "window_meta": window_meta,
     }
     with open(output_path, "w", encoding="utf-8") as f:
         json.dump(result, f, ensure_ascii=False, indent=2)
