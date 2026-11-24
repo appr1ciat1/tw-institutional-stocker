@@ -1610,16 +1610,6 @@
     "date": "2026-11-24"
   },
   {
-    "code": "3605",
-    "name": "宏致",
-    "market": "TWSE",
-    "net_shares": -4000,
-    "net_lots": -4,
-    "pct_cap": -0.0023,
-    "change": -0.0023,
-    "date": "2026-11-24"
-  },
-  {
     "code": "6763",
     "name": "綠界科技*",
     "market": "TPEX",
@@ -1627,6 +1617,16 @@
     "net_lots": -4,
     "pct_cap": -0.0022,
     "change": -0.0022,
+    "date": "2026-11-24"
+  },
+  {
+    "code": "3605",
+    "name": "宏致",
+    "market": "TWSE",
+    "net_shares": -4000,
+    "net_lots": -4,
+    "pct_cap": -0.0023,
+    "change": -0.0023,
     "date": "2026-11-24"
   },
   {
@@ -1680,16 +1680,6 @@
     "date": "2026-11-24"
   },
   {
-    "code": "9946",
-    "name": "三發地產",
-    "market": "TWSE",
-    "net_shares": -2000,
-    "net_lots": -2,
-    "pct_cap": -0.0006,
-    "change": -0.0006,
-    "date": "2026-11-24"
-  },
-  {
     "code": "1514",
     "name": "亞力",
     "market": "TWSE",
@@ -1700,9 +1690,29 @@
     "date": "2026-11-24"
   },
   {
-    "code": "6138",
-    "name": "茂達",
-    "market": "TPEX",
+    "code": "9946",
+    "name": "三發地產",
+    "market": "TWSE",
+    "net_shares": -2000,
+    "net_lots": -2,
+    "pct_cap": -0.0006,
+    "change": -0.0006,
+    "date": "2026-11-24"
+  },
+  {
+    "code": "8271",
+    "name": "宇瞻",
+    "market": "TWSE",
+    "net_shares": -2000,
+    "net_lots": -2,
+    "pct_cap": -0.0015,
+    "change": -0.0015,
+    "date": "2026-11-24"
+  },
+  {
+    "code": "8114",
+    "name": "振樺電",
+    "market": "TWSE",
     "net_shares": -2000,
     "net_lots": -2,
     "pct_cap": -0.0026,
@@ -1720,19 +1730,9 @@
     "date": "2026-11-24"
   },
   {
-    "code": "8271",
-    "name": "宇瞻",
-    "market": "TWSE",
-    "net_shares": -2000,
-    "net_lots": -2,
-    "pct_cap": -0.0015,
-    "change": -0.0015,
-    "date": "2026-11-24"
-  },
-  {
-    "code": "8114",
-    "name": "振樺電",
-    "market": "TWSE",
+    "code": "6138",
+    "name": "茂達",
+    "market": "TPEX",
     "net_shares": -2000,
     "net_lots": -2,
     "pct_cap": -0.0026,
@@ -1760,16 +1760,6 @@
     "date": "2026-11-24"
   },
   {
-    "code": "5222",
-    "name": "全訊",
-    "market": "TWSE",
-    "net_shares": -1000,
-    "net_lots": -1,
-    "pct_cap": -0.001,
-    "change": -0.001,
-    "date": "2026-11-24"
-  },
-  {
     "code": "4931",
     "name": "新盛力",
     "market": "TPEX",
@@ -1777,6 +1767,16 @@
     "net_lots": -1,
     "pct_cap": -0.0015,
     "change": -0.0015,
+    "date": "2026-11-24"
+  },
+  {
+    "code": "5222",
+    "name": "全訊",
+    "market": "TWSE",
+    "net_shares": -1000,
+    "net_lots": -1,
+    "pct_cap": -0.001,
+    "change": -0.001,
     "date": "2026-11-24"
   },
   {
@@ -1820,6 +1820,46 @@
     "date": "2026-11-24"
   },
   {
+    "code": "2850",
+    "name": "新產",
+    "market": "TWSE",
+    "net_shares": 1000,
+    "net_lots": 1,
+    "pct_cap": 0.0003,
+    "change": 0.0003,
+    "date": "2026-11-24"
+  },
+  {
+    "code": "4991",
+    "name": "環宇-KY",
+    "market": "TPEX",
+    "net_shares": 1000,
+    "net_lots": 1,
+    "pct_cap": 0.0008,
+    "change": 0.0008,
+    "date": "2026-11-24"
+  },
+  {
+    "code": "6173",
+    "name": "信昌電",
+    "market": "TPEX",
+    "net_shares": 1000,
+    "net_lots": 1,
+    "pct_cap": 0.0006,
+    "change": 0.0006,
+    "date": "2026-11-24"
+  },
+  {
+    "code": "1727",
+    "name": "中華化",
+    "market": "TWSE",
+    "net_shares": 1000,
+    "net_lots": 1,
+    "pct_cap": 0.0008,
+    "change": 0.0008,
+    "date": "2026-11-24"
+  },
+  {
     "code": "9930",
     "name": "中聯資源",
     "market": "TWSE",
@@ -1827,6 +1867,16 @@
     "net_lots": 1,
     "pct_cap": 0.0004,
     "change": 0.0004,
+    "date": "2026-11-24"
+  },
+  {
+    "code": "2049",
+    "name": "上銀",
+    "market": "TWSE",
+    "net_shares": 1000,
+    "net_lots": 1,
+    "pct_cap": 0.0003,
+    "change": 0.0003,
     "date": "2026-11-24"
   },
   {
@@ -1850,23 +1900,13 @@
     "date": "2026-11-24"
   },
   {
-    "code": "3450",
-    "name": "聯鈞",
+    "code": "6191",
+    "name": "精成科",
     "market": "TWSE",
     "net_shares": 1000,
     "net_lots": 1,
-    "pct_cap": 0.0007,
-    "change": 0.0007,
-    "date": "2026-11-24"
-  },
-  {
-    "code": "6173",
-    "name": "信昌電",
-    "market": "TPEX",
-    "net_shares": 1000,
-    "net_lots": 1,
-    "pct_cap": 0.0006,
-    "change": 0.0006,
+    "pct_cap": 0.0002,
+    "change": 0.0002,
     "date": "2026-11-24"
   },
   {
@@ -1880,53 +1920,13 @@
     "date": "2026-11-24"
   },
   {
-    "code": "2850",
-    "name": "新產",
+    "code": "3450",
+    "name": "聯鈞",
     "market": "TWSE",
     "net_shares": 1000,
     "net_lots": 1,
-    "pct_cap": 0.0003,
-    "change": 0.0003,
-    "date": "2026-11-24"
-  },
-  {
-    "code": "6191",
-    "name": "精成科",
-    "market": "TWSE",
-    "net_shares": 1000,
-    "net_lots": 1,
-    "pct_cap": 0.0002,
-    "change": 0.0002,
-    "date": "2026-11-24"
-  },
-  {
-    "code": "1727",
-    "name": "中華化",
-    "market": "TWSE",
-    "net_shares": 1000,
-    "net_lots": 1,
-    "pct_cap": 0.0008,
-    "change": 0.0008,
-    "date": "2026-11-24"
-  },
-  {
-    "code": "4991",
-    "name": "環宇-KY",
-    "market": "TPEX",
-    "net_shares": 1000,
-    "net_lots": 1,
-    "pct_cap": 0.0008,
-    "change": 0.0008,
-    "date": "2026-11-24"
-  },
-  {
-    "code": "2049",
-    "name": "上銀",
-    "market": "TWSE",
-    "net_shares": 1000,
-    "net_lots": 1,
-    "pct_cap": 0.0003,
-    "change": 0.0003,
+    "pct_cap": 0.0007,
+    "change": 0.0007,
     "date": "2026-11-24"
   },
   {
@@ -1940,13 +1940,13 @@
     "date": "2026-11-24"
   },
   {
-    "code": "3013",
-    "name": "晟銘電",
+    "code": "1773",
+    "name": "勝一",
     "market": "TWSE",
     "net_shares": 2000,
     "net_lots": 2,
-    "pct_cap": 0.0009,
-    "change": 0.0009,
+    "pct_cap": 0.0007,
+    "change": 0.0007,
     "date": "2026-11-24"
   },
   {
@@ -1960,23 +1960,13 @@
     "date": "2026-11-24"
   },
   {
-    "code": "6024",
-    "name": "群益期",
+    "code": "1609",
+    "name": "大亞",
     "market": "TWSE",
     "net_shares": 2000,
     "net_lots": 2,
-    "pct_cap": 0.0007,
-    "change": 0.0007,
-    "date": "2026-11-24"
-  },
-  {
-    "code": "1795",
-    "name": "美時",
-    "market": "TWSE",
-    "net_shares": 2000,
-    "net_lots": 2,
-    "pct_cap": 0.0007,
-    "change": 0.0007,
+    "pct_cap": 0.0003,
+    "change": 0.0003,
     "date": "2026-11-24"
   },
   {
@@ -1990,13 +1980,23 @@
     "date": "2026-11-24"
   },
   {
-    "code": "3714",
-    "name": "富采",
+    "code": "1795",
+    "name": "美時",
     "market": "TWSE",
     "net_shares": 2000,
     "net_lots": 2,
-    "pct_cap": 0.0005,
-    "change": 0.0005,
+    "pct_cap": 0.0007,
+    "change": 0.0007,
+    "date": "2026-11-24"
+  },
+  {
+    "code": "3013",
+    "name": "晟銘電",
+    "market": "TWSE",
+    "net_shares": 2000,
+    "net_lots": 2,
+    "pct_cap": 0.0009,
+    "change": 0.0009,
     "date": "2026-11-24"
   }
 ]
